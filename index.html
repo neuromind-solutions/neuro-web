@@ -1,0 +1,683 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Neuromind Solutions — Custom Software, Inventory Billing &amp; Web Apps</title>
+  <meta name="description" content="Neuromind Solutions builds custom software, inventory billing suites, POS systems, modern websites, and WhatsApp automation for growing businesses.">
+  <meta name="keywords" content="custom software, billing software, inventory management, POS system, web development, whatsapp bots, retail software, ERP India">
+  <meta property="og:title" content="Neuromind Solutions — Custom Software &amp; Websites">
+  <meta property="og:description" content="Custom software, inventory billing &amp; web apps — built to scale real businesses.">
+  <meta property="og:type" content="website">
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800;900&family=JetBrains+Mono:wght@500;700;800&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+  <!-- Top Sticky Navigation -->
+  <header class="navbar">
+    <div class="nav-container">
+      <a href="#" class="brand-logo">
+        <div class="brand-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/>
+          </svg>
+        </div>
+        <span class="brand-text">NEUROMIND</span>
+      </a>
+
+      <nav class="nav-links">
+        <a href="#services">SERVICES</a>
+        <a href="#demo">LIVE DEMO</a>
+        <a href="#work">WORK</a>
+        <a href="#reviews">REVIEWS</a>
+        <a href="#process">PROCESS</a>
+      </nav>
+
+      <div class="nav-actions">
+        <button class="btn btn-primary nav-cta" id="openQuoteModalBtn">
+          START A PROJECT
+          <span class="btn-arrow">&rarr;</span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <!-- Hero Section with Draggable Badges -->
+    <section class="hero-section" id="hero">
+      <!-- Draggable Floating Badges -->
+      <div class="draggable-badge badge-pos" id="badgePOS" style="top: 18%; left: 4%;">
+        <span class="badge-dot"></span>
+        INVENTORY &amp; POS
+      </div>
+
+      <div class="draggable-badge badge-web" id="badgeWeb" style="top: 15%; right: 5%;">
+        ⚡ MODERN WEBSITES
+      </div>
+
+      <div class="draggable-badge badge-ai" id="badgeAI" style="bottom: 12%; left: 8%;">
+        🤖 WHATSAPP AUTOMATION
+      </div>
+
+      <div class="hero-container">
+        <div class="hero-badge-pill">
+          <span class="pulsing-dot"></span>
+          B2B &amp; LOCAL BUSINESS SOFTWARE FACTORY
+        </div>
+
+        <h1 class="hero-title">
+          <span class="hero-line">WE ENGINEER</span>
+          <span class="hero-line stroke-text">CUSTOM SOFTWARE</span>
+          <span class="hero-line highlight-text">THAT GROWS SHOPS.</span>
+        </h1>
+
+        <div class="hero-bottom-row">
+          <p class="hero-subtitle">
+            Bespoke inventory suites, retail POS, custom billing, ultra-fast websites &amp; AI automation — engineered for businesses that want to move fast without bloated monthly subscriptions.
+          </p>
+
+          <div class="hero-cta-group">
+            <button class="btn btn-hero btn-dark" id="heroStartProjectBtn">
+              START A PROJECT
+              <span class="btn-glow"></span>
+            </button>
+            <a href="#work" class="btn btn-hero btn-secondary">
+              SEE OUR WORK
+            </a>
+          </div>
+
+          <!-- Rotating Circular Seal -->
+          <div class="rotating-seal-wrap">
+            <div class="rotating-seal">
+              <svg viewBox="0 0 120 120" class="seal-svg">
+                <defs>
+                  <path id="sealPath" d="M 60, 60 m -45, 0 a 45,45 0 1,1 90,0 a 45,45 0 1,1 -90,0" />
+                </defs>
+                <text class="seal-text">
+                  <textPath href="#sealPath">CUSTOM SOFTWARE • BILLING &amp; POS • WEBSITES •</textPath>
+                </text>
+              </svg>
+              <div class="seal-center-icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3">
+                  <path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/>
+                </svg>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="hero-tip">
+          <span>💡 TIP: DRAG THE COLORFUL STICKERS ON SCREEN</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- Infinite Dual Marquee -->
+    <div class="marquee-strip">
+      <div class="marquee-track">
+        <div class="marquee-content">
+          <span>CUSTOM BILLING SOFTWARE</span><span class="star">★</span>
+          <span>INVENTORY &amp; STOCK ERP</span><span class="star">★</span>
+          <span>RETAIL POS SYSTEMS</span><span class="star">★</span>
+          <span>MODERN E-COMMERCE</span><span class="star">★</span>
+          <span>WHATSAPP ORDER BOTS</span><span class="star">★</span>
+          <span>BARCODE &amp; THERMAL PRINTING</span><span class="star">★</span>
+          <span>CUSTOM WEB APPS</span><span class="star">★</span>
+          <span>GST INVOICE SUITES</span><span class="star">★</span>
+        </div>
+        <div class="marquee-content" aria-hidden="true">
+          <span>CUSTOM BILLING SOFTWARE</span><span class="star">★</span>
+          <span>INVENTORY &amp; STOCK ERP</span><span class="star">★</span>
+          <span>RETAIL POS SYSTEMS</span><span class="star">★</span>
+          <span>MODERN E-COMMERCE</span><span class="star">★</span>
+          <span>WHATSAPP ORDER BOTS</span><span class="star">★</span>
+          <span>BARCODE &amp; THERMAL PRINTING</span><span class="star">★</span>
+          <span>CUSTOM WEB APPS</span><span class="star">★</span>
+          <span>GST INVOICE SUITES</span><span class="star">★</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Core Services Section (01, 02, 03) -->
+    <section class="section services-section" id="services">
+      <div class="container">
+        <div class="section-header">
+          <p class="section-tag">THREE PILLARS. ZERO COMPROMISE.</p>
+          <h2 class="section-title">WHAT WE BUILD</h2>
+        </div>
+
+        <div class="services-grid">
+          <!-- Service 01 -->
+          <div class="service-card card-yellow">
+            <div class="service-num">01</div>
+            <h3 class="service-name">INVENTORY, POS &amp; BILLING</h3>
+            <p class="service-desc">Tailored software that matches your shop's exact counter flow. Fast, offline-first, and effortless.</p>
+            <ul class="service-list">
+              <li><span class="bullet"></span>BARCODE SCAN &amp; THERMAL BILLING</li>
+              <li><span class="bullet"></span>MULTI-COUNTER &amp; GODOWN SYNC</li>
+              <li><span class="bullet"></span>GST-READY AUTO INVOICES</li>
+              <li><span class="bullet"></span>PURCHASE &amp; PROFIT MARGIN TRACKING</li>
+            </ul>
+            <div class="service-footer">
+              <span class="service-pill">FOR SHOPS &amp; WHOLESALERS</span>
+            </div>
+          </div>
+
+          <!-- Service 02 -->
+          <div class="service-card card-paper">
+            <div class="service-num">02</div>
+            <h3 class="service-name">WEBSITES &amp; WEB APPS</h3>
+            <p class="service-desc">Ultra-fast, beautifully designed web applications that establish authority and turn visitors into buyers.</p>
+            <ul class="service-list">
+              <li><span class="bullet"></span>MODERN HIGH-SPEED LANDING PAGES</li>
+              <li><span class="bullet"></span>B2B &amp; D2C E-COMMERCE STORES</li>
+              <li><span class="bullet"></span>CUSTOM ADMIN &amp; CLIENT DASHBOARDS</li>
+              <li><span class="bullet"></span>BOOKING &amp; CATALOG ENGINES</li>
+            </ul>
+            <div class="service-footer">
+              <span class="service-pill">FOR BRANDS &amp; SERVICE PROS</span>
+            </div>
+          </div>
+
+          <!-- Service 03 -->
+          <div class="service-card card-dark">
+            <div class="service-num">03</div>
+            <h3 class="service-name">AI &amp; WHATSAPP AUTOMATION</h3>
+            <p class="service-desc">Put your repetitive business operations on autopilot with intelligent bots and custom API hooks.</p>
+            <ul class="service-list">
+              <li><span class="bullet"></span>WHATSAPP AUTO-ORDER &amp; SUPPORT BOTS</li>
+              <li><span class="bullet"></span>PAYMENT REMINDER AUTOMATION</li>
+              <li><span class="bullet"></span>INSTANT PDF BILLS ON WHATSAPP</li>
+              <li><span class="bullet"></span>LEAD CAPTURE TO CRM PIPELINES</li>
+            </ul>
+            <div class="service-footer">
+              <span class="service-pill">FOR 24/7 HANDS-FREE OPS</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Interactive Live Billing Demo Widget -->
+    <section class="section demo-section" id="demo">
+      <div class="container">
+        <div class="demo-wrapper">
+          <div class="demo-info">
+            <span class="demo-tag">LIVE INTERACTIVE PREVIEW</span>
+            <h2 class="demo-title">Test Our POS &amp; Billing Engine in 10 Seconds</h2>
+            <p class="demo-desc">
+              Experience the speed of Neuromind's custom billing systems. Add items, apply discounts, and generate an instant mock GST thermal receipt right here!
+            </p>
+            <div class="demo-highlights">
+              <div class="demo-highlight-item">
+                <span class="check-icon">✓</span>
+                <span>Sub-second barcode lookup</span>
+              </div>
+              <div class="demo-highlight-item">
+                <span class="check-icon">✓</span>
+                <span>Automated GST &amp; HSN calculations</span>
+              </div>
+              <div class="demo-highlight-item">
+                <span class="check-icon">✓</span>
+                <span>Thermal 3-inch &amp; A4 print ready</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Interactive POS Terminal Card -->
+          <div class="demo-terminal">
+            <div class="terminal-header">
+              <div class="terminal-dots">
+                <span></span><span></span><span></span>
+              </div>
+              <span class="terminal-title">Neuromind POS Terminal v2.4</span>
+              <span class="terminal-badge">LIVE</span>
+            </div>
+
+            <div class="terminal-body">
+              <div class="terminal-item-select">
+                <label for="productSelect">Select Quick Item:</label>
+                <div class="select-group">
+                  <select id="productSelect" class="form-select">
+                    <option value="1" data-price="450" data-tax="18">Wireless Optical Mouse (₹450 | 18% GST)</option>
+                    <option value="2" data-price="1200" data-tax="18">Mechanical Keyboard (₹1200 | 18% GST)</option>
+                    <option value="3" data-price="250" data-tax="5">Thermal Receipt Paper 10pk (₹250 | 5% GST)</option>
+                    <option value="4" data-price="850" data-tax="12">Barcode Laser Scanner (₹850 | 12% GST)</option>
+                  </select>
+                  <button class="btn btn-sm btn-yellow" id="addItemBtn">+ ADD ITEM</button>
+                </div>
+              </div>
+
+              <!-- Cart Table -->
+              <div class="terminal-cart-wrap">
+                <table class="terminal-table" id="cartTable">
+                  <thead>
+                    <tr>
+                      <th>ITEM</th>
+                      <th>QTY</th>
+                      <th>PRICE</th>
+                      <th>TOTAL</th>
+                      <th></th>
+                    </tr>
+                  </thead>
+                  <tbody id="cartTableBody">
+                    <!-- Items dynamically rendered -->
+                  </tbody>
+                </table>
+              </div>
+
+              <!-- Totals Box -->
+              <div class="terminal-totals">
+                <div class="total-row">
+                  <span>Subtotal:</span>
+                  <span id="demoSubtotal">₹0.00</span>
+                </div>
+                <div class="total-row">
+                  <span>Total Tax (GST):</span>
+                  <span id="demoTax">₹0.00</span>
+                </div>
+                <div class="total-row grand-total">
+                  <span>Grand Total:</span>
+                  <span id="demoGrandTotal">₹0.00</span>
+                </div>
+              </div>
+
+              <div class="terminal-actions">
+                <button class="btn btn-full btn-primary" id="generateReceiptBtn">
+                  🖨️ PRINT MOCK GST BILL
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Selected Work Showcase (#work) -->
+    <section class="section work-section" id="work">
+      <div class="container">
+        <div class="section-header work-header">
+          <div>
+            <p class="section-tag">SELECTED RECENT BUILDS</p>
+            <h2 class="section-title">BUILT BY US. RUNNING DAILY.</h2>
+          </div>
+          <p class="work-header-sub">
+            Real enterprise software, retail billing platforms, and modern web apps deployed for our clients.
+          </p>
+        </div>
+
+        <div class="work-grid">
+          <!-- Project 1 -->
+          <div class="work-card">
+            <div class="work-img-box bg-dark">
+              <div class="work-initials">MR</div>
+              <div class="work-mock-screen">
+                <div class="screen-bar"><span></span><span></span><span></span></div>
+                <div class="screen-content">
+                  <div class="mock-stat">₹4.8L Today's Sales</div>
+                  <div class="mock-graph"></div>
+                </div>
+              </div>
+              <span class="work-category-pill">RETAIL POS &amp; ERP</span>
+            </div>
+            <div class="work-card-info">
+              <div>
+                <h3 class="work-client-name">METRO RETAIL SUPERMARKET</h3>
+                <p class="work-client-desc">Multi-counter barcode billing suite with godown inventory sync &amp; GST filing.</p>
+              </div>
+              <span class="work-arrow-circle">↗</span>
+            </div>
+          </div>
+
+          <!-- Project 2 -->
+          <div class="work-card">
+            <div class="work-img-box bg-yellow">
+              <div class="work-initials text-dark">AH</div>
+              <div class="work-mock-screen">
+                <div class="screen-bar"><span></span><span></span><span></span></div>
+                <div class="screen-content">
+                  <div class="mock-stat">📦 14,200 Stock SKUs</div>
+                  <div class="mock-badge">Auto Reorder Active</div>
+                </div>
+              </div>
+              <span class="work-category-pill">WHOLESALE ERP</span>
+            </div>
+            <div class="work-card-info">
+              <div>
+                <h3 class="work-client-name">APEX HARDWARE &amp; TOOLS</h3>
+                <p class="work-client-desc">Custom inventory management with ledger accounts and automated supplier orders.</p>
+              </div>
+              <span class="work-arrow-circle">↗</span>
+            </div>
+          </div>
+
+          <!-- Project 3 -->
+          <div class="work-card">
+            <div class="work-img-box bg-orange">
+              <div class="work-initials text-white">VL</div>
+              <div class="work-mock-screen">
+                <div class="screen-bar"><span></span><span></span><span></span></div>
+                <div class="screen-content">
+                  <div class="mock-stat">🛍️ 3.4x Conversion</div>
+                  <div class="mock-graph"></div>
+                </div>
+              </div>
+              <span class="work-category-pill">WEB &amp; E-COMMERCE</span>
+            </div>
+            <div class="work-card-info">
+              <div>
+                <h3 class="work-client-name">VELVET LIVING APPAREL</h3>
+                <p class="work-client-desc">Ultra-fast headless web storefront integrated with WhatsApp checkout &amp; Shiprocket.</p>
+              </div>
+              <span class="work-arrow-circle">↗</span>
+            </div>
+          </div>
+
+          <!-- Project 4 -->
+          <div class="work-card">
+            <div class="work-img-box bg-cyan">
+              <div class="work-initials text-dark">KP</div>
+              <div class="work-mock-screen">
+                <div class="screen-bar"><span></span><span></span><span></span></div>
+                <div class="screen-content">
+                  <div class="mock-stat">💬 980 Invoices/Day</div>
+                  <div class="mock-badge">WhatsApp Bot Live</div>
+                </div>
+              </div>
+              <span class="work-category-pill">WHATSAPP AUTOMATION</span>
+            </div>
+            <div class="work-card-info">
+              <div>
+                <h3 class="work-client-name">KUBER PHARMA WHOLESALE</h3>
+                <p class="work-client-desc">Automated WhatsApp order receipt bot and automated overdue payment reminders.</p>
+              </div>
+              <span class="work-arrow-circle">↗</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Social Proof: Straight from the DMs (#reviews) -->
+    <section class="section reviews-section" id="reviews">
+      <div class="container">
+        <div class="section-header">
+          <p class="section-tag">VERIFIED CLIENTS</p>
+          <h2 class="section-title">STRAIGHT FROM THE DMs</h2>
+          <p class="reviews-subtitle">Real feedback from business owners and shop directors after switching to Neuromind.</p>
+        </div>
+
+        <div class="reviews-carousel-wrap">
+          <div class="reviews-carousel" id="reviewsCarousel">
+            <!-- Review 1 -->
+            <div class="review-card">
+              <div class="review-card-top">
+                <div class="review-avatar">RS</div>
+                <div>
+                  <h4 class="review-author">Rajesh Sharma</h4>
+                  <p class="review-role">Owner, Sharma Textiles (Jaipur)</p>
+                </div>
+                <span class="whatsapp-badge">WHATSAPP</span>
+              </div>
+              <div class="review-chat-bubble">
+                "Nishant and Neuromind team transformed our billing. Previously on rush days we took 3-4 mins per customer. Now with their custom barcode billing it's under 15 seconds! Our inventory count is 100% accurate."
+              </div>
+              <div class="review-footer">
+                <span class="verified-tag">✓ CUSTOM ERP CLIENT</span>
+              </div>
+            </div>
+
+            <!-- Review 2 -->
+            <div class="review-card">
+              <div class="review-card-top">
+                <div class="review-avatar bg-orange text-white">AP</div>
+                <div>
+                  <h4 class="review-author">Anand Patel</h4>
+                  <p class="review-role">Director, Patel Electronics</p>
+                </div>
+                <span class="whatsapp-badge">WHATSAPP</span>
+              </div>
+              <div class="review-chat-bubble">
+                "The WhatsApp automation bot alone saved us hiring 2 full time staff for order tracking. Customers send their requirement on WhatsApp and get instant PDF quotation. 10/10 execution."
+              </div>
+              <div class="review-footer">
+                <span class="verified-tag">✓ AUTOMATION CLIENT</span>
+              </div>
+            </div>
+
+            <!-- Review 3 -->
+            <div class="review-card">
+              <div class="review-card-top">
+                <div class="review-avatar bg-yellow text-dark">MK</div>
+                <div>
+                  <h4 class="review-author">Meera Kapoor</h4>
+                  <p class="review-role">Founder, PureGlow Cosmetics</p>
+                </div>
+                <span class="whatsapp-badge">INSTAGRAM DM</span>
+              </div>
+              <div class="review-chat-bubble">
+                "Our website speed increased by 300% after Neuromind rebuilt our web store. No WordPress sluggishness, clean design, and smooth checkout. Sales jumped 40% in month 1!"
+              </div>
+              <div class="review-footer">
+                <span class="verified-tag">✓ E-COMMERCE CLIENT</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Metrics Proof Bar -->
+    <div class="metrics-strip">
+      <div class="container">
+        <div class="metrics-grid">
+          <div class="metric-item">
+            <div class="metric-number">50+</div>
+            <div class="metric-label">BUSINESSES AUTOMATED</div>
+          </div>
+          <div class="metric-item">
+            <div class="metric-number">99.9%</div>
+            <div class="metric-label">UPTIME RELIABILITY</div>
+          </div>
+          <div class="metric-item">
+            <div class="metric-number">&lt;24h</div>
+            <div class="metric-label">RESPONSE &amp; SUPPORT</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 3-Step Process ("No Drama. Just Delivery.") -->
+    <section class="section process-section" id="process">
+      <div class="container">
+        <div class="section-header">
+          <p class="section-tag">HOW WE WORK</p>
+          <h2 class="section-title">NO DRAMA. JUST DELIVERY.</h2>
+        </div>
+
+        <div class="process-grid">
+          <div class="process-card">
+            <div class="process-step-num">1</div>
+            <h3 class="process-title">WORKFLOW DISCOVERY</h3>
+            <p class="process-desc">We study how your shop or business operates today. No generic templates — we document your exact billing, inventory, or website requirements.</p>
+          </div>
+
+          <div class="process-card">
+            <div class="process-step-num">2</div>
+            <h3 class="process-title">RAPID SPRINT BUILD</h3>
+            <p class="process-desc">We build your custom system with continuous live preview links. You test the buttons, screens, and speed as we build.</p>
+          </div>
+
+          <div class="process-card">
+            <div class="process-step-num">3</div>
+            <h3 class="process-title">DEPLOY &amp; ON-SITE SUPPORT</h3>
+            <p class="process-desc">We install hardware/software, configure thermal printers &amp; barcodes, train your staff, and provide ongoing 24/7 support.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- High-Impact Call to Action (#contact) -->
+    <section class="section cta-section" id="contact">
+      <div class="container">
+        <div class="cta-box">
+          <div class="cta-badge">⚡ READY TO LEVEL UP?</div>
+          <h2 class="cta-title">Got a business to automate?<br><span class="highlight-orange">Let's build your software.</span></h2>
+          <p class="cta-desc">
+            Tell us what you need in 3 quick questions. We'll give you a clear scope, timeline, and quote in 24 hours.
+          </p>
+
+          <div class="cta-buttons">
+            <button class="btn btn-lg btn-yellow" id="ctaStartProjectBtn">
+              GET YOUR CUSTOM QUOTE
+              <span class="btn-arrow">&rarr;</span>
+            </button>
+            <a href="https://wa.me/?text=Hi%20Neuromind%20Solutions,%20I%20am%20interested%20in%20custom%20software/website%20for%20my%20business." target="_blank" rel="noopener noreferrer" class="btn btn-lg btn-whatsapp">
+              💬 CHAT ON WHATSAPP
+            </a>
+          </div>
+
+          <p class="cta-subnote">No pushy sales calls. Direct conversation with engineers.</p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container footer-container">
+      <div class="footer-brand">
+        <div class="brand-logo">
+          <div class="brand-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/>
+            </svg>
+          </div>
+          <span class="brand-text">NEUROMIND SOLUTIONS</span>
+        </div>
+        <p class="footer-tagline">Custom software, retail billing suites &amp; web apps for modern enterprises.</p>
+      </div>
+
+      <div class="footer-links">
+        <div class="footer-col">
+          <h4>SOLUTIONS</h4>
+          <a href="#services">Inventory &amp; POS</a>
+          <a href="#services">Billing Software</a>
+          <a href="#services">Custom Web Apps</a>
+          <a href="#services">WhatsApp Bots</a>
+        </div>
+        <div class="footer-col">
+          <h4>COMPANY</h4>
+          <a href="#work">Our Work</a>
+          <a href="#reviews">Client Reviews</a>
+          <a href="#process">Process</a>
+          <a href="#contact">Contact</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <div class="container footer-bottom-container">
+        <p>© 2026 Neuromind Solutions. All rights reserved.</p>
+        <p class="footer-badge">BUILT WITH SPEED &amp; RIGOR</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Modal: Instant Project Quote Builder -->
+  <div class="modal-overlay" id="quoteModal">
+    <div class="modal-card">
+      <div class="modal-header">
+        <div>
+          <span class="modal-pill">3-STEP BUILDER</span>
+          <h3 class="modal-title">Tell Us What You Need</h3>
+        </div>
+        <button class="modal-close" id="closeQuoteModal">&times;</button>
+      </div>
+
+      <form id="quoteForm" class="modal-body">
+        <div class="form-step active" data-step="1">
+          <label class="form-label">1. What are you looking to build?</label>
+          <div class="radio-grid">
+            <label class="radio-card">
+              <input type="radio" name="projectType" value="Inventory &amp; POS Billing" checked>
+              <span class="radio-box">
+                <span class="radio-icon">🛒</span>
+                <span class="radio-title">Inventory &amp; POS</span>
+                <span class="radio-sub">Shop, wholesale or multi-counter billing</span>
+              </span>
+            </label>
+
+            <label class="radio-card">
+              <input type="radio" name="projectType" value="Website / Web Application">
+              <span class="radio-box">
+                <span class="radio-icon">🌐</span>
+                <span class="radio-title">Website / Web App</span>
+                <span class="radio-sub">E-commerce, landing page or dashboard</span>
+              </span>
+            </label>
+
+            <label class="radio-card">
+              <input type="radio" name="projectType" value="WhatsApp &amp; AI Automation">
+              <span class="radio-box">
+                <span class="radio-icon">🤖</span>
+                <span class="radio-title">WhatsApp &amp; AI Bots</span>
+                <span class="radio-sub">Order bots, lead generation &amp; alerts</span>
+              </span>
+            </label>
+
+            <label class="radio-card">
+              <input type="radio" name="projectType" value="Custom Software / Other">
+              <span class="radio-box">
+                <span class="radio-icon">⚡</span>
+                <span class="radio-title">Custom Software</span>
+                <span class="radio-sub">Bespoke software for specific workflows</span>
+              </span>
+            </label>
+          </div>
+        </div>
+
+        <div class="form-step" data-step="2">
+          <label class="form-label" for="businessDetails">2. Your Business Name &amp; Key Requirements:</label>
+          <input type="text" id="businessName" class="form-input" placeholder="e.g. Metro Electronics / Apex Wholesale" required>
+          <textarea id="businessDetails" class="form-textarea" placeholder="Briefly describe your requirements (e.g. 2 billing counters, barcode scanning, thermal printing, customer ledger...)" rows="3"></textarea>
+        </div>
+
+        <div class="form-step" data-step="3">
+          <label class="form-label" for="clientPhone">3. Your WhatsApp Number / Email:</label>
+          <input type="text" id="clientContact" class="form-input" placeholder="+91 98765 43210 or your@email.com" required>
+        </div>
+
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" id="modalPrevBtn" style="display: none;">BACK</button>
+          <button type="button" class="btn btn-yellow" id="modalNextBtn">NEXT &rarr;</button>
+          <button type="submit" class="btn btn-primary" id="modalSubmitBtn" style="display: none;">SEND VIA WHATSAPP / SUBMIT</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <!-- Receipt Preview Modal -->
+  <div class="modal-overlay" id="receiptModal">
+    <div class="receipt-card">
+      <div class="receipt-header">
+        <button class="modal-close" id="closeReceiptModal">&times;</button>
+      </div>
+      <div class="thermal-receipt" id="thermalReceiptContent">
+        <!-- Rendered dynamically -->
+      </div>
+      <div class="receipt-actions">
+        <button class="btn btn-primary btn-full" onclick="window.print()">🖨️ PRINT RECEIPT</button>
+      </div>
+    </div>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>
