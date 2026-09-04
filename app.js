@@ -373,4 +373,100 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
+  /* ==========================================================================
+     4. AGRIBILL INTERACTIVE DESKTOP MODAL & MULTI-LINGUAL CONTROLLER
+     ========================================================================== */
+  const agriBillModal = document.getElementById('agriBillModal');
+  const closeAgriBillModal = document.getElementById('closeAgriBillModal');
+  const agriBillTriggers = [
+    document.getElementById('heroOpenAgriBillBtn'),
+    document.getElementById('launchAgriBillMainBtn'),
+    document.getElementById('openAgriBillCardBtn'),
+    document.getElementById('openAgriBillFromWork')
+  ];
+
+  agriBillTriggers.forEach(btn => {
+    if (btn) {
+      btn.addEventListener('click', (e) => {
+        e.preventDefault();
+        if (agriBillModal) {
+          agriBillModal.classList.add('active');
+          document.body.style.overflow = 'hidden';
+        }
+      });
+    }
+  });
+
+  const closeAgriModal = () => {
+    if (agriBillModal) {
+      agriBillModal.classList.remove('active');
+      document.body.style.overflow = '';
+    }
+  };
+
+  if (closeAgriBillModal) {
+    closeAgriBillModal.addEventListener('click', closeAgriModal);
+  }
+
+  if (agriBillModal) {
+    agriBillModal.addEventListener('click', (e) => {
+      if (e.target === agriBillModal) {
+        closeAgriModal();
+      }
+    });
+  }
+
+  // Keyboard escape listener
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape' && agriBillModal && agriBillModal.classList.contains('active')) {
+      closeAgriModal();
+    }
+  });
+
+  // Language Switcher (Marathi / English)
+  const agriLangToggleBtn = document.getElementById('agriLangToggleBtn');
+  const agriLangLabel = document.getElementById('agriLangLabel');
+  const agriHeaderTitle = document.getElementById('agriHeaderTitle');
+  const agriHeaderSub = document.getElementById('agriHeaderSub');
+  let currentAgriLang = 'en';
+
+  if (agriLangToggleBtn) {
+    agriLangToggleBtn.addEventListener('click', () => {
+      currentAgriLang = currentAgriLang === 'en' ? 'mr' : 'en';
+
+      const translatableElements = agriBillModal ? agriBillModal.querySelectorAll('[data-en][data-mr]') : [];
+      translatableElements.forEach(el => {
+        el.textContent = currentAgriLang === 'mr' ? el.getAttribute('data-mr') : el.getAttribute('data-en');
+      });
+
+      if (agriLangLabel) {
+        agriLangLabel.textContent = currentAgriLang === 'mr' ? 'English' : 'मराठी';
+      }
+
+      if (agriHeaderTitle) {
+        agriHeaderTitle.textContent = currentAgriLang === 'mr' ? 'डॅशबोर्ड' : 'Dashboard';
+      }
+      if (agriHeaderSub) {
+        agriHeaderSub.textContent = currentAgriLang === 'mr' 
+          ? 'स्वागत आहे! तुमच्या कृषी दुकानाची स्थिती पहा.' 
+          : "Welcome back! Here's your store overview.";
+      }
+    });
+  }
+
+  // Sidebar item tab switching
+  const agriNavItems = document.querySelectorAll('.agri-nav-item');
+  agriNavItems.forEach(item => {
+    item.addEventListener('click', () => {
+      agriNavItems.forEach(n => n.classList.remove('active'));
+      item.classList.add('active');
+
+      const labelEl = item.querySelector('.agri-nav-text');
+      if (labelEl && agriHeaderTitle) {
+        agriHeaderTitle.textContent = labelEl.textContent;
+      }
+    });
+  });
+
 });
+

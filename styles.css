@@ -1,5 +1,5 @@
 /* ==========================================================================
-   NEUROMIND SOLUTIONS — VINTAGE 90s HARDWARE TERMINAL & MOBILE-FIRST SYSTEM
+   NEUROMIND SOLUTIONS — VINTAGE 90s HARDWARE TERMINAL & AGRIBILL SYSTEM
    ========================================================================== */
 
 :root {
@@ -96,6 +96,10 @@ a {
   text-decoration: none;
   color: inherit;
 }
+
+.text-forest { color: var(--forest-green); }
+.text-amber { color: var(--amber); }
+.text-terracotta { color: var(--terracotta); }
 
 /* ==========================================================================
    TACTILE BUTTONS (MECHANICAL DEPRESSION)
@@ -237,11 +241,11 @@ a {
 .nav-links {
   display: flex;
   align-items: center;
-  gap: 2rem;
+  gap: 1.8rem;
 }
 
 .nav-links a {
-  font-size: 0.85rem;
+  font-size: 0.82rem;
   font-weight: 800;
   letter-spacing: 0.05em;
   color: var(--ink);
@@ -298,7 +302,7 @@ a {
   padding: 0.4rem 0.95rem;
   border-radius: var(--radius-pill);
   font-family: var(--font-mono);
-  font-size: 0.75rem;
+  font-size: 0.72rem;
   font-weight: 800;
   letter-spacing: 0.06em;
   margin-bottom: 1.4rem;
@@ -373,7 +377,7 @@ a {
 
 .trust-pill {
   font-family: var(--font-mono);
-  font-size: 0.75rem;
+  font-size: 0.72rem;
   font-weight: 800;
   background-color: var(--bg-paper);
   border: var(--border-thin);
@@ -736,7 +740,7 @@ a {
 }
 
 /* ==========================================================================
-   SERVICES (01, 02, 03)
+   SERVICES (01, 02, 03) & ERP SOLUTIONS BOX
    ========================================================================== */
 
 .section {
@@ -829,6 +833,64 @@ a {
   opacity: 0.88;
   margin-bottom: 1.5rem;
   line-height: 1.5;
+}
+
+/* ERP Solutions Box */
+.erp-solutions-box {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  margin-bottom: 1rem;
+}
+
+.erp-item {
+  background-color: var(--bg-card);
+  border: var(--border-thin);
+  border-radius: var(--radius-sm);
+  padding: 0.75rem 0.9rem;
+  cursor: pointer;
+  transition: all 0.15s ease;
+}
+
+.erp-item.active {
+  border-color: var(--forest-green);
+  box-shadow: 2px 2px 0px var(--forest-green);
+  background-color: #f9f6ee;
+}
+
+.erp-item:hover {
+  transform: translateY(-2px);
+}
+
+.erp-item-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 0.85rem;
+  margin-bottom: 0.25rem;
+}
+
+.live-demo-badge {
+  font-family: var(--font-mono);
+  font-size: 0.65rem;
+  font-weight: 800;
+  background-color: var(--forest-green);
+  color: var(--cream-text);
+  padding: 2px 6px;
+  border-radius: 4px;
+}
+
+.erp-tag {
+  font-family: var(--font-mono);
+  font-size: 0.65rem;
+  font-weight: 700;
+  color: var(--ink-muted);
+}
+
+.erp-item-text {
+  font-size: 0.78rem;
+  color: var(--ink-muted);
+  line-height: 1.4;
 }
 
 .service-list {
@@ -1145,6 +1207,11 @@ a {
   box-shadow: var(--shadow-lg);
 }
 
+.agribill-featured-card {
+  border-color: var(--forest-green);
+  cursor: pointer;
+}
+
 .work-img-box {
   position: relative;
   aspect-ratio: 16 / 9;
@@ -1164,7 +1231,7 @@ a {
   font-size: 6rem;
   font-weight: 900;
   letter-spacing: -0.06em;
-  opacity: 0.12;
+  opacity: 0.15;
   user-select: none;
 }
 
@@ -1184,6 +1251,7 @@ a {
   background-color: var(--ink);
   padding: 4px 8px;
   display: flex;
+  align-items: center;
   gap: 4px;
 }
 
@@ -1249,17 +1317,19 @@ a {
   display: flex;
   justify-content: space-between;
   align-items: center;
+  flex-wrap: wrap;
+  gap: 1rem;
 }
 
 .work-client-name {
-  font-size: 1.25rem;
+  font-size: 1.15rem;
   font-weight: 900;
   letter-spacing: -0.02em;
   margin-bottom: 0.25rem;
 }
 
 .work-client-desc {
-  font-size: 0.9rem;
+  font-size: 0.88rem;
   color: var(--ink-muted);
 }
 
@@ -1647,6 +1717,443 @@ a {
   font-size: 0.75rem;
   font-weight: 800;
   color: var(--forest-green);
+}
+
+/* ==========================================================================
+   AGRIBILL INTERACTIVE DESKTOP WINDOW MODAL
+   ========================================================================== */
+
+.agribill-modal-overlay {
+  padding: 1rem;
+  z-index: 1000;
+}
+
+.agribill-window {
+  background-color: #f8f6f0;
+  border: 3px solid var(--ink);
+  border-radius: var(--radius-md);
+  box-shadow: 0 25px 60px rgba(0, 0, 0, 0.5), var(--shadow-lg);
+  width: 100%;
+  max-width: 1180px;
+  height: 90vh;
+  max-height: 740px;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  animation: popIn 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.agribill-titlebar {
+  background-color: #0f382c;
+  color: #f8f6f0;
+  padding: 0.6rem 1rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 2px solid var(--ink);
+  user-select: none;
+}
+
+.agribill-title-left {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  font-family: var(--font-mono);
+  font-size: 0.82rem;
+  font-weight: 700;
+}
+
+.agribill-window-controls {
+  display: flex;
+  gap: 6px;
+}
+
+.win-btn {
+  width: 26px;
+  height: 26px;
+  border: 1.5px solid var(--ink);
+  border-radius: 4px;
+  background-color: #ede8dc;
+  color: #18231c;
+  font-weight: 900;
+  display: grid;
+  place-items: center;
+  cursor: pointer;
+  line-height: 1;
+}
+
+.win-close:hover {
+  background-color: #ef4444;
+  color: #fff;
+}
+
+.agribill-app-body {
+  display: grid;
+  grid-template-columns: 240px 1fr;
+  flex: 1;
+  overflow: hidden;
+}
+
+@media (max-width: 860px) {
+  .agribill-app-body {
+    grid-template-columns: 1fr;
+    overflow-y: auto;
+  }
+  .agribill-sidebar {
+    display: none;
+  }
+}
+
+/* Sidebar */
+.agribill-sidebar {
+  background-color: #ede8dc;
+  border-right: 2px solid var(--ink);
+  display: flex;
+  flex-direction: column;
+  padding: 1rem 0.75rem;
+  overflow-y: auto;
+}
+
+.agribill-brand {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  padding-bottom: 1rem;
+  margin-bottom: 0.8rem;
+  border-bottom: 1.5px dashed var(--ink);
+}
+
+.agri-logo-icon {
+  font-size: 1.8rem;
+}
+
+.agri-brand-title {
+  font-size: 1.1rem;
+  font-weight: 900;
+  color: #0f382c;
+  display: block;
+}
+
+.agri-brand-sub {
+  font-size: 0.55rem;
+  font-family: var(--font-mono);
+  color: var(--ink-muted);
+  font-weight: 800;
+  letter-spacing: 0.05em;
+}
+
+.agribill-nav {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+  flex: 1;
+}
+
+.agri-nav-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0.45rem 0.65rem;
+  border-radius: var(--radius-sm);
+  font-size: 0.82rem;
+  font-weight: 700;
+  color: var(--ink);
+  transition: all 0.15s ease;
+}
+
+.agri-nav-item:hover {
+  background-color: #e2dcd0;
+}
+
+.agri-nav-item.active {
+  background-color: #0f382c;
+  color: #fff;
+}
+
+.agri-nav-item kbd {
+  font-family: var(--font-mono);
+  font-size: 0.65rem;
+  background-color: rgba(0, 0, 0, 0.1);
+  padding: 1px 4px;
+  border-radius: 3px;
+}
+
+.agri-nav-item.active kbd {
+  background-color: rgba(255, 255, 255, 0.2);
+  color: #a7f3d0;
+}
+
+.agribill-sidebar-footer {
+  font-family: var(--font-mono);
+  font-size: 0.68rem;
+  color: var(--ink-muted);
+  padding-top: 0.6rem;
+  border-top: 1px solid rgba(0, 0, 0, 0.1);
+  text-align: center;
+}
+
+/* Main View */
+.agribill-main-view {
+  background-color: #f8f6f0;
+  padding: 1.2rem 1.6rem;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 1.2rem;
+}
+
+.agribill-topbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.agri-view-title {
+  font-size: 1.6rem;
+  font-weight: 900;
+  color: #0f382c;
+}
+
+.agri-view-sub {
+  font-size: 0.85rem;
+  color: var(--ink-muted);
+}
+
+.agribill-topbar-actions {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  flex-wrap: wrap;
+}
+
+.agri-action-pill {
+  background-color: #ede8dc;
+  border: var(--border-thin);
+  border-radius: var(--radius-sm);
+  padding: 0.4rem 0.75rem;
+  font-family: var(--font-mono);
+  font-size: 0.78rem;
+  font-weight: 700;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+}
+
+.agri-action-pill:hover {
+  background-color: #e2dcd0;
+}
+
+.agri-action-pill kbd {
+  background-color: #fff;
+  border: 1px solid #ccc;
+  padding: 1px 4px;
+  border-radius: 3px;
+  font-size: 0.68rem;
+}
+
+/* Stats Grid */
+.agri-stats-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+  gap: 0.8rem;
+}
+
+.agri-stat-card {
+  background-color: #fff;
+  border: 1.5px solid var(--ink);
+  border-radius: var(--radius-sm);
+  padding: 0.8rem;
+  box-shadow: 2px 2px 0px rgba(0, 0, 0, 0.08);
+}
+
+.agri-stat-card.alert-card {
+  border-color: var(--amber);
+  background-color: #fffdf7;
+}
+
+.agri-stat-header {
+  display: flex;
+  justify-content: space-between;
+  font-size: 0.75rem;
+  font-weight: 700;
+  color: var(--ink-muted);
+  margin-bottom: 0.4rem;
+}
+
+.agri-stat-val {
+  font-size: 1.35rem;
+  font-weight: 900;
+  line-height: 1;
+  margin-bottom: 0.2rem;
+}
+
+.agri-stat-sub {
+  font-size: 0.68rem;
+  color: var(--ink-muted);
+}
+
+/* Charts Grid */
+.agri-charts-grid {
+  display: grid;
+  grid-template-columns: 1.2fr 1fr;
+  gap: 1rem;
+}
+
+@media (max-width: 768px) {
+  .agri-charts-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+.agri-chart-card {
+  background-color: #fff;
+  border: 1.5px solid var(--ink);
+  border-radius: var(--radius-sm);
+  padding: 1rem;
+  box-shadow: 2px 2px 0px rgba(0, 0, 0, 0.08);
+}
+
+.agri-chart-title {
+  font-size: 0.85rem;
+  font-weight: 800;
+  margin-bottom: 0.8rem;
+  color: var(--ink);
+}
+
+.agri-mock-curve {
+  display: flex;
+  height: 120px;
+  gap: 0.5rem;
+}
+
+.curve-y-axis {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  font-family: var(--font-mono);
+  font-size: 0.65rem;
+  color: #777;
+}
+
+.curve-graph-body {
+  flex: 1;
+  border-left: 1px dashed #ccc;
+  border-bottom: 1px solid var(--ink);
+  position: relative;
+  overflow: hidden;
+}
+
+.curve-grid-lines {
+  position: absolute;
+  inset: 0;
+  background-size: 20px 20px;
+  background-image: linear-gradient(to right, #f0f0f0 1px, transparent 1px), linear-gradient(to bottom, #f0f0f0 1px, transparent 1px);
+}
+
+.curve-fill-area {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  width: 40%;
+  height: 85%;
+  background: linear-gradient(to top, #0f382c, #2d6a4f);
+  clip-path: polygon(0 100%, 30% 90%, 60% 50%, 100% 0, 100% 100%);
+}
+
+.curve-x-axis {
+  display: flex;
+  justify-content: space-between;
+  font-family: var(--font-mono);
+  font-size: 0.65rem;
+  color: #777;
+  padding-left: 35px;
+  margin-top: 4px;
+}
+
+/* Top Selling Products Bars */
+.agri-product-bars {
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+}
+
+.p-bar-row {
+  display: flex;
+  flex-direction: column;
+  gap: 0.2rem;
+}
+
+.p-name {
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  font-weight: 700;
+}
+
+.p-bar {
+  height: 10px;
+  background-color: #f0f0f0;
+  border-radius: 2px;
+  overflow: hidden;
+  border: 1px solid #ddd;
+}
+
+.p-fill {
+  height: 100%;
+  background-color: #18231c;
+}
+
+/* Bottom Grid */
+.agri-bottom-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+}
+
+@media (max-width: 600px) {
+  .agri-bottom-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+.agri-card {
+  background-color: #fff;
+  border: 1.5px solid var(--ink);
+  border-radius: var(--radius-sm);
+  padding: 0.85rem;
+}
+
+.agri-card-head {
+  display: flex;
+  justify-content: space-between;
+  font-size: 0.8rem;
+  margin-bottom: 0.6rem;
+}
+
+.agri-mini-table {
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+}
+
+.agri-t-row {
+  display: flex;
+  justify-content: space-between;
+  padding: 0.35rem 0;
+  border-bottom: 1px dashed #e0e0e0;
+}
+
+.paid-badge {
+  background-color: #d1fae5;
+  color: #065f46;
+  padding: 1px 5px;
+  border-radius: 3px;
+  font-size: 0.65rem;
+  font-weight: 800;
 }
 
 /* ==========================================================================
