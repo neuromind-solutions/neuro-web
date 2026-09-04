@@ -378,24 +378,28 @@ document.addEventListener('DOMContentLoaded', () => {
      ========================================================================== */
   const agriBillModal = document.getElementById('agriBillModal');
   const closeAgriBillModal = document.getElementById('closeAgriBillModal');
-  const agriBillTriggers = [
-    document.getElementById('heroOpenAgriBillBtn'),
-    document.getElementById('launchAgriBillMainBtn'),
-    document.getElementById('openAgriBillCardBtn'),
-    document.getElementById('openAgriBillFromWork')
-  ];
+  const agriBillWorkBtn = document.getElementById('openAgriBillFromWork');
+  const agriBillFeaturedCard = document.querySelector('.agribill-featured-card');
 
-  agriBillTriggers.forEach(btn => {
-    if (btn) {
-      btn.addEventListener('click', (e) => {
-        e.preventDefault();
-        if (agriBillModal) {
-          agriBillModal.classList.add('active');
-          document.body.style.overflow = 'hidden';
-        }
-      });
+  const openAgriModal = (e) => {
+    if (e) e.preventDefault();
+    if (agriBillModal) {
+      agriBillModal.classList.add('active');
+      document.body.style.overflow = 'hidden';
     }
-  });
+  };
+
+  if (agriBillWorkBtn) {
+    agriBillWorkBtn.addEventListener('click', openAgriModal);
+  }
+  if (agriBillFeaturedCard) {
+    agriBillFeaturedCard.addEventListener('click', (e) => {
+      // Avoid duplicate trigger if button was directly clicked
+      if (e.target !== agriBillWorkBtn && !agriBillWorkBtn.contains(e.target)) {
+        openAgriModal(e);
+      }
+    });
+  }
 
   const closeAgriModal = () => {
     if (agriBillModal) {
