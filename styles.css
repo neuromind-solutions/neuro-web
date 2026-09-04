@@ -2379,3 +2379,353 @@ a {
 .receipt-header .modal-close {
   color: #111;
 }
+
+/* ==========================================================================
+   SCROLL PROGRESS BAR & SCROLL-TRIGGERED REVEAL ANIMATIONS
+   ========================================================================== */
+
+.scroll-progress-bar {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  height: 3px;
+  width: 100%;
+  background: linear-gradient(90deg, var(--forest-green) 0%, var(--amber) 50%, var(--terracotta) 100%);
+  transform-origin: 0% 50%;
+  transform: scaleX(0);
+  transition: transform 0.08s linear;
+  z-index: 60;
+  box-shadow: 0 0 8px rgba(217, 119, 6, 0.4);
+}
+
+/* Scroll Reveal Tokens */
+[data-scroll-reveal] {
+  opacity: 0;
+  transform: translateY(28px);
+  transition: opacity 0.65s cubic-bezier(0.16, 1, 0.3, 1), transform 0.65s cubic-bezier(0.16, 1, 0.3, 1);
+  will-change: opacity, transform;
+}
+
+[data-scroll-reveal].is-revealed {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* ==========================================================================
+   CO-FOUNDERS & BUILDERS SECTION (#team)
+   ========================================================================== */
+
+.team-section {
+  background-color: var(--bg-canvas);
+  border-top: var(--border-thick);
+  position: relative;
+}
+
+.team-header {
+  margin-bottom: 3rem;
+}
+
+.header-badge-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  margin-bottom: 0.6rem;
+}
+
+.team-status-tag {
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  font-weight: 800;
+  background-color: #0f382c;
+  color: #a7f3d0;
+  padding: 3px 10px;
+  border-radius: var(--radius-sm);
+  border: 1.5px solid var(--ink);
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+}
+
+.section-sub-desc {
+  font-size: 1.05rem;
+  color: var(--ink-muted);
+  max-width: 680px;
+  line-height: 1.5;
+  margin-top: 0.6rem;
+}
+
+/* Founders 3-Card Grid */
+.founders-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.8rem;
+  perspective: 1200px;
+}
+
+@media (max-width: 960px) {
+  .founders-grid {
+    grid-template-columns: 1fr;
+    max-width: 520px;
+    margin: 0 auto;
+  }
+}
+
+/* Founder Card Chassis */
+.founder-card {
+  background-color: var(--bg-card);
+  border: var(--border-thick);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-md);
+  transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.25s ease;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  transform-style: preserve-3d;
+}
+
+.founder-card:hover {
+  transform: translateY(-6px);
+  box-shadow: var(--shadow-lg);
+}
+
+.founder-card-inner {
+  padding: 1.4rem;
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+}
+
+/* Chassis Top Header */
+.founder-chassis-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-bottom: 0.8rem;
+  margin-bottom: 1rem;
+  border-bottom: 1.5px dashed var(--ink);
+}
+
+.founder-status-indicator {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.status-led-online {
+  width: 9px;
+  height: 9px;
+  border-radius: 50%;
+  background-color: #10b981;
+  box-shadow: 0 0 8px #10b981;
+  animation: pulseLed 2s infinite ease-in-out;
+}
+
+@keyframes pulseLed {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50% { opacity: 0.6; transform: scale(0.85); }
+}
+
+.chassis-label {
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  font-weight: 800;
+  color: var(--ink-muted);
+}
+
+.role-badge {
+  font-family: var(--font-mono);
+  font-size: 0.68rem;
+  font-weight: 800;
+  padding: 2px 7px;
+  border-radius: 4px;
+  border: 1px solid var(--ink);
+}
+
+.badge-amber {
+  background-color: var(--amber-light);
+  color: var(--ink);
+}
+
+.badge-forest {
+  background-color: #d1fae5;
+  color: #065f46;
+}
+
+.badge-terracotta {
+  background-color: #fed7aa;
+  color: #9a3412;
+}
+
+/* Portrait Frame with Retro CRT styling */
+.founder-portrait-frame {
+  background-color: #18231c;
+  border: 2px solid var(--ink);
+  border-radius: var(--radius-md);
+  padding: 1.4rem 1rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 0.8rem;
+  position: relative;
+  overflow: hidden;
+  margin-bottom: 1.2rem;
+  box-shadow: inset 0 2px 8px rgba(0, 0, 0, 0.4);
+}
+
+.crt-scanline-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(rgba(18, 16, 16, 0) 50%, rgba(0, 0, 0, 0.25) 50%), linear-gradient(90deg, rgba(255, 0, 0, 0.03), rgba(0, 255, 0, 0.01), rgba(0, 0, 255, 0.03));
+  background-size: 100% 3px, 6px 100%;
+  pointer-events: none;
+}
+
+.portrait-avatar {
+  width: 76px;
+  height: 76px;
+  border-radius: 50%;
+  border: 2.5px solid var(--ink);
+  display: grid;
+  place-items: center;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+  transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.founder-card:hover .portrait-avatar {
+  transform: scale(1.08) rotate(3deg);
+}
+
+.avatar-monogram {
+  font-family: var(--font-display, var(--font-main));
+  font-size: 1.7rem;
+  font-weight: 900;
+  letter-spacing: 1px;
+}
+
+.founder-badge-terminal {
+  font-family: var(--font-mono);
+  font-size: 0.65rem;
+  color: #a7f3d0;
+  background-color: rgba(0, 0, 0, 0.5);
+  padding: 2px 8px;
+  border-radius: 3px;
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  letter-spacing: 0.04em;
+}
+
+/* Founder Details */
+.founder-info {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.founder-name {
+  font-size: 1.4rem;
+  font-weight: 900;
+  color: var(--ink);
+  line-height: 1.15;
+  margin-bottom: 0.25rem;
+}
+
+.founder-title {
+  font-size: 0.82rem;
+  font-weight: 800;
+  color: var(--terracotta);
+  font-family: var(--font-mono);
+  margin-bottom: 0.75rem;
+}
+
+.founder-bio {
+  font-size: 0.88rem;
+  line-height: 1.45;
+  color: var(--ink-muted);
+  margin-bottom: 1rem;
+}
+
+/* Skills Strip */
+.founder-skills-strip {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.35rem;
+  margin-top: auto;
+  padding-bottom: 1rem;
+}
+
+.skill-tag {
+  font-family: var(--font-mono);
+  font-size: 0.68rem;
+  font-weight: 700;
+  background-color: var(--bg-paper);
+  border: 1px solid rgba(24, 35, 28, 0.25);
+  border-radius: 3px;
+  padding: 2px 6px;
+  color: var(--ink);
+}
+
+/* Interactive Socials Bar */
+.founder-socials-bar {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 0.5rem;
+  padding-top: 0.8rem;
+  border-top: 1.5px dashed var(--ink);
+}
+
+.social-icon-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.35rem;
+  padding: 0.5rem 0.4rem;
+  border-radius: var(--radius-sm);
+  border: 1.5px solid var(--ink);
+  background-color: var(--bg-paper);
+  color: var(--ink);
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  font-weight: 800;
+  text-decoration: none;
+  transition: all 0.18s cubic-bezier(0.16, 1, 0.3, 1);
+  cursor: pointer;
+}
+
+.social-icon-btn .icon-svg {
+  width: 15px;
+  height: 15px;
+  flex-shrink: 0;
+  transition: transform 0.18s ease;
+}
+
+.social-icon-btn:hover {
+  transform: translateY(-3px);
+  box-shadow: 2px 3px 0px var(--ink);
+}
+
+.social-icon-btn:hover .icon-svg {
+  transform: scale(1.15);
+}
+
+/* Brand-Specific Hover Accents */
+.linkedin-btn:hover {
+  background-color: #0077b5;
+  color: #fff;
+  border-color: #004182;
+}
+
+.instagram-btn:hover {
+  background: linear-gradient(45deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%);
+  color: #fff;
+  border-color: #962fbf;
+}
+
+.email-btn:hover {
+  background-color: var(--forest-green);
+  color: var(--cream-text);
+  border-color: var(--ink);
+}
+

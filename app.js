@@ -472,5 +472,69 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   });
 
+  /* ==========================================================================
+     5. SCROLL PROGRESS BAR CONTROLLER
+     ========================================================================== */
+  const scrollProgressBar = document.getElementById('scrollProgressBar');
+  const updateScrollProgress = () => {
+    if (!scrollProgressBar) return;
+    const totalHeight = document.documentElement.scrollHeight - window.innerHeight;
+    if (totalHeight <= 0) return;
+    const progress = Math.min(Math.max(window.scrollY / totalHeight, 0), 1);
+    scrollProgressBar.style.transform = `scaleX(${progress})`;
+  };
+
+  window.addEventListener('scroll', updateScrollProgress, { passive: true });
+  updateScrollProgress();
+
+  /* ==========================================================================
+     6. SCROLL-TRIGGERED INTERSECTION OBSERVER
+     ========================================================================== */
+  const revealElements = document.querySelectorAll('[data-scroll-reveal]');
+  if ('IntersectionObserver' in window) {
+    const revealObserver = new IntersectionObserver((entries, observer) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('is-revealed');
+          observer.unobserve(entry.target);
+        }
+      });
+    }, {
+      root: null,
+      threshold: 0.1,
+      rootMargin: '0px 0px -40px 0px'
+    });
+
+    revealElements.forEach(el => revealObserver.observe(el));
+  } else {
+    // Fallback for older browsers
+    revealElements.forEach(el => el.classList.add('is-revealed'));
+  }
+
+  /* ==========================================================================
+     7. CO-FOUNDER CARDS 3D PERSPECTIVE TILT PHYSICS
+     ========================================================================== */
+  const tiltCards = document.querySelectorAll('.founder-card[data-tilt]');
+  tiltCards.forEach(card => {
+    card.addEventListener('mousemove', (e) => {
+      const rect = card.getBoundingClientRect();
+      const x = e.clientX - rect.left; // x position within element
+      const y = e.clientY - rect.top;  // y position within element
+
+      const centerX = rect.width / 2;
+      const centerY = rect.height / 2;
+
+      const rotateX = ((y - centerY) / centerY) * -7; // max 7 deg
+      const rotateY = ((x - centerX) / centerX) * 7;  // max 7 deg
+
+      card.style.transform = `perspective(1000px) rotateX(${rotateX.toFixed(2)}deg) rotateY(${rotateY.toFixed(2)}deg) translateY(-6px)`;
+    });
+
+    card.addEventListener('mouseleave', () => {
+      card.style.transform = 'perspective(1000px) rotateX(0deg) rotateY(0deg) translateY(0px)';
+    });
+  });
+
 });
+
 
