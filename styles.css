@@ -4154,10 +4154,33 @@ a {
   align-items: center;
 }
 
+.footer-nav-list li a span {
+  font-size: 0.95rem;
+  margin-right: 0.45rem;
+  display: inline-block;
+}
+
 .footer-nav-list li a:hover {
   color: var(--ink);
   font-weight: 800;
   transform: translateX(4px);
+}
+
+/* Vector Indian Flag Badge (Pixel-perfect on Windows, Mac, Linux & Mobile) */
+.flag-india-vector {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  margin-left: 6px;
+  vertical-align: middle;
+  line-height: 1;
+}
+
+.flag-india-vector .svg-flag {
+  display: block;
+  border-radius: 2px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
+  border: 1px solid rgba(24, 35, 28, 0.35);
 }
 
 /* Footer Bottom */
