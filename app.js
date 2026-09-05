@@ -352,6 +352,9 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
+  // Company configuration (Update with direct phone number when provided e.g., '919876543210')
+  const COMPANY_WHATSAPP_NUMBER = ''; 
+
   if (quoteForm) {
     quoteForm.addEventListener('submit', (e) => {
       e.preventDefault();
@@ -364,9 +367,10 @@ document.addEventListener('DOMContentLoaded', () => {
         `*Service Required:* ${encodeURIComponent(selectedType)}%0A` +
         `*Business Name:* ${encodeURIComponent(businessName)}%0A` +
         `*Requirements:* ${encodeURIComponent(businessDetails || 'None specified')}%0A` +
-        `*Contact:* ${encodeURIComponent(clientContact)}`;
+        `*Client Contact:* ${encodeURIComponent(clientContact)}`;
 
-      const whatsappUrl = `https://wa.me/?text=${message}`;
+      const phoneTarget = COMPANY_WHATSAPP_NUMBER ? COMPANY_WHATSAPP_NUMBER.replace(/\D/g, '') : '';
+      const whatsappUrl = `https://wa.me/${phoneTarget}?text=${message}`;
       window.open(whatsappUrl, '_blank');
       quoteModal.classList.remove('active');
       quoteForm.reset();
