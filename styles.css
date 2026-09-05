@@ -4144,6 +4144,71 @@ a {
   gap: 0.55rem;
 }
 
+/* ==========================================================================
+   VINTAGE VECTOR ICONS & TRUST PILLS (Flaticon Vintage/Hardware Style)
+   ========================================================================== */
+.hero-trust-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.6rem;
+  margin-top: 1.75rem;
+}
+
+.trust-pill {
+  display: inline-flex !important;
+  flex-direction: row !important;
+  align-items: center !important;
+  justify-content: flex-start !important;
+  gap: 0.5rem !important;
+  padding: 0.35rem 0.75rem !important;
+  background-color: var(--bg-paper) !important;
+  border: 1.5px solid var(--ink) !important;
+  border-radius: var(--radius-sm) !important;
+  font-family: var(--font-mono) !important;
+  font-size: 0.76rem !important;
+  font-weight: 700 !important;
+  color: var(--ink) !important;
+  box-shadow: 2px 2px 0 var(--ink) !important;
+  transition: all 0.18s cubic-bezier(0.16, 1, 0.3, 1) !important;
+  width: auto !important;
+  height: auto !important;
+  line-height: 1.2 !important;
+}
+
+.trust-pill:hover {
+  transform: translateY(-2px);
+  box-shadow: 3px 3px 0 var(--ink) !important;
+  background-color: #fff !important;
+}
+
+.trust-pill .vintage-icon {
+  width: 17px !important;
+  height: 17px !important;
+  min-width: 17px !important;
+  max-width: 17px !important;
+  min-height: 17px !important;
+  max-height: 17px !important;
+  display: inline-block !important;
+  flex-shrink: 0 !important;
+}
+
+.trust-pill:nth-child(1) .vintage-icon { color: #d97706; }
+.trust-pill:nth-child(2) .vintage-icon { color: #e11d48; }
+.trust-pill:nth-child(3) .vintage-icon { color: #0284c7; }
+.trust-pill:nth-child(4) .vintage-icon { color: #059669; }
+
+.dock-tab .vintage-icon {
+  width: 16px !important;
+  height: 16px !important;
+  min-width: 16px !important;
+  max-width: 16px !important;
+  display: inline-block !important;
+  flex-shrink: 0 !important;
+  margin-right: 0.35rem;
+  vertical-align: middle;
+}
+
+/* Footer Vintage Lineal Navigation Icons */
 .footer-nav-list li a {
   font-size: 0.88rem;
   font-weight: 600;
@@ -4152,18 +4217,37 @@ a {
   transition: all 0.15s ease;
   display: inline-flex;
   align-items: center;
+  gap: 0.45rem;
 }
 
-.footer-nav-list li a span {
-  font-size: 0.95rem;
-  margin-right: 0.45rem;
-  display: inline-block;
+.footer-nav-list li a .vintage-svg-icon {
+  width: 16px !important;
+  height: 16px !important;
+  min-width: 16px !important;
+  max-width: 16px !important;
+  display: inline-flex !important;
+  align-items: center;
+  justify-content: center;
+  color: #0f382c;
+  flex-shrink: 0;
+  transition: transform 0.18s ease, color 0.18s ease;
+}
+
+.footer-nav-list li a .vintage-svg-icon svg {
+  width: 15px !important;
+  height: 15px !important;
+  display: block !important;
 }
 
 .footer-nav-list li a:hover {
   color: var(--ink);
   font-weight: 800;
   transform: translateX(4px);
+}
+
+.footer-nav-list li a:hover .vintage-svg-icon {
+  color: var(--amber-glow);
+  transform: scale(1.2);
 }
 
 /* Vector Indian Flag Badge (Pixel-perfect on Windows, Mac, Linux & Mobile) */
@@ -4237,5 +4321,164 @@ a {
   }
 }
 
+/* ==========================================================================
+   EXTENDED VINTAGE LINEAL ICONOGRAPHY (FLATICON RETRO-TECH SUITE)
+   ========================================================================== */
 
+/* Services Card Vintage Header & Badge */
+.service-card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 0.25rem;
+}
 
+.service-vintage-badge {
+  width: 44px;
+  height: 44px;
+  border-radius: var(--radius-sm, 6px);
+  border: 2px solid var(--ink);
+  display: grid;
+  place-items: center;
+  box-shadow: 2.5px 2.5px 0px var(--ink);
+  transition: transform 0.2s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.2s ease;
+  flex-shrink: 0;
+}
+
+.card-yellow .service-vintage-badge {
+  background-color: #fff;
+  color: var(--amber-dark, #b45309);
+}
+
+.card-paper .service-vintage-badge {
+  background-color: #fff;
+  color: #0284c7;
+}
+
+.card-dark .service-vintage-badge {
+  background-color: rgba(246, 243, 235, 0.12);
+  border-color: rgba(246, 243, 235, 0.4);
+  color: #34d399;
+  box-shadow: 2.5px 2.5px 0px #000;
+}
+
+.service-card:hover .service-vintage-badge {
+  transform: translateY(-3px) rotate(3deg);
+  box-shadow: 4px 4px 0px var(--ink);
+}
+
+.service-vintage-badge svg {
+  width: 24px;
+  height: 24px;
+  display: block;
+}
+
+/* Service Bullet Mini-Icons */
+.service-bullet-icon {
+  width: 18px;
+  height: 18px;
+  min-width: 18px;
+  max-width: 18px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  margin-right: 0.15rem;
+}
+
+.service-bullet-icon svg {
+  width: 16px;
+  height: 16px;
+  display: block;
+}
+
+.card-yellow .service-bullet-icon { color: #b45309; }
+.card-paper .service-bullet-icon { color: #0284c7; }
+.card-dark .service-bullet-icon { color: #34d399; }
+
+/* Demo Highlights Vintage Lineal Badges */
+.demo-vintage-highlight-icon {
+  width: 32px;
+  height: 32px;
+  min-width: 32px;
+  max-width: 32px;
+  background-color: #fff;
+  border: 1.5px solid var(--ink);
+  border-radius: 6px;
+  display: grid;
+  place-items: center;
+  box-shadow: 2px 2px 0px var(--ink);
+  color: var(--forest-green);
+  flex-shrink: 0;
+}
+
+.demo-vintage-highlight-icon svg {
+  width: 18px;
+  height: 18px;
+  display: block;
+}
+
+/* 3-Step Process Vintage Header */
+.process-step-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1.4rem;
+}
+
+.process-step-header .process-step-num {
+  margin-bottom: 0;
+}
+
+.process-vintage-badge {
+  width: 44px;
+  height: 44px;
+  background-color: #fff;
+  border: 2px solid var(--ink);
+  border-radius: var(--radius-sm, 6px);
+  display: grid;
+  place-items: center;
+  box-shadow: 2.5px 2.5px 0px var(--ink);
+  color: var(--forest-green);
+  transition: transform 0.2s ease;
+}
+
+.process-card:hover .process-vintage-badge {
+  transform: translateY(-2px) rotate(-4deg);
+  background-color: var(--amber-light);
+}
+
+.process-vintage-badge svg {
+  width: 24px;
+  height: 24px;
+  display: block;
+}
+
+/* Quote Modal Vintage Radio Icons */
+.vintage-radio-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  height: 36px;
+  background-color: var(--bg-paper);
+  border: 1.5px solid var(--ink);
+  border-radius: 6px;
+  color: var(--forest-green);
+  box-shadow: 1.5px 1.5px 0px var(--ink);
+  margin-bottom: 0.6rem;
+  transition: all 0.15s ease;
+}
+
+.vintage-radio-icon svg {
+  width: 22px;
+  height: 22px;
+  display: block;
+}
+
+.radio-card input:checked + .radio-box .vintage-radio-icon {
+  background-color: var(--amber);
+  color: var(--ink);
+  box-shadow: 2px 2px 0px var(--ink);
+  transform: scale(1.08);
+}
