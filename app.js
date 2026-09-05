@@ -352,8 +352,8 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
-  // Company configuration (Update with direct phone number when provided e.g., '919876543210')
-  const COMPANY_WHATSAPP_NUMBER = ''; 
+  // Official Company WhatsApp / Inquiry Mobile: +91 96891 59776
+  const COMPANY_WHATSAPP_NUMBER = '919689159776'; 
 
   if (quoteForm) {
     quoteForm.addEventListener('submit', (e) => {
