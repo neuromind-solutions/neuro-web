@@ -427,12 +427,103 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   });
 
+  // AgriBill Multi-View Screen Switcher & Controller
+  const agriNavItems = document.querySelectorAll('.agri-nav-item');
+  const agriViewPanels = document.querySelectorAll('.agribill-view-panel');
+  const agriHeaderTitle = document.getElementById('agriHeaderTitle');
+  const agriHeaderSub = document.getElementById('agriHeaderSub');
+
+  const viewTitles = {
+    dashboard: {
+      en: { title: "Dashboard", sub: "Welcome back! Here's your store overview." },
+      mr: { title: "डॅशबोर्ड", sub: "स्वागत आहे! तुमच्या कृषी दुकानाची स्थिती पहा." }
+    },
+    newbill: {
+      en: { title: "New Bill", sub: "Create a new invoice for a customer" },
+      mr: { title: "नवीन बिल", sub: "ग्राहकासाठी नवीन इनव्हॉइस/बिल तयार करा" }
+    },
+    invoices: {
+      en: { title: "Invoices", sub: "Manage, view, print, and export all customer invoices" },
+      mr: { title: "इनव्हॉइसेस", sub: "सर्व ग्राहक इनव्हॉइसेस व्यवस्थापित करा, पहा आणि प्रिंट करा" }
+    },
+    udhar: {
+      en: { title: "Udhar Ledger", sub: "Track customer credit, collect dues, and send WhatsApp reminders" },
+      mr: { title: "उधार खतावणी", sub: "ग्राहकांची उधारी नोंदवा, वसुली करा आणि व्हॉट्सॲप स्मरणपत्रे पाठवा" }
+    },
+    dealers: {
+      en: { title: "Dealers & Distributors", sub: "Manage khatabook ledgers for your suppliers" },
+      mr: { title: "डीलर्स आणि पुरवठादार", sub: "तुमच्या पुरवठादार डीलर्सची खातावणी व्यवस्थापित करा" }
+    }
+  };
+
+  let activeAgriTab = 'dashboard';
+  let currentAgriLang = 'en';
+
+  const switchAgriTab = (tabName) => {
+    if (!tabName) return;
+    activeAgriTab = tabName;
+
+    // Update Sidebar
+    const navItems = document.querySelectorAll('.agri-nav-item');
+    navItems.forEach(item => {
+      if (item.getAttribute('data-tab') === tabName) {
+        item.classList.add('active');
+      } else {
+        item.classList.remove('active');
+      }
+    });
+
+    // Update View Panels directly
+    const panels = document.querySelectorAll('.agribill-view-panel');
+    panels.forEach(panel => {
+      const match = (panel.getAttribute('data-panel') === tabName);
+      if (match) {
+        panel.classList.add('active');
+        panel.style.setProperty('display', 'flex', 'important');
+      } else {
+        panel.classList.remove('active');
+        panel.style.setProperty('display', 'none', 'important');
+      }
+    });
+
+    // Update Header Titles
+    const tData = viewTitles[tabName] || {
+      en: { title: tabName.toUpperCase(), sub: "AgriBill ERP Management" },
+      mr: { title: tabName, sub: "अॅग्रीबिल व्यवस्थापन" }
+    };
+    if (agriHeaderTitle) {
+      agriHeaderTitle.textContent = tData[currentAgriLang].title;
+    }
+    if (agriHeaderSub) {
+      agriHeaderSub.textContent = tData[currentAgriLang].sub;
+    }
+  };
+
+  agriNavItems.forEach(item => {
+    item.addEventListener('click', (e) => {
+      e.preventDefault();
+      const tab = item.getAttribute('data-tab');
+      switchAgriTab(tab);
+    });
+  });
+
+  // Shortcut / Cross-tab switchers
+  const quickBillBtn = document.getElementById('agriQuickBillBtn');
+  const quickUdharBtn = document.getElementById('agriQuickUdharBtn');
+  if (quickBillBtn) quickBillBtn.addEventListener('click', () => switchAgriTab('newbill'));
+  if (quickUdharBtn) quickUdharBtn.addEventListener('click', () => switchAgriTab('udhar'));
+
+  document.querySelectorAll('.agri-switch-tab').forEach(btn => {
+    btn.addEventListener('click', (e) => {
+      e.preventDefault();
+      const target = btn.getAttribute('data-target');
+      switchAgriTab(target);
+    });
+  });
+
   // Language Switcher (Marathi / English)
   const agriLangToggleBtn = document.getElementById('agriLangToggleBtn');
   const agriLangLabel = document.getElementById('agriLangLabel');
-  const agriHeaderTitle = document.getElementById('agriHeaderTitle');
-  const agriHeaderSub = document.getElementById('agriHeaderSub');
-  let currentAgriLang = 'en';
 
   if (agriLangToggleBtn) {
     agriLangToggleBtn.addEventListener('click', () => {
@@ -443,32 +534,227 @@ document.addEventListener('DOMContentLoaded', () => {
         el.textContent = currentAgriLang === 'mr' ? el.getAttribute('data-mr') : el.getAttribute('data-en');
       });
 
+      // Update placeholders
+      const translatablePlaceholders = agriBillModal ? agriBillModal.querySelectorAll('[data-en-ph][data-mr-ph]') : [];
+      translatablePlaceholders.forEach(el => {
+        el.placeholder = currentAgriLang === 'mr' ? el.getAttribute('data-mr-ph') : el.getAttribute('data-en-ph');
+      });
+
       if (agriLangLabel) {
         agriLangLabel.textContent = currentAgriLang === 'mr' ? 'English' : 'मराठी';
       }
 
-      if (agriHeaderTitle) {
-        agriHeaderTitle.textContent = currentAgriLang === 'mr' ? 'डॅशबोर्ड' : 'Dashboard';
-      }
-      if (agriHeaderSub) {
-        agriHeaderSub.textContent = currentAgriLang === 'mr' 
-          ? 'स्वागत आहे! तुमच्या कृषी दुकानाची स्थिती पहा.' 
-          : "Welcome back! Here's your store overview.";
-      }
+      // Re-apply current tab title
+      switchAgriTab(activeAgriTab);
     });
   }
 
-  // Sidebar item tab switching
-  const agriNavItems = document.querySelectorAll('.agri-nav-item');
-  agriNavItems.forEach(item => {
-    item.addEventListener('click', () => {
-      agriNavItems.forEach(n => n.classList.remove('active'));
-      item.classList.add('active');
+  // Keyboard Shortcuts for AgriBill window
+  document.addEventListener('keydown', (e) => {
+    if (!agriBillModal || !agriBillModal.classList.contains('active')) return;
 
-      const labelEl = item.querySelector('.agri-nav-text');
-      if (labelEl && agriHeaderTitle) {
-        agriHeaderTitle.textContent = labelEl.textContent;
+    if (e.altKey) {
+      if (e.key === '1') { e.preventDefault(); switchAgriTab('dashboard'); }
+      else if (e.key === '2' || e.key === 'n' || e.key === 'N') { e.preventDefault(); switchAgriTab('newbill'); }
+      else if (e.key === '3') { e.preventDefault(); switchAgriTab('invoices'); }
+      else if (e.key === '4') { e.preventDefault(); switchAgriTab('udhar'); }
+      else if (e.key === '5') { e.preventDefault(); switchAgriTab('dealers'); }
+      else if (e.key === 'l' || e.key === 'L') {
+        e.preventDefault();
+        if (agriLangToggleBtn) agriLangToggleBtn.click();
       }
+    }
+  });
+
+  /* --------------------------------------------------------------------------
+     NEW BILL: LIVE PRODUCT CATALOG & INVOICE CALCULATOR
+     -------------------------------------------------------------------------- */
+  let billItems = [];
+  const agriProductsGrid = document.getElementById('agriProductsGrid');
+  const agriBillItemsBox = document.getElementById('agriBillItemsBox');
+  const agriEmptyBillMsg = document.getElementById('agriEmptyBillMsg');
+  const agriBillTableWrap = document.getElementById('agriBillTableWrap');
+  const agriBillTableBody = document.getElementById('agriBillTableBody');
+  const agriBillCount = document.getElementById('agriBillCount');
+  const agriBillSubtotal = document.getElementById('agriBillSubtotal');
+  const agriBillGST = document.getElementById('agriBillGST');
+  const agriBillGrandTotal = document.getElementById('agriBillGrandTotal');
+  const agriClearBillBtn = document.getElementById('agriClearBillBtn');
+  const agriSaveBillBtn = document.getElementById('agriSaveBillBtn');
+  const agriToggleGST = document.getElementById('agriToggleGST');
+
+  const recalculateBill = () => {
+    let subtotal = 0;
+    let totalTax = 0;
+    const isGstEnabled = agriToggleGST ? agriToggleGST.checked : true;
+
+    billItems.forEach(item => {
+      const itemSubtotal = item.price * item.qty;
+      const itemTax = isGstEnabled ? (itemSubtotal * (item.taxRate / 100)) : 0;
+      subtotal += itemSubtotal;
+      totalTax += itemTax;
+    });
+
+    const grandTotal = subtotal + totalTax;
+
+    if (agriBillCount) agriBillCount.textContent = billItems.length;
+    if (agriBillSubtotal) agriBillSubtotal.textContent = `₹${subtotal.toLocaleString('en-IN')}.00`;
+    if (agriBillGST) agriBillGST.textContent = `₹${totalTax.toLocaleString('en-IN', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}`;
+    if (agriBillGrandTotal) agriBillGrandTotal.textContent = `₹${grandTotal.toLocaleString('en-IN', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}`;
+
+    if (billItems.length === 0) {
+      if (agriEmptyBillMsg) agriEmptyBillMsg.style.display = 'block';
+      if (agriBillTableWrap) agriBillTableWrap.style.display = 'none';
+      if (agriBillTableBody) agriBillTableBody.innerHTML = '';
+    } else {
+      if (agriEmptyBillMsg) agriEmptyBillMsg.style.display = 'none';
+      if (agriBillTableWrap) agriBillTableWrap.style.display = 'block';
+
+      if (agriBillTableBody) {
+        agriBillTableBody.innerHTML = '';
+        billItems.forEach((item, idx) => {
+          const tr = document.createElement('tr');
+          const itemTotal = (item.price * item.qty) + (isGstEnabled ? (item.price * item.qty * (item.taxRate / 100)) : 0);
+          tr.innerHTML = `
+            <td><strong>${item.name}</strong></td>
+            <td>₹${item.price}</td>
+            <td>
+              <div class="qty-control">
+                <button class="qty-btn" data-action="dec" data-index="${idx}">−</button>
+                <span>${item.qty}</span>
+                <button class="qty-btn" data-action="inc" data-index="${idx}">+</button>
+              </div>
+            </td>
+            <td>${isGstEnabled ? item.taxRate + '%' : '0%'}</td>
+            <td><strong>₹${itemTotal.toFixed(2)}</strong></td>
+            <td><button class="remove-item-btn" data-index="${idx}" title="Remove">×</button></td>
+          `;
+          agriBillTableBody.appendChild(tr);
+        });
+
+        // Add event listeners to qty buttons
+        agriBillTableBody.querySelectorAll('.qty-btn').forEach(btn => {
+          btn.addEventListener('click', (e) => {
+            const idx = parseInt(btn.getAttribute('data-index'));
+            const action = btn.getAttribute('data-action');
+            if (action === 'inc') {
+              billItems[idx].qty++;
+            } else if (action === 'dec') {
+              billItems[idx].qty--;
+              if (billItems[idx].qty <= 0) {
+                billItems.splice(idx, 1);
+              }
+            }
+            recalculateBill();
+          });
+        });
+
+        // Add event listeners to remove buttons
+        agriBillTableBody.querySelectorAll('.remove-item-btn').forEach(btn => {
+          btn.addEventListener('click', () => {
+            const idx = parseInt(btn.getAttribute('data-index'));
+            billItems.splice(idx, 1);
+            recalculateBill();
+          });
+        });
+      }
+    }
+  };
+
+  // Product card click to add to bill
+  const prodCards = document.querySelectorAll('.agri-prod-card');
+  prodCards.forEach(card => {
+    card.addEventListener('click', () => {
+      const prodId = card.getAttribute('data-prod-id');
+      const name = card.getAttribute('data-name');
+      const price = parseFloat(card.getAttribute('data-price'));
+      const taxRate = parseFloat(card.getAttribute('data-tax'));
+
+      const existing = billItems.find(i => i.id === prodId);
+      if (existing) {
+        existing.qty++;
+      } else {
+        billItems.push({ id: prodId, name, price, taxRate, qty: 1 });
+      }
+
+      // Visual click feedback on card
+      card.style.transform = 'scale(0.96)';
+      setTimeout(() => { card.style.transform = ''; }, 120);
+
+      recalculateBill();
+    });
+  });
+
+  if (agriClearBillBtn) {
+    agriClearBillBtn.addEventListener('click', () => {
+      billItems = [];
+      recalculateBill();
+    });
+  }
+
+  if (agriToggleGST) {
+    agriToggleGST.addEventListener('change', recalculateBill);
+  }
+
+  if (agriSaveBillBtn) {
+    agriSaveBillBtn.addEventListener('click', () => {
+      if (billItems.length === 0) {
+        alert("Please add items to bill before printing.");
+        return;
+      }
+      agriSaveBillBtn.textContent = "✓ INVOICE SAVED & PRINTED!";
+      setTimeout(() => {
+        agriSaveBillBtn.textContent = "⚡ GENERATE & PRINT INVOICE";
+      }, 1500);
+    });
+  }
+
+  // Live Product Search Filter
+  const agriProductSearch = document.getElementById('agriProductSearch');
+  if (agriProductSearch) {
+    agriProductSearch.addEventListener('input', (e) => {
+      const q = e.target.value.toLowerCase().trim();
+      prodCards.forEach(card => {
+        const text = card.textContent.toLowerCase();
+        card.style.display = text.includes(q) ? 'flex' : 'none';
+      });
+    });
+  }
+
+  /* --------------------------------------------------------------------------
+     INVOICES: SEARCH & STATUS FILTER
+     -------------------------------------------------------------------------- */
+  const agriInvoiceSearch = document.getElementById('agriInvoiceSearch');
+  const agriStatusFilter = document.getElementById('agriStatusFilter');
+  const invoiceRows = document.querySelectorAll('#agriInvoicesTable tbody tr');
+
+  const filterInvoices = () => {
+    const q = agriInvoiceSearch ? agriInvoiceSearch.value.toLowerCase().trim() : '';
+    const status = agriStatusFilter ? agriStatusFilter.value : 'all';
+
+    invoiceRows.forEach(row => {
+      const rowText = row.textContent.toLowerCase();
+      const rowStatus = row.getAttribute('data-status');
+      const matchesSearch = rowText.includes(q);
+      const matchesStatus = status === 'all' || rowStatus === status;
+
+      row.style.display = matchesSearch && matchesStatus ? '' : 'none';
+    });
+  };
+
+  if (agriInvoiceSearch) agriInvoiceSearch.addEventListener('input', filterInvoices);
+  if (agriStatusFilter) agriStatusFilter.addEventListener('change', filterInvoices);
+
+  // WhatsApp reminder actions inside Invoices & Udhar
+  document.querySelectorAll('.agri-icon-btn.whatsapp, #sendWhatsappReminderBtn').forEach(btn => {
+    btn.addEventListener('click', () => {
+      const original = btn.innerHTML;
+      btn.innerHTML = '✓ Sent!';
+      btn.style.backgroundColor = '#dcfce7';
+      setTimeout(() => {
+        btn.innerHTML = original;
+        btn.style.backgroundColor = '';
+      }, 1200);
     });
   });
 

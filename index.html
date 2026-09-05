@@ -15,7 +15,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800;900&family=JetBrains+Mono:wght@500;700;800&display=swap" rel="stylesheet">
 
-  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="styles.css?v=2026.1">
 </head>
 <body>
 
@@ -435,14 +435,54 @@
           <div class="work-card agribill-featured-card" id="openAgriBillFromWork">
             <div class="work-img-box bg-dark" style="background-color: #0f382c;">
               <div class="work-initials text-amber">AB</div>
-              <div class="work-mock-screen" style="background-color: #f9f6ee;">
-                <div class="screen-bar" style="background-color: #0f382c;">
+              <div class="work-mock-screen agribill-thumb-screen">
+                <div class="screen-bar" style="background-color: #08281f;">
                   <span></span><span></span><span></span>
-                  <span style="margin-left:auto; font-family: var(--font-mono); font-size: 0.6rem; color: #a7f3d0;">AgriBill v1.0</span>
+                  <span class="agribill-thumb-title">AgriBill v1.0 • Desktop Suite</span>
+                  <span class="agribill-thumb-status">OFFLINE READY ✓</span>
                 </div>
-                <div class="screen-content">
-                  <div class="mock-stat" style="color: #0f382c;">🌾 ₹7,783 Today's Sales</div>
-                  <div class="mock-badge" style="background-color: #d97706; color: #fff;">81 Low Stock Alert</div>
+                <div class="agribill-thumb-body">
+                  <div class="agribill-thumb-nav">
+                    <span class="thumb-nav-item active">📊 <span>Dash</span></span>
+                    <span class="thumb-nav-item">🧾 <span>Bill</span></span>
+                    <span class="thumb-nav-item">📁 <span>Inv</span></span>
+                    <span class="thumb-nav-item">📖 <span>Udhar</span></span>
+                  </div>
+                  <div class="agribill-thumb-content">
+                    <div class="thumb-kpi-row">
+                      <div class="thumb-kpi-chip">
+                        <small>TODAY'S SALES</small>
+                        <strong>₹7,783</strong>
+                      </div>
+                      <div class="thumb-kpi-chip alert">
+                        <small>LOW STOCK</small>
+                        <strong>81 Alert</strong>
+                      </div>
+                      <div class="thumb-kpi-chip dues">
+                        <small>UDHAR DUES</small>
+                        <strong>₹1,391.50</strong>
+                      </div>
+                    </div>
+                    <div class="thumb-preview-split">
+                      <div class="thumb-mini-graph">
+                        <div class="thumb-graph-title">7-Day Sales Trend</div>
+                        <div class="thumb-graph-bars">
+                          <div style="height: 40%;"></div>
+                          <div style="height: 60%;"></div>
+                          <div style="height: 45%;"></div>
+                          <div style="height: 75%;"></div>
+                          <div style="height: 90%;"></div>
+                          <div style="height: 65%;"></div>
+                          <div style="height: 100%;"></div>
+                        </div>
+                      </div>
+                      <div class="thumb-mini-products">
+                        <div class="thumb-item-tag">🌾 00-00-50 (1kg) <strong>₹1,200</strong></div>
+                        <div class="thumb-item-tag">🧪 2-4-D (1L) <strong>₹330</strong></div>
+                        <div class="thumb-item-tag">🌱 19-19-19 (1kg) <strong>₹125</strong></div>
+                      </div>
+                    </div>
+                  </div>
                 </div>
               </div>
               <span class="work-category-pill" style="background-color: #fef3c7; color: #0f382c;">FLAGSHIP AGRICULTURE ERP</span>
@@ -1030,177 +1070,913 @@
           </div>
         </aside>
 
-        <!-- Main Workspace Area -->
+        <!-- Main Workspace Area with Multi-View Panels -->
         <div class="agribill-main-view">
           
           <!-- Top Controls Bar -->
           <div class="agribill-topbar">
             <div>
-              <h2 class="agri-view-title" id="agriHeaderTitle">Dashboard</h2>
-              <p class="agri-view-sub" id="agriHeaderSub">Welcome back! Here's your store overview.</p>
+              <h2 class="agri-view-title" id="agriHeaderTitle" data-en="Dashboard" data-mr="डॅशबोर्ड">Dashboard</h2>
+              <p class="agri-view-sub" id="agriHeaderSub" data-en="Welcome back! Here's your store overview." data-mr="स्वागत आहे! तुमच्या कृषी दुकानाची स्थिती पहा.">Welcome back! Here's your store overview.</p>
             </div>
             
             <div class="agribill-topbar-actions">
-              <button class="agri-action-pill" id="agriLangToggleBtn">
+              <button class="agri-action-pill" id="agriLangToggleBtn" title="Toggle Marathi / English">
                 🌐 <span id="agriLangLabel">मराठी</span> <kbd>Alt L</kbd>
               </button>
-              <button class="agri-action-pill">🌙</button>
-              <button class="btn btn-sm btn-yellow" id="agriNewBillBtn">
-                + New Bill <kbd>Alt N</kbd>
+              <button class="agri-action-pill" id="agriQuickBillBtn" data-tab-target="newbill" title="Open New Bill Screen">
+                + <span data-en="New Bill" data-mr="नवीन बिल">New Bill</span> <kbd>Alt N</kbd>
               </button>
-              <button class="btn btn-sm btn-secondary">
-                📦 Add Product
+              <button class="agri-action-pill" id="agriQuickUdharBtn" data-tab-target="udhar" title="Open Udhar Ledger">
+                📖 <span data-en="Udhar" data-mr="उधार">Udhar</span>
               </button>
             </div>
           </div>
 
-          <!-- Top Stat Metrics Cards -->
-          <div class="agri-stats-grid">
-            <div class="agri-stat-card">
-              <div class="agri-stat-header">
-                <span class="agri-stat-label" data-en="Today's Sales" data-mr="आजची विक्री">Today's Sales</span>
-                <span class="agri-stat-icon">₹</span>
+          <!-- ================================================================
+               VIEW 1: DASHBOARD
+               ================================================================ -->
+          <div class="agribill-view-panel active" id="agriViewDashboard" data-panel="dashboard">
+            <!-- Top Stat Metrics Cards -->
+            <div class="agri-stats-grid">
+              <div class="agri-stat-card">
+                <div class="agri-stat-header">
+                  <span class="agri-stat-label" data-en="Today's Sales" data-mr="आजची विक्री">Today's Sales</span>
+                  <span class="agri-stat-icon">₹</span>
+                </div>
+                <div class="agri-stat-val">₹7,783</div>
+                <div class="agri-stat-sub" data-en="2 invoices today" data-mr="आज २ इनव्हॉइसेस">2 invoices today</div>
               </div>
-              <div class="agri-stat-val">₹7,783</div>
-              <div class="agri-stat-sub">2 invoices today</div>
+
+              <div class="agri-stat-card">
+                <div class="agri-stat-header">
+                  <span class="agri-stat-label" data-en="This Month" data-mr="या महिन्याची विक्री">This Month</span>
+                  <span class="agri-stat-icon">↗</span>
+                </div>
+                <div class="agri-stat-val">₹7,783</div>
+                <div class="agri-stat-sub" data-en="Week: ₹7,783" data-mr="आठवडा: ₹७,७८३">Week: ₹7,783</div>
+              </div>
+
+              <div class="agri-stat-card">
+                <div class="agri-stat-header">
+                  <span class="agri-stat-label" data-en="Net Profit" data-mr="निव्वळ नफा">Net Profit</span>
+                  <span class="agri-stat-icon">👛</span>
+                </div>
+                <div class="agri-stat-val text-forest">₹5,082</div>
+                <div class="agri-stat-sub" data-en="This Month" data-mr="चालू महिना">This Month</div>
+              </div>
+
+              <div class="agri-stat-card">
+                <div class="agri-stat-header">
+                  <span class="agri-stat-label" data-en="Total Products" data-mr="एकूण उत्पादने">Total Products</span>
+                  <span class="agri-stat-icon">📦</span>
+                </div>
+                <div class="agri-stat-val">88</div>
+                <div class="agri-stat-sub" data-en="Active inventory items" data-mr="सक्रिय स्टॉक आयटम्स">Active inventory items</div>
+              </div>
+
+              <div class="agri-stat-card alert-card">
+                <div class="agri-stat-header">
+                  <span class="agri-stat-label text-amber" data-en="Low Stock Alert" data-mr="कमी स्टॉक इशारा">Low Stock Alert</span>
+                  <span class="agri-stat-icon">⚠️</span>
+                </div>
+                <div class="agri-stat-val text-amber">81</div>
+                <div class="agri-stat-sub" data-en="Items need restocking" data-mr="पुन्हा भरण्याची गरज">Items need restocking</div>
+              </div>
+
+              <div class="agri-stat-card">
+                <div class="agri-stat-header">
+                  <span class="agri-stat-label" data-en="Expiring Soon Alert" data-mr="मुदत संपत आलेली">Expiring Soon Alert</span>
+                  <span class="agri-stat-icon">⏱️</span>
+                </div>
+                <div class="agri-stat-val">0</div>
+                <div class="agri-stat-sub" data-en="0 in <30 days" data-mr="३० दिवसात ०">0 in &lt;30 days</div>
+              </div>
             </div>
 
-            <div class="agri-stat-card">
-              <div class="agri-stat-header">
-                <span class="agri-stat-label" data-en="This Month" data-mr="या महिन्याची विक्री">This Month</span>
-                <span class="agri-stat-icon">↗</span>
+            <!-- Charts Section -->
+            <div class="agri-charts-grid">
+              <!-- Sales Trend Chart -->
+              <div class="agri-chart-card">
+                <h4 class="agri-chart-title" data-en="Sales Trend (Last 7 Days)" data-mr="विक्री ट्रेंड (मागील ७ दिवस)">Sales Trend (Last 7 Days)</h4>
+                <div class="agri-mock-curve">
+                  <div class="curve-y-axis">
+                    <span>₹8000</span>
+                    <span>₹6000</span>
+                    <span>₹4000</span>
+                    <span>₹2000</span>
+                    <span>₹0</span>
+                  </div>
+                  <div class="curve-graph-body">
+                    <div class="curve-grid-lines"></div>
+                    <div class="curve-fill-area"></div>
+                  </div>
+                </div>
+                <div class="curve-x-axis">
+                  <span>29 Aug</span><span>30 Aug</span><span>31 Aug</span><span>01 Sep</span><span>02 Sep</span><span>03 Sep</span><span>04 Sep</span>
+                </div>
               </div>
-              <div class="agri-stat-val">₹7,783</div>
-              <div class="agri-stat-sub">Week: ₹7,783</div>
+
+              <!-- Top Selling Products Chart -->
+              <div class="agri-chart-card">
+                <h4 class="agri-chart-title" data-en="Top Selling Products" data-mr="सर्वाधिक विक्री होणारी उत्पादने">Top Selling Products</h4>
+                <div class="agri-product-bars">
+                  <div class="p-bar-row">
+                    <span class="p-name">00-00-50 (1 kg)</span>
+                    <div class="p-bar"><div class="p-fill" style="width: 90%;"></div></div>
+                  </div>
+                  <div class="p-bar-row">
+                    <span class="p-name">2-4-D (1 L)</span>
+                    <div class="p-bar"><div class="p-fill" style="width: 70%;"></div></div>
+                  </div>
+                  <div class="p-bar-row">
+                    <span class="p-name">19-19-19 (1 kg)</span>
+                    <div class="p-bar"><div class="p-fill" style="width: 55%;"></div></div>
+                  </div>
+                  <div class="p-bar-row">
+                    <span class="p-name">00-52-34 (25 kg)</span>
+                    <div class="p-bar"><div class="p-fill" style="width: 55%;"></div></div>
+                  </div>
+                  <div class="p-bar-row">
+                    <span class="p-name">2-4-D Powder (1 kg)</span>
+                    <div class="p-bar"><div class="p-fill" style="width: 35%;"></div></div>
+                  </div>
+                </div>
+              </div>
             </div>
 
-            <div class="agri-stat-card">
-              <div class="agri-stat-header">
-                <span class="agri-stat-label" data-en="Net Profit" data-mr="निव्वळ नफा">Net Profit</span>
-                <span class="agri-stat-icon">👛</span>
+            <!-- Bottom Tables Preview -->
+            <div class="agri-bottom-grid">
+              <div class="agri-card">
+                <div class="agri-card-head">
+                  <strong data-en="Recent Invoices" data-mr="अलीकडील इनव्हॉइसेस">Recent Invoices</strong>
+                  <a href="javascript:void(0)" class="text-amber agri-switch-tab" data-target="invoices" data-en="View All" data-mr="सर्व पहा">View All</a>
+                </div>
+                <div class="agri-mini-table">
+                  <div class="agri-t-row">
+                    <span>AGRI-00009</span>
+                    <span>Nirbhay raut</span>
+                    <strong>₹5,000.00</strong>
+                    <span class="paid-badge" data-en="PAID" data-mr="भरले">PAID</span>
+                  </div>
+                  <div class="agri-t-row">
+                    <span>AGRI-00008</span>
+                    <span>Nirbhay raut</span>
+                    <strong>₹2,783.00</strong>
+                    <span class="partial-badge" data-en="PARTIAL" data-mr="अंशतः">PARTIAL</span>
+                  </div>
+                </div>
               </div>
-              <div class="agri-stat-val text-forest">₹5,082</div>
-              <div class="agri-stat-sub">This Month</div>
-            </div>
 
-            <div class="agri-stat-card">
-              <div class="agri-stat-header">
-                <span class="agri-stat-label" data-en="Total Products" data-mr="एकूण उत्पादने">Total Products</span>
-                <span class="agri-stat-icon">📦</span>
+              <div class="agri-card">
+                <div class="agri-card-head">
+                  <strong data-en="Udhar Ledger (Credit Balance)" data-mr="उधार खतावणी">Udhar Ledger (Credit Balance)</strong>
+                  <a href="javascript:void(0)" class="text-amber agri-switch-tab" data-target="udhar" data-en="View All" data-mr="सर्व पहा">View All</a>
+                </div>
+                <div class="agri-mini-table">
+                  <div class="agri-t-row">
+                    <span>Nirbhay raut (9832456743)</span>
+                    <span class="text-amber" data-en="Due Balance" data-mr="बाकी रक्कम">Due Balance</span>
+                    <strong class="text-terracotta">₹1,391.50</strong>
+                  </div>
+                  <div class="agri-t-row">
+                    <span>santosh gandhi (Supplier)</span>
+                    <span class="text-amber" data-en="Payable" data-mr="देय">Payable</span>
+                    <strong class="text-terracotta">₹100,000.00</strong>
+                  </div>
+                </div>
               </div>
-              <div class="agri-stat-val">88</div>
-              <div class="agri-stat-sub">Active inventory items</div>
-            </div>
-
-            <div class="agri-stat-card alert-card">
-              <div class="agri-stat-header">
-                <span class="agri-stat-label text-amber" data-en="Low Stock Alert" data-mr="कमी स्टॉक इशारा">Low Stock Alert</span>
-                <span class="agri-stat-icon">⚠️</span>
-              </div>
-              <div class="agri-stat-val text-amber">81</div>
-              <div class="agri-stat-sub">Items need restocking</div>
-            </div>
-
-            <div class="agri-stat-card">
-              <div class="agri-stat-header">
-                <span class="agri-stat-label" data-en="Expiring Soon Alert" data-mr="मुदत संपत आलेली">Expiring Soon Alert</span>
-                <span class="agri-stat-icon">⏱️</span>
-              </div>
-              <div class="agri-stat-val">0</div>
-              <div class="agri-stat-sub">0 in &lt;30 days</div>
             </div>
           </div>
 
-          <!-- Charts Section -->
-          <div class="agri-charts-grid">
-            <!-- Sales Trend Chart -->
-            <div class="agri-chart-card">
-              <h4 class="agri-chart-title" data-en="Sales Trend (Last 7 Days)" data-mr="विक्री ट्रेंड (मागील ७ दिवस)">Sales Trend (Last 7 Days)</h4>
-              <div class="agri-mock-curve">
-                <div class="curve-y-axis">
-                  <span>₹8000</span>
-                  <span>₹6000</span>
-                  <span>₹4000</span>
-                  <span>₹2000</span>
-                  <span>₹0</span>
-                </div>
-                <div class="curve-graph-body">
-                  <div class="curve-grid-lines"></div>
-                  <div class="curve-fill-area"></div>
-                </div>
+          <!-- ================================================================
+               VIEW 2: NEW BILL (IMAGE 2)
+               ================================================================ -->
+          <div class="agribill-view-panel" id="agriViewNewBill" data-panel="newbill">
+            <div class="agri-subbar">
+              <div class="agri-search-wrap">
+                <span class="search-ico">🔍</span>
+                <input type="text" id="agriProductSearch" class="agri-input-search" placeholder="Search to filter products or scan barcode..." data-en-ph="Search to filter products or scan barcode..." data-mr-ph="उत्पादने शोधा किंवा बारकोड स्कॅन करा...">
               </div>
-              <div class="curve-x-axis">
-                <span>29 Aug</span><span>30 Aug</span><span>31 Aug</span><span>01 Sep</span><span>02 Sep</span><span>03 Sep</span><span>04 Sep</span>
-              </div>
+              <button class="agri-btn-secondary" id="agriCustomItemBtn">
+                + <span data-en="Custom Item" data-mr="इतर वस्तू">Custom Item</span> <kbd>Alt A</kbd>
+              </button>
             </div>
 
-            <!-- Top Selling Products Chart -->
-            <div class="agri-chart-card">
-              <h4 class="agri-chart-title" data-en="Top Selling Products" data-mr="सर्वाधिक विक्री होणारी उत्पादने">Top Selling Products</h4>
-              <div class="agri-product-bars">
-                <div class="p-bar-row">
-                  <span class="p-name">00-00-50 (1 kg)</span>
-                  <div class="p-bar"><div class="p-fill" style="width: 90%;"></div></div>
+            <div class="agri-billing-split">
+              <!-- Left Column: Products Grid & Items Cart -->
+              <div class="agri-products-pane">
+                <div class="agri-section-label-row">
+                  <span class="agri-section-label" data-en="Products (Click to Add to Bill)" data-mr="उत्पादने (बिलात जोडण्यासाठी क्लिक करा)">📦 Products (Click to Add to Bill)</span>
+                  <span class="agri-hint-badge" data-en="8 items available" data-mr="८ उत्पादने उपलब्ध">8 items available</span>
                 </div>
-                <div class="p-bar-row">
-                  <span class="p-name">2-4-D (1 L)</span>
-                  <div class="p-bar"><div class="p-fill" style="width: 70%;"></div></div>
+
+                <!-- Products Catalog Cards Grid -->
+                <div class="agri-products-grid" id="agriProductsGrid">
+                  <!-- Product 1 -->
+                  <div class="agri-prod-card" data-prod-id="1" data-name="00-00-50 (1 kg)" data-price="1200" data-tax="5" data-stock="3" data-sku="AGRI-054">
+                    <div class="prod-card-top">
+                      <strong class="prod-name">00-00-50 (1 kg)</strong>
+                      <span class="prod-stock-pill">3 bag</span>
+                    </div>
+                    <div class="prod-meta">
+                      <span>SKU: AGRI-054</span>
+                      <span>HSN: 3105</span>
+                    </div>
+                    <div class="prod-card-bottom">
+                      <span class="prod-price">₹1,200.00</span>
+                      <span class="prod-gst-tag">GST 5%</span>
+                    </div>
+                  </div>
+
+                  <!-- Product 2 -->
+                  <div class="agri-prod-card" data-prod-id="2" data-name="00-52-34 (25 kg)" data-price="2400" data-tax="5" data-stock="500" data-sku="AGRI-055">
+                    <div class="prod-card-top">
+                      <strong class="prod-name">00-52-34 (25 kg)</strong>
+                      <span class="prod-stock-pill">500 bag</span>
+                    </div>
+                    <div class="prod-meta">
+                      <span>SKU: AGRI-055</span>
+                      <span>HSN: 3105</span>
+                    </div>
+                    <div class="prod-card-bottom">
+                      <span class="prod-price">₹2,400.00</span>
+                      <span class="prod-gst-tag">GST 5%</span>
+                    </div>
+                  </div>
+
+                  <!-- Product 3 -->
+                  <div class="agri-prod-card" data-prod-id="3" data-name="12-61-00 (1 kg)" data-price="140" data-tax="5" data-stock="9" data-sku="AGRI-051">
+                    <div class="prod-card-top">
+                      <strong class="prod-name">12-61-00 (1 kg)</strong>
+                      <span class="prod-stock-pill">9 bag</span>
+                    </div>
+                    <div class="prod-meta">
+                      <span>SKU: AGRI-051</span>
+                      <span>HSN: 3105</span>
+                    </div>
+                    <div class="prod-card-bottom">
+                      <span class="prod-price">₹140.00</span>
+                      <span class="prod-gst-tag">GST 5%</span>
+                    </div>
+                  </div>
+
+                  <!-- Product 4 -->
+                  <div class="agri-prod-card" data-prod-id="4" data-name="13-00-45 (1 kg)" data-price="140" data-tax="5" data-stock="8" data-sku="AGRI-052">
+                    <div class="prod-card-top">
+                      <strong class="prod-name">13-00-45 (1 kg)</strong>
+                      <span class="prod-stock-pill">8 bag</span>
+                    </div>
+                    <div class="prod-meta">
+                      <span>SKU: AGRI-052</span>
+                      <span>HSN: 3105</span>
+                    </div>
+                    <div class="prod-card-bottom">
+                      <span class="prod-price">₹140.00</span>
+                      <span class="prod-gst-tag">GST 5%</span>
+                    </div>
+                  </div>
+
+                  <!-- Product 5 -->
+                  <div class="agri-prod-card" data-prod-id="5" data-name="13-40-13 (1 kg)" data-price="140" data-tax="5" data-stock="9" data-sku="AGRI-053">
+                    <div class="prod-card-top">
+                      <strong class="prod-name">13-40-13 (1 kg)</strong>
+                      <span class="prod-stock-pill">9 bag</span>
+                    </div>
+                    <div class="prod-meta">
+                      <span>SKU: AGRI-053</span>
+                      <span>HSN: 3105</span>
+                    </div>
+                    <div class="prod-card-bottom">
+                      <span class="prod-price">₹140.00</span>
+                      <span class="prod-gst-tag">GST 5%</span>
+                    </div>
+                  </div>
+
+                  <!-- Product 6 -->
+                  <div class="agri-prod-card" data-prod-id="6" data-name="19-19-19 (1 kg)" data-price="125" data-tax="5" data-stock="7" data-sku="AGRI-050">
+                    <div class="prod-card-top">
+                      <strong class="prod-name">19-19-19 (1 kg)</strong>
+                      <span class="prod-stock-pill">7 bag</span>
+                    </div>
+                    <div class="prod-meta">
+                      <span>SKU: AGRI-050</span>
+                      <span>HSN: 3105</span>
+                    </div>
+                    <div class="prod-card-bottom">
+                      <span class="prod-price">₹125.00</span>
+                      <span class="prod-gst-tag">GST 5%</span>
+                    </div>
+                  </div>
+
+                  <!-- Product 7 -->
+                  <div class="agri-prod-card" data-prod-id="7" data-name="2-4-D (1 L)" data-price="330" data-tax="18" data-stock="6" data-sku="AGRI-068">
+                    <div class="prod-card-top">
+                      <strong class="prod-name">2-4-D (1 L)</strong>
+                      <span class="prod-stock-pill">6 bottle</span>
+                    </div>
+                    <div class="prod-meta">
+                      <span>SKU: AGRI-068</span>
+                      <span>HSN: 3808</span>
+                    </div>
+                    <div class="prod-card-bottom">
+                      <span class="prod-price">₹330.00</span>
+                      <span class="prod-gst-tag">GST 18%</span>
+                    </div>
+                  </div>
+
+                  <!-- Product 8 -->
+                  <div class="agri-prod-card" data-prod-id="8" data-name="2-4-D Powder (1 kg)" data-price="900" data-tax="18" data-stock="3" data-sku="AGRI-042">
+                    <div class="prod-card-top">
+                      <strong class="prod-name">2-4-D Powder (1 kg)</strong>
+                      <span class="prod-stock-pill">3 bag</span>
+                    </div>
+                    <div class="prod-meta">
+                      <span>SKU: AGRI-042</span>
+                      <span>HSN: 3808</span>
+                    </div>
+                    <div class="prod-card-bottom">
+                      <span class="prod-price">₹900.00</span>
+                      <span class="prod-gst-tag">GST 18%</span>
+                    </div>
+                  </div>
                 </div>
-                <div class="p-bar-row">
-                  <span class="p-name">19-19-19 (1 kg)</span>
-                  <div class="p-bar"><div class="p-fill" style="width: 55%;"></div></div>
+
+                <!-- Added Bill Items Container -->
+                <div class="agri-bill-items-card">
+                  <div class="bill-items-header">
+                    <span class="bill-items-title">🛒 <span data-en="Items in Bill" data-mr="बिलातील वस्तू">Items in Bill</span> (<span id="agriBillCount">0</span>)</span>
+                    <button class="agri-btn-link" id="agriClearBillBtn" data-en="Clear All" data-mr="सर्व हटवा">Clear All</button>
+                  </div>
+                  <div class="agri-bill-items-box" id="agriBillItemsBox">
+                    <div class="agri-empty-bill-msg" id="agriEmptyBillMsg">
+                      <span class="empty-icon">🛒</span>
+                      <p data-en="Search and add products above" data-mr="वरील उत्पादनांवर क्लिक करून बिलात जोडा">Search and add products above</p>
+                    </div>
+                    <div class="agri-bill-table-wrap" id="agriBillTableWrap" style="display: none;">
+                      <table class="agri-mini-bill-table">
+                        <thead>
+                          <tr>
+                            <th data-en="Item" data-mr="वस्तू">Item</th>
+                            <th data-en="Rate" data-mr="दर">Rate</th>
+                            <th data-en="Qty" data-mr="नग">Qty</th>
+                            <th data-en="GST" data-mr="जीएसटी">GST</th>
+                            <th data-en="Total" data-mr="एकूण">Total</th>
+                            <th></th>
+                          </tr>
+                        </thead>
+                        <tbody id="agriBillTableBody">
+                          <!-- Populated dynamically -->
+                        </tbody>
+                      </table>
+                    </div>
+                  </div>
                 </div>
-                <div class="p-bar-row">
-                  <span class="p-name">00-52-34 (25 kg)</span>
-                  <div class="p-bar"><div class="p-fill" style="width: 55%;"></div></div>
+              </div>
+
+              <!-- Right Column: Customer Details, Tax Settings, Payment Summary -->
+              <div class="agri-bill-sidebar-pane">
+                <!-- Customer Card -->
+                <div class="agri-panel-card">
+                  <div class="panel-card-title">
+                    <span>👤 <span data-en="Customer" data-mr="ग्राहक">Customer</span></span>
+                  </div>
+                  
+                  <div class="customer-type-badge">
+                    <span class="cust-icon">👤</span>
+                    <div class="cust-info">
+                      <strong data-en="Walking Customer" data-mr="थेट येणारा ग्राहक">Walking Customer</strong>
+                      <small data-en="Click to search &amp; select registered cust" data-mr="नोंदणीकृत ग्राहक निवडण्यासाठी क्लिक करा">Click to search &amp; select registered cust</small>
+                    </div>
+                    <kbd>Alt C</kbd>
+                  </div>
+                  <p class="customer-warning-note" data-en="Walking Customer: only immediate full payment allowed." data-mr="थेट ग्राहक: फक्त त्वरित पूर्ण देयक अनुज्ञेय आहे.">
+                    Walking Customer: only immediate full payment allowed.
+                  </p>
+
+                  <div class="agri-form-grid">
+                    <input type="text" class="agri-input-sm" id="billCustName" placeholder="Name / नाव">
+                    <input type="text" class="agri-input-sm" id="billCustPhone" placeholder="Phone / फोन">
+                    <input type="text" class="agri-input-sm" id="billCustGST" placeholder="Customer GSTIN">
+                    <input type="text" class="agri-input-sm" id="billCustAddress" placeholder="Customer Address / पत्ता">
+                  </div>
                 </div>
-                <div class="p-bar-row">
-                  <span class="p-name">2-4-D Powder (1 kg)</span>
-                  <div class="p-bar"><div class="p-fill" style="width: 35%;"></div></div>
+
+                <!-- Tax Settings Card -->
+                <div class="agri-panel-card">
+                  <div class="panel-card-title">
+                    <span>⚙️ <span data-en="Tax Settings" data-mr="कर सेटिंग्ज">Tax Settings</span></span>
+                  </div>
+
+                  <div class="agri-toggle-row">
+                    <span data-en="Enable GST" data-mr="जीएसटी लागू करा">Enable GST</span>
+                    <label class="agri-switch">
+                      <input type="checkbox" id="agriToggleGST" checked>
+                      <span class="slider"></span>
+                    </label>
+                  </div>
+                  <div class="agri-toggle-row">
+                    <div>
+                      <span data-en="Price includes GST" data-mr="किंमतीत जीएसटी समाविष्ट">Price includes GST</span>
+                      <small class="agri-hint-sub" data-en="GST added on top of base rate" data-mr="मूळ दरावर जीएसटी आकारला जाईल">GST added on top of base rate</small>
+                    </div>
+                    <label class="agri-switch">
+                      <input type="checkbox" id="agriToggleInclusive">
+                      <span class="slider"></span>
+                    </label>
+                  </div>
+                  <div class="agri-toggle-row">
+                    <div>
+                      <span data-en="Inter-State (IGST)" data-mr="आंतरराज्य (IGST)">Inter-State (IGST)</span>
+                      <small class="agri-hint-sub" data-en="CGST + SGST applied (intra-state)" data-mr="CGST + SGST लागू होईल (राज्य अंतर्गत)">CGST + SGST applied (intra-state)</small>
+                    </div>
+                    <label class="agri-switch">
+                      <input type="checkbox" id="agriToggleIGST">
+                      <span class="slider"></span>
+                    </label>
+                  </div>
+                </div>
+
+                <!-- Payment Summary Card -->
+                <div class="agri-panel-card payment-summary-card">
+                  <div class="panel-card-title">
+                    <span>💳 <span data-en="Payment &amp; Invoice" data-mr="पेमेंट आणि पावती">Payment &amp; Invoice</span></span>
+                  </div>
+
+                  <div class="agri-summary-lines">
+                    <div class="summary-line">
+                      <span data-en="Subtotal:" data-mr="उपएकूण:">Subtotal:</span>
+                      <span id="agriBillSubtotal">₹0.00</span>
+                    </div>
+                    <div class="summary-line">
+                      <span data-en="GST Amount:" data-mr="जीएसटी रक्कम:">GST Amount:</span>
+                      <span id="agriBillGST">₹0.00</span>
+                    </div>
+                    <div class="summary-line grand-total">
+                      <strong data-en="TOTAL BILL:" data-mr="एकूण बिल:">TOTAL BILL:</strong>
+                      <strong class="total-highlight" id="agriBillGrandTotal">₹0.00</strong>
+                    </div>
+                  </div>
+
+                  <div class="payment-mode-selector">
+                    <label><input type="radio" name="agriPayMode" value="Cash" checked> <span data-en="Cash" data-mr="रोख">Cash</span></label>
+                    <label><input type="radio" name="agriPayMode" value="UPI"> <span data-en="UPI / QR" data-mr="UPI / क्यूआर">UPI / QR</span></label>
+                    <label><input type="radio" name="agriPayMode" value="Udhar"> <span data-en="Udhar (Credit)" data-mr="उधार">Udhar</span></label>
+                  </div>
+
+                  <button class="btn btn-primary btn-full" id="agriSaveBillBtn">
+                    ⚡ <span data-en="GENERATE &amp; PRINT INVOICE" data-mr="बिल तयार करा आणि प्रिंट करा">GENERATE &amp; PRINT INVOICE</span>
+                  </button>
                 </div>
               </div>
             </div>
           </div>
 
-          <!-- Bottom Tables Preview -->
-          <div class="agri-bottom-grid">
-            <div class="agri-card">
-              <div class="agri-card-head">
-                <strong data-en="Recent Invoices" data-mr="अलीकडील इनव्हॉइसेस">Recent Invoices</strong>
-                <a href="javascript:void(0)" class="text-amber">View All</a>
+          <!-- ================================================================
+               VIEW 3: INVOICES LIST (IMAGE 3)
+               ================================================================ -->
+          <div class="agribill-view-panel" id="agriViewInvoices" data-panel="invoices">
+            <div class="agri-subbar">
+              <div class="agri-search-wrap">
+                <span class="search-ico">🔍</span>
+                <input type="text" id="agriInvoiceSearch" class="agri-input-search" placeholder="Search by invoice #, customer name, phone..." data-en-ph="Search by invoice #, customer name, phone..." data-mr-ph="इनव्हॉइस #, ग्राहक नाव किंवा फोन द्वारे शोधा...">
               </div>
-              <div class="agri-mini-table">
-                <div class="agri-t-row">
-                  <span>AGRI-00089</span>
-                  <span>Ramesh Patil</span>
-                  <strong>₹5,800</strong>
-                  <span class="paid-badge">PAID</span>
-                </div>
-                <div class="agri-t-row">
-                  <span>AGRI-00088</span>
-                  <span>Suresh Shinde</span>
-                  <strong>₹1,983</strong>
-                  <span class="paid-badge">PAID</span>
-                </div>
+              <div class="agri-filter-actions">
+                <select class="agri-select-sm" id="agriStatusFilter">
+                  <option value="all" data-en="All Statuses" data-mr="सर्व स्थिती">All Statuses</option>
+                  <option value="Paid" data-en="Paid" data-mr="भरले">Paid</option>
+                  <option value="Partial" data-en="Partial" data-mr="अंशतः">Partial</option>
+                  <option value="Unpaid" data-en="Unpaid" data-mr="उधार / बाकी">Unpaid</option>
+                </select>
+                <button class="agri-btn-secondary" id="agriExportInvoicesBtn">
+                  📥 <span data-en="Export Excel" data-mr="एक्सेल एक्सपोर्ट">Export Excel</span>
+                </button>
               </div>
             </div>
 
-            <div class="agri-card">
-              <div class="agri-card-head">
-                <strong data-en="Udhar Ledger (Credit Balance)" data-mr="उधार खतावणी">Udhar Ledger (Credit Balance)</strong>
-                <a href="javascript:void(0)" class="text-amber">View All</a>
+            <!-- Invoices Table Card -->
+            <div class="agri-table-card">
+              <div class="table-card-head">
+                <span class="table-title">📁 <span data-en="Invoices" data-mr="इनव्हॉइसेस">Invoices</span> (9)</span>
+                <span class="table-caption" data-en="Manage, view, print, and export all customer invoices" data-mr="सर्व ग्राहक इनव्हॉइसेस व्यवस्थापित करा, पहा, प्रिंट करा आणि पाठवा">Manage, view, print, and export all customer invoices</span>
               </div>
-              <div class="agri-mini-table">
-                <div class="agri-t-row">
-                  <span>Ganesh Deshmukh</span>
-                  <span class="text-amber">Due: 15 Days</span>
-                  <strong class="text-terracotta">₹12,400</strong>
+
+              <div class="agri-table-responsive">
+                <table class="agri-full-table" id="agriInvoicesTable">
+                  <thead>
+                    <tr>
+                      <th data-en="Invoice #" data-mr="इनव्हॉइस #">Invoice #</th>
+                      <th data-en="Customer" data-mr="ग्राहक">Customer</th>
+                      <th data-en="Date &amp; Time" data-mr="तारीख व वेळ">Date &amp; Time</th>
+                      <th data-en="Price (Payment)" data-mr="पेमेंट प्रकार">Price</th>
+                      <th data-en="Total Amount" data-mr="एकूण रक्कम">Total Amount</th>
+                      <th data-en="Status" data-mr="स्थिती">Status</th>
+                      <th data-en="Actions" data-mr="कृती">Actions</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <!-- Row 1 -->
+                    <tr data-status="Paid">
+                      <td><strong class="text-ink">AGRI-00009</strong></td>
+                      <td>
+                        <strong>Nirbhay raut</strong>
+                        <small class="row-sub">9832456743</small>
+                      </td>
+                      <td>04 Sep 2026</td>
+                      <td><span class="pay-method-badge">Cash</span></td>
+                      <td><strong class="text-forest">₹5,000.00</strong></td>
+                      <td><span class="agri-status-badge paid" data-en="Paid" data-mr="भरले">Paid</span></td>
+                      <td class="action-cell">
+                        <button class="agri-icon-btn whatsapp" title="Send WhatsApp Receipt">💬</button>
+                        <button class="agri-icon-btn view" title="View Invoice">👁️</button>
+                        <button class="agri-icon-btn edit" title="Edit">✏️</button>
+                        <button class="agri-icon-btn delete" title="Delete">🗑️</button>
+                      </td>
+                    </tr>
+
+                    <!-- Row 2 -->
+                    <tr data-status="Partial">
+                      <td><strong class="text-ink">AGRI-00008</strong></td>
+                      <td>
+                        <strong>Nirbhay raut</strong>
+                        <small class="row-sub">9832456743</small>
+                      </td>
+                      <td>04 Sep 2026</td>
+                      <td><span class="pay-method-badge">Cash</span></td>
+                      <td>
+                        <strong class="text-ink">₹2,783.00</strong>
+                        <small class="row-sub text-amber">Paid: ₹1,391.50 | Balance Due: ₹1,391.50</small>
+                      </td>
+                      <td><span class="agri-status-badge partial" data-en="Partial" data-mr="अंशतः">Partial</span></td>
+                      <td class="action-cell">
+                        <button class="agri-icon-btn rupee" title="Collect Balance Due">₹</button>
+                        <button class="agri-icon-btn whatsapp" title="Send WhatsApp Reminder">💬</button>
+                        <button class="agri-icon-btn view" title="View Invoice">👁️</button>
+                        <button class="agri-icon-btn edit" title="Edit">✏️</button>
+                        <button class="agri-icon-btn delete" title="Delete">🗑️</button>
+                      </td>
+                    </tr>
+
+                    <!-- Row 3 -->
+                    <tr data-status="Paid">
+                      <td><strong class="text-ink">AGRI-00007</strong></td>
+                      <td>
+                        <strong>ram</strong>
+                      </td>
+                      <td>26 Aug 2026</td>
+                      <td><span class="pay-method-badge">Cash</span></td>
+                      <td><strong class="text-forest">₹153.00</strong></td>
+                      <td><span class="agri-status-badge paid" data-en="Paid" data-mr="भरले">Paid</span></td>
+                      <td class="action-cell">
+                        <button class="agri-icon-btn whatsapp" title="Send WhatsApp Receipt">💬</button>
+                        <button class="agri-icon-btn view" title="View Invoice">👁️</button>
+                        <button class="agri-icon-btn edit" title="Edit">✏️</button>
+                        <button class="agri-icon-btn delete" title="Delete">🗑️</button>
+                      </td>
+                    </tr>
+
+                    <!-- Row 4 -->
+                    <tr data-status="Paid">
+                      <td><strong class="text-ink">AGRI-00006</strong></td>
+                      <td>
+                        <strong>Nirbhay raut</strong>
+                        <small class="row-sub">9832456743</small>
+                      </td>
+                      <td>25 Aug 2026</td>
+                      <td><span class="pay-method-badge">Cash</span></td>
+                      <td><strong class="text-forest">₹3,729.00</strong></td>
+                      <td><span class="agri-status-badge paid" data-en="Paid" data-mr="भरले">Paid</span></td>
+                      <td class="action-cell">
+                        <button class="agri-icon-btn whatsapp" title="Send WhatsApp Receipt">💬</button>
+                        <button class="agri-icon-btn view" title="View Invoice">👁️</button>
+                        <button class="agri-icon-btn edit" title="Edit">✏️</button>
+                        <button class="agri-icon-btn delete" title="Delete">🗑️</button>
+                      </td>
+                    </tr>
+
+                    <!-- Row 5 -->
+                    <tr data-status="Paid">
+                      <td><strong class="text-ink">AGRI-00005</strong></td>
+                      <td>
+                        <strong>nishant bagnavar</strong>
+                        <small class="row-sub">9876543209</small>
+                      </td>
+                      <td>25 Aug 2026</td>
+                      <td><span class="pay-method-badge">Cash</span></td>
+                      <td><strong class="text-forest">₹1,583.00</strong></td>
+                      <td><span class="agri-status-badge paid" data-en="Paid" data-mr="भरले">Paid</span></td>
+                      <td class="action-cell">
+                        <button class="agri-icon-btn whatsapp" title="Send WhatsApp Receipt">💬</button>
+                        <button class="agri-icon-btn view" title="View Invoice">👁️</button>
+                        <button class="agri-icon-btn edit" title="Edit">✏️</button>
+                        <button class="agri-icon-btn delete" title="Delete">🗑️</button>
+                      </td>
+                    </tr>
+
+                    <!-- Row 6 -->
+                    <tr data-status="Unpaid">
+                      <td><strong class="text-ink">AGRI-00004</strong></td>
+                      <td>
+                        <strong>nishant bagnavar</strong>
+                        <small class="row-sub">9876543209</small>
+                      </td>
+                      <td>25 Aug 2026</td>
+                      <td><span class="pay-method-badge">Upi</span></td>
+                      <td>
+                        <strong class="text-terracotta">₹668.00</strong>
+                        <small class="row-sub text-terracotta">Balance Due: ₹668.00</small>
+                      </td>
+                      <td><span class="agri-status-badge unpaid" data-en="Unpaid" data-mr="बाकी">Unpaid</span></td>
+                      <td class="action-cell">
+                        <button class="agri-icon-btn rupee" title="Collect Balance Due">₹</button>
+                        <button class="agri-icon-btn whatsapp" title="Send WhatsApp Reminder">💬</button>
+                        <button class="agri-icon-btn view" title="View Invoice">👁️</button>
+                        <button class="agri-icon-btn edit" title="Edit">✏️</button>
+                        <button class="agri-icon-btn delete" title="Delete">🗑️</button>
+                      </td>
+                    </tr>
+
+                    <!-- Row 7 -->
+                    <tr data-status="Paid">
+                      <td><strong class="text-ink">AGRI-00003</strong></td>
+                      <td>
+                        <strong>nishant bagnavar</strong>
+                        <small class="row-sub">9876543209</small>
+                      </td>
+                      <td>21 Aug 2026</td>
+                      <td><span class="pay-method-badge">Cash</span></td>
+                      <td><strong class="text-forest">₹521.00</strong></td>
+                      <td><span class="agri-status-badge paid" data-en="Paid" data-mr="भरले">Paid</span></td>
+                      <td class="action-cell">
+                        <button class="agri-icon-btn whatsapp" title="Send WhatsApp Receipt">💬</button>
+                        <button class="agri-icon-btn view" title="View Invoice">👁️</button>
+                        <button class="agri-icon-btn edit" title="Edit">✏️</button>
+                        <button class="agri-icon-btn delete" title="Delete">🗑️</button>
+                      </td>
+                    </tr>
+
+                    <!-- Row 8 -->
+                    <tr data-status="Partial">
+                      <td><strong class="text-ink">AGRI-00002</strong></td>
+                      <td>
+                        <strong>nishant bagnavar</strong>
+                        <small class="row-sub">9876543209</small>
+                      </td>
+                      <td>21 Aug 2026</td>
+                      <td><span class="pay-method-badge">Cash</span></td>
+                      <td>
+                        <strong class="text-ink">₹3,239.00</strong>
+                        <small class="row-sub text-amber">Paid: ₹200.00 | Balance Due: ₹3,039.00</small>
+                      </td>
+                      <td><span class="agri-status-badge partial" data-en="Partial" data-mr="अंशतः">Partial</span></td>
+                      <td class="action-cell">
+                        <button class="agri-icon-btn rupee" title="Collect Balance Due">₹</button>
+                        <button class="agri-icon-btn whatsapp" title="Send WhatsApp Reminder">💬</button>
+                        <button class="agri-icon-btn view" title="View Invoice">👁️</button>
+                        <button class="agri-icon-btn edit" title="Edit">✏️</button>
+                        <button class="agri-icon-btn delete" title="Delete">🗑️</button>
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+
+          <!-- ================================================================
+               VIEW 4: UDHAR LEDGER (IMAGE 4)
+               ================================================================ -->
+          <div class="agribill-view-panel" id="agriViewUdhar" data-panel="udhar">
+            <div class="agri-subbar">
+              <div>
+                <strong class="agri-section-subhead" data-en="Track customer credit, collect dues, and send WhatsApp reminders" data-mr="ग्राहकांची उधारी नोंदवा, वसुली करा आणि व्हॉट्सॲप स्मरणपत्रे पाठवा">Track customer credit, collect dues, and send WhatsApp reminders</strong>
+              </div>
+              <div class="agri-filter-actions">
+                <button class="agri-btn-secondary" id="agriRefreshUdharBtn">
+                  🔄 <span data-en="Refresh" data-mr="रिफ्रेश">Refresh</span> <kbd>Alt R</kbd>
+                </button>
+              </div>
+            </div>
+
+            <!-- Udhar 3 Stat KPI Cards -->
+            <div class="agri-stats-grid-3">
+              <div class="agri-stat-card-lg border-pink">
+                <div class="stat-lg-top">
+                  <span class="stat-lg-label" data-en="Total Outstanding Dues" data-mr="एकूण बाकी उधारी">Total Outstanding Dues</span>
+                  <span class="stat-icon-circle pink">₹</span>
                 </div>
-                <div class="agri-t-row">
-                  <span>Balaji Agro Agency</span>
-                  <span class="text-amber">Due: 3 Days</span>
-                  <strong class="text-terracotta">₹8,500</strong>
+                <div class="stat-lg-val text-terracotta">₹1,391.50</div>
+                <div class="stat-lg-sub" data-en="1 Customers with Udhar" data-mr="१ ग्राहकाकडे उधारी">1 Customers with Udhar</div>
+              </div>
+
+              <div class="agri-stat-card-lg border-amber">
+                <div class="stat-lg-top">
+                  <span class="stat-lg-label" data-en="Today's Credit Added" data-mr="आज दिलेली उधारी">Today's Credit Added</span>
+                  <span class="stat-icon-circle amber">↗</span>
                 </div>
+                <div class="stat-lg-val">₹0.00</div>
+                <div class="stat-lg-sub" data-en="Credit extended to customers today" data-mr="आज ग्राहकांना दिलेली उधारी">Credit extended to customers today</div>
+              </div>
+
+              <div class="agri-stat-card-lg border-mint">
+                <div class="stat-lg-top">
+                  <span class="stat-lg-label" data-en="Collected This Month" data-mr="या महिन्यात वसूल झालेली">Collected This Month</span>
+                  <span class="stat-icon-circle mint">↙</span>
+                </div>
+                <div class="stat-lg-val text-forest">₹1,391.50</div>
+                <div class="stat-lg-sub" data-en="Payments collected from customers today" data-mr="आज ग्राहकांकडून मिळालेली रक्कम">Payments collected from customers today</div>
+              </div>
+            </div>
+
+            <!-- Udhar Split Master-Detail -->
+            <div class="agri-udhar-split">
+              <!-- Left Master Pane: Customer List -->
+              <div class="agri-customer-accounts-pane">
+                <div class="pane-header-row">
+                  <span>👥 <span data-en="Customer Accounts" data-mr="ग्राहक खाती">Customer Accounts</span></span>
+                  <span class="badge-count">1 Accounts</span>
+                </div>
+                <div class="search-input-box">
+                  <input type="text" placeholder="Search customer name or phone..." class="agri-input-sm" id="agriUdharSearch" data-en-ph="Search customer name or phone..." data-mr-ph="ग्राहक नाव किंवा फोन शोधा...">
+                </div>
+
+                <div class="customer-accounts-list">
+                  <div class="customer-account-card active" id="udharAccountNirbhay">
+                    <div class="acc-top">
+                      <strong class="acc-name">Nirbhay raut</strong>
+                      <span class="acc-badge due">DUE</span>
+                    </div>
+                    <div class="acc-sub">📞 9832456743</div>
+                    <div class="acc-bottom">
+                      <strong class="acc-due-amount">₹1,391.50</strong>
+                      <small class="acc-due-lbl" data-en="Current Due Balance" data-mr="चालू बाकी रक्कम">Current Due Balance</small>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Right Detail Pane: Customer Ledger Account -->
+              <div class="agri-ledger-detail-pane">
+                <div class="ledger-detail-header">
+                  <div>
+                    <h3 class="cust-detail-name">Nirbhay raut</h3>
+                    <p class="cust-detail-meta">📞 +91 98324 56743 • <span>Registered Farmer</span></p>
+                  </div>
+                  <div class="ledger-header-actions">
+                    <button class="agri-btn-whatsapp" id="sendWhatsappReminderBtn">
+                      💬 <span data-en="Send WhatsApp Reminder" data-mr="व्हॉट्सॲप स्मरणपत्र पाठवा">Send WhatsApp Reminder</span>
+                    </button>
+                    <button class="agri-btn-secondary" id="collectUdharPaymentBtn">
+                      💰 <span data-en="Collect Payment (+)" data-mr="रक्कम जमा करा (+)">Collect Payment (+)</span>
+                    </button>
+                  </div>
+                </div>
+
+                <div class="ledger-summary-strip">
+                  <div class="l-stat">
+                    <span data-en="Total Invoices:" data-mr="एकूण बिले:">Total Invoices:</span>
+                    <strong>3</strong>
+                  </div>
+                  <div class="l-stat">
+                    <span data-en="Total Billed:" data-mr="एकूण खरेदी:">Total Billed:</span>
+                    <strong>₹11,512.00</strong>
+                  </div>
+                  <div class="l-stat">
+                    <span data-en="Total Paid:" data-mr="जमा रक्कम:">Total Paid:</span>
+                    <strong class="text-forest">₹10,120.50</strong>
+                  </div>
+                  <div class="l-stat highlight-due">
+                    <span data-en="Remaining Balance Due:" data-mr="उर्वरित बाकी:">Remaining Balance Due:</span>
+                    <strong class="text-terracotta">₹1,391.50</strong>
+                  </div>
+                </div>
+
+                <div class="ledger-history-card">
+                  <h4 class="ledger-table-title" data-en="Transaction &amp; Invoice History" data-mr="व्यवहार आणि इनव्हॉइस इतिहास">Transaction &amp; Invoice History</h4>
+                  <table class="agri-ledger-table">
+                    <thead>
+                      <tr>
+                        <th data-en="Date" data-mr="तारीख">Date</th>
+                        <th data-en="Invoice #" data-mr="इनव्हॉइस #">Invoice #</th>
+                        <th data-en="Particulars" data-mr="तपशील">Particulars</th>
+                        <th data-en="Bill Amount" data-mr="बिल रक्कम">Bill Amount</th>
+                        <th data-en="Paid Amount" data-mr="जमा रक्कम">Paid</th>
+                        <th data-en="Due Balance" data-mr="शिल्लक">Due Balance</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <td>04 Sep 2026</td>
+                        <td><strong>AGRI-00008</strong></td>
+                        <td>00-52-34 (25kg), 2-4-D (1L)</td>
+                        <td>₹2,783.00</td>
+                        <td class="text-forest">₹1,391.50</td>
+                        <td><strong class="text-terracotta">₹1,391.50</strong></td>
+                      </tr>
+                      <tr>
+                        <td>25 Aug 2026</td>
+                        <td><strong>AGRI-00006</strong></td>
+                        <td>Fertilizer 19-19-19 (30 bag)</td>
+                        <td>₹3,729.00</td>
+                        <td class="text-forest">₹3,729.00</td>
+                        <td><span class="text-forest font-bold">₹0.00 (Cleared)</span></td>
+                      </tr>
+                      <tr>
+                        <td>20 Aug 2026</td>
+                        <td><strong>AGRI-00001</strong></td>
+                        <td>Pesticides &amp; Micronutrients</td>
+                        <td>₹5,000.00</td>
+                        <td class="text-forest">₹5,000.00</td>
+                        <td><span class="text-forest font-bold">₹0.00 (Cleared)</span></td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- ================================================================
+               VIEW 5: DEALERS & DISTRIBUTORS (IMAGE 5)
+               ================================================================ -->
+          <div class="agribill-view-panel" id="agriViewDealers" data-panel="dealers">
+            <div class="agri-subbar">
+              <div>
+                <strong class="agri-section-subhead" data-en="Manage khatabook ledgers for your suppliers" data-mr="तुमच्या पुरवठादार डीलर्सची खातावणी व्यवस्थापित करा">Manage khatabook ledgers for your suppliers</strong>
+              </div>
+              <div class="agri-filter-actions">
+                <button class="agri-btn-secondary" id="agriAddDealerBtn">
+                  + <span data-en="Add Dealer" data-mr="नवीन डीलर जोडा">Add Dealer</span> <kbd>Alt N</kbd>
+                </button>
+              </div>
+            </div>
+
+            <!-- Dealers 3 Stat KPI Cards -->
+            <div class="agri-stats-grid-3">
+              <div class="agri-stat-card-lg border-cream">
+                <div class="stat-lg-top">
+                  <span class="stat-lg-label" data-en="TOTAL DEALERS" data-mr="एकूण डीलर्स">TOTAL DEALERS</span>
+                  <span class="stat-icon-circle cream">🏢</span>
+                </div>
+                <div class="stat-lg-val">1</div>
+                <div class="stat-lg-sub" data-en="Active supplier accounts" data-mr="सक्रिय पुरवठादार खाती">Active supplier accounts</div>
+              </div>
+
+              <div class="agri-stat-card-lg border-pink">
+                <div class="stat-lg-top">
+                  <span class="stat-lg-label" data-en="TOTAL PAYABLE" data-mr="एकूण देय रक्कम">TOTAL PAYABLE</span>
+                  <span class="stat-icon-circle pink">↗</span>
+                </div>
+                <div class="stat-lg-val text-terracotta">₹100,000.00</div>
+                <div class="stat-lg-sub" data-en="Pending supplier invoices" data-mr="पुरवठादारांना देणे बाकी">Pending supplier invoices</div>
+              </div>
+
+              <div class="agri-stat-card-lg border-mint">
+                <div class="stat-lg-top">
+                  <span class="stat-lg-label" data-en="TOTAL RECEIVABLE" data-mr="एकूण येणे बाकी">TOTAL RECEIVABLE</span>
+                  <span class="stat-icon-circle mint">↙</span>
+                </div>
+                <div class="stat-lg-val text-forest">₹0.00</div>
+                <div class="stat-lg-sub" data-en="Advance balance with suppliers" data-mr="डीलर्सकडे ॲडव्हान्स शिल्लक">Advance balance with suppliers</div>
+              </div>
+            </div>
+
+            <!-- Dealers Table Card -->
+            <div class="agri-table-card">
+              <div class="table-card-head">
+                <span class="table-title">🏢 <span data-en="All Dealers" data-mr="सर्व डीलर्स">All Dealers</span></span>
+                <div class="search-input-box" style="width: 260px;">
+                  <input type="text" placeholder="Search by name or phone..." class="agri-input-sm" id="agriDealerSearch" data-en-ph="Search by name or phone..." data-mr-ph="नाव किंवा फोन द्वारे शोधा...">
+                </div>
+              </div>
+
+              <div class="agri-table-responsive">
+                <table class="agri-full-table">
+                  <thead>
+                    <tr>
+                      <th data-en="Dealer Name" data-mr="डीलरचे नाव">Dealer Name</th>
+                      <th data-en="Contact" data-mr="संपर्क क्रमांक">Contact</th>
+                      <th data-en="GSTIN" data-mr="जीएसटी क्रमांक">GSTIN</th>
+                      <th data-en="Balance" data-mr="शिल्लक / देय">Balance</th>
+                      <th data-en="Actions" data-mr="कृती">Actions</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td><strong>santosh gandhi</strong></td>
+                      <td>📞 9876456788</td>
+                      <td><span class="text-muted">---</span></td>
+                      <td>
+                        <strong class="text-terracotta">↗ ₹100,000.00 <small class="text-terracotta" data-en="Payable" data-mr="देय">Payable</small></strong>
+                      </td>
+                      <td class="action-cell">
+                        <button class="agri-action-pill-sm">📖 <span data-en="Ledger" data-mr="खतावणी">Ledger</span></button>
+                        <button class="agri-icon-btn edit" title="Edit Dealer">✏️</button>
+                        <button class="agri-icon-btn delete" title="Delete Dealer">🗑️</button>
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
               </div>
             </div>
           </div>
@@ -1299,6 +2075,6 @@
     </div>
   </div>
 
-  <script src="app.js"></script>
+  <script src="app.js?v=2026.1"></script>
 </body>
 </html>
