@@ -222,15 +222,13 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
-  [quoteModal, receiptModal].forEach(modal => {
-    if (modal) {
-      modal.addEventListener('click', (e) => {
-        if (e.target === modal) {
-          modal.classList.remove('active');
-        }
-      });
-    }
-  });
+  if (quoteModal) {
+    quoteModal.addEventListener('click', (e) => {
+      if (e.target === quoteModal) {
+        quoteModal.classList.remove('active');
+      }
+    });
+  }
 
   if (modalNextBtn) {
     modalNextBtn.addEventListener('click', () => {
