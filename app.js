@@ -11,7 +11,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const wordEl = document.getElementById('heroDynamicWord');
     if (!wordEl) return;
 
-    const words = ['SYSTEMS', 'PLATFORMS', 'CLOUD ERPs', 'AI BOTS'];
+    const words = ['SYSTEMS', 'SOFTWARE', 'PLATFORMS', 'AUTOMATION'];
     let currentIndex = 0;
 
     setInterval(() => {
