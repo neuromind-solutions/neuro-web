@@ -825,6 +825,90 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   });
 
+  /* ==========================================================================
+     SERVICE DETAIL MODALS — click any of the 3 service cards to expand
+     Frontend Developer agent: slide-up animation, keyboard accessible, theme-matched
+     ========================================================================== */
+
+  const svcModalMap = {
+    erp:    document.getElementById('svcModal-erp'),
+    mobile: document.getElementById('svcModal-mobile'),
+    ai:     document.getElementById('svcModal-ai'),
+  };
+
+  function openSvcModal(key) {
+    const overlay = svcModalMap[key];
+    if (!overlay) return;
+    overlay.classList.add('is-open');
+    document.body.style.overflow = 'hidden';
+    // Focus the close button for keyboard users
+    const closeBtn = overlay.querySelector('.svc-modal-close');
+    if (closeBtn) setTimeout(() => closeBtn.focus(), 50);
+  }
+
+  function closeSvcModal(overlay) {
+    overlay.classList.remove('is-open');
+    document.body.style.overflow = '';
+  }
+
+  // Wire service cards to open their matching modal
+  document.querySelectorAll('.service-card[data-service]').forEach(card => {
+    const key = card.dataset.service;
+
+    card.addEventListener('click', () => openSvcModal(key));
+
+    // Keyboard: Enter or Space
+    card.addEventListener('keydown', (e) => {
+      if (e.key === 'Enter' || e.key === ' ') {
+        e.preventDefault();
+        openSvcModal(key);
+      }
+    });
+  });
+
+  // Wire close buttons & backdrop clicks for all modals
+  Object.values(svcModalMap).forEach(overlay => {
+    if (!overlay) return;
+
+    const closeBtn = overlay.querySelector('.svc-modal-close');
+    if (closeBtn) {
+      closeBtn.addEventListener('click', () => closeSvcModal(overlay));
+    }
+
+    // Click on the darkened backdrop (not on the modal card itself)
+    overlay.addEventListener('click', (e) => {
+      if (e.target === overlay) closeSvcModal(overlay);
+    });
+  });
+
+  // Wire CTA buttons inside each modal to open the global quote modal
+  ['svcErpCta', 'svcMobileCta', 'svcAiCta'].forEach(id => {
+    const btn = document.getElementById(id);
+    if (!btn) return;
+    btn.addEventListener('click', () => {
+      // Close the service modal first
+      Object.values(svcModalMap).forEach(o => o && o.classList.remove('is-open'));
+      document.body.style.overflow = '';
+      // Open the quote modal
+      const quoteModal = document.getElementById('quoteModal');
+      if (quoteModal) quoteModal.classList.add('active');
+    });
+  });
+
+  // Escape key closes whichever modal is open
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape') {
+      Object.values(svcModalMap).forEach(overlay => {
+        if (overlay && overlay.classList.contains('is-open')) {
+          closeSvcModal(overlay);
+        }
+      });
+    }
+  });
+
 });
+
+
+
 
 

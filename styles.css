@@ -4805,3 +4805,365 @@ a {
     max-height: 12px !important;
   }
 }
+
+/* ==========================================================================
+   SERVICE DETAIL MODALS — Click-to-expand popup with project portfolio
+   UI Designer + Frontend Developer agents: slide-up, theme-matched, accessible
+   ========================================================================== */
+
+/* Make service cards clickable */
+.service-card[data-service] {
+  cursor: pointer;
+  transition: transform 0.18s cubic-bezier(0.16, 1, 0.3, 1),
+              box-shadow 0.18s ease;
+}
+
+.service-card[data-service]:hover {
+  transform: translateY(-6px);
+  box-shadow: 6px 6px 0 var(--ink);
+}
+
+.service-card[data-service]:hover::after {
+  content: "TAP TO EXPLORE →";
+  position: absolute;
+  bottom: 0.75rem;
+  right: 1rem;
+  font-family: var(--font-mono);
+  font-size: 0.6rem;
+  font-weight: 800;
+  letter-spacing: 0.1em;
+  color: var(--ink-muted);
+  opacity: 0.6;
+}
+
+.service-card { position: relative; }
+
+/* Overlay — dark scrim behind modal */
+.svc-modal-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 9000;
+  background: rgba(10, 10, 8, 0.72);
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1.5rem;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.3s ease, visibility 0.3s ease;
+}
+
+.svc-modal-overlay.is-open {
+  opacity: 1;
+  visibility: visible;
+}
+
+/* Modal card */
+.svc-modal {
+  position: relative;
+  width: 100%;
+  max-width: 640px;
+  max-height: 88vh;
+  overflow-y: auto;
+  border: var(--border-thick);
+  border-radius: var(--radius-lg);
+  padding: 2rem 2rem 1.5rem;
+  box-shadow: 8px 8px 0 var(--ink);
+  transform: translateY(32px) scale(0.97);
+  transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1),
+              opacity 0.3s ease;
+  opacity: 0;
+  scrollbar-width: thin;
+  scrollbar-color: var(--ink) transparent;
+}
+
+.svc-modal-overlay.is-open .svc-modal {
+  transform: translateY(0) scale(1);
+  opacity: 1;
+}
+
+/* Theme variants */
+.svc-modal[data-theme="yellow"] {
+  background-color: var(--amber-light, #fffbeb);
+}
+
+.svc-modal[data-theme="paper"] {
+  background-color: var(--bg-paper, #f6f3eb);
+}
+
+.svc-modal[data-theme="dark"] {
+  background-color: var(--forest-green, #1c3a2e);
+  color: var(--cream-text, #f6f3eb);
+  border-color: rgba(246, 243, 235, 0.25);
+  box-shadow: 8px 8px 0 rgba(0,0,0,0.5);
+}
+
+/* Close button */
+.svc-modal-close {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  width: 32px;
+  height: 32px;
+  border: var(--border-thin);
+  border-radius: var(--radius-sm);
+  background: transparent;
+  color: inherit;
+  font-size: 1rem;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 2px 2px 0 currentColor;
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
+  flex-shrink: 0;
+}
+
+.svc-modal-close:hover {
+  transform: translateY(-2px);
+  box-shadow: 3px 3px 0 currentColor;
+}
+
+[data-theme="dark"] .svc-modal-close {
+  border-color: rgba(246, 243, 235, 0.35);
+  box-shadow: 2px 2px 0 rgba(246,243,235,0.3);
+}
+
+/* Modal header — number + icon badge */
+.svc-modal-header {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin-bottom: 0.8rem;
+}
+
+.svc-modal-num {
+  font-family: var(--font-mono);
+  font-size: 2.2rem;
+  font-weight: 900;
+  color: var(--amber);
+  line-height: 1;
+}
+
+.svc-modal-domain-badge {
+  width: 42px;
+  height: 42px;
+  border: var(--border-thick);
+  border-radius: var(--radius-sm);
+  display: grid;
+  place-items: center;
+  color: var(--amber);
+  box-shadow: 2px 2px 0 var(--ink);
+  flex-shrink: 0;
+}
+
+[data-theme="dark"] .svc-modal-domain-badge {
+  background-color: rgba(246,243,235,0.08);
+  border-color: rgba(246,243,235,0.3);
+  box-shadow: 2px 2px 0 rgba(0,0,0,0.4);
+}
+
+.svc-modal-domain-badge svg {
+  width: 22px;
+  height: 22px;
+}
+
+.svc-modal-title {
+  font-size: clamp(1.4rem, 3vw, 1.8rem);
+  font-weight: 900;
+  letter-spacing: -0.03em;
+  line-height: 1.15;
+  margin-bottom: 0.55rem;
+}
+
+.svc-modal-desc {
+  font-size: 0.92rem;
+  line-height: 1.6;
+  color: var(--ink-muted);
+  margin-bottom: 0;
+}
+
+[data-theme="dark"] .svc-modal-desc {
+  color: rgba(246,243,235,0.75);
+}
+
+.svc-modal-divider {
+  border: none;
+  border-top: 1.5px dashed var(--ink);
+  margin: 1.4rem 0 1rem;
+  opacity: 0.25;
+}
+
+[data-theme="dark"] .svc-modal-divider {
+  border-color: rgba(246,243,235,0.3);
+}
+
+.svc-modal-section-label {
+  font-family: var(--font-mono);
+  font-size: 0.68rem;
+  font-weight: 800;
+  letter-spacing: 0.12em;
+  color: var(--amber);
+  text-transform: uppercase;
+  margin-bottom: 0.85rem;
+}
+
+/* Project cards grid */
+.svc-modal-projects {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  margin-bottom: 1.4rem;
+}
+
+.svc-project-card {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.9rem;
+  padding: 0.85rem 1rem;
+  border: 1.5px solid var(--ink);
+  border-radius: var(--radius-sm);
+  background: rgba(255,255,255,0.45);
+  box-shadow: 2px 2px 0 var(--ink);
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
+}
+
+.svc-project-card:hover {
+  transform: translateX(3px);
+  box-shadow: 4px 4px 0 var(--ink);
+}
+
+[data-theme="dark"] .svc-project-card {
+  background: rgba(255,255,255,0.05);
+  border-color: rgba(246,243,235,0.2);
+  box-shadow: 2px 2px 0 rgba(0,0,0,0.35);
+}
+
+[data-theme="dark"] .svc-project-card:hover {
+  box-shadow: 4px 4px 0 rgba(0,0,0,0.5);
+}
+
+.svc-project-icon {
+  width: 36px;
+  height: 36px;
+  min-width: 36px;
+  background: var(--bg-paper, #f6f3eb);
+  border: 1.5px solid var(--ink);
+  border-radius: 6px;
+  display: grid;
+  place-items: center;
+  color: var(--forest-green);
+  box-shadow: 1.5px 1.5px 0 var(--ink);
+  flex-shrink: 0;
+}
+
+[data-theme="dark"] .svc-project-icon {
+  background: rgba(255,255,255,0.1);
+  border-color: rgba(246,243,235,0.3);
+  color: var(--amber);
+  box-shadow: 1.5px 1.5px 0 rgba(0,0,0,0.3);
+}
+
+.svc-project-icon svg {
+  width: 18px;
+  height: 18px;
+}
+
+.svc-project-info { flex: 1; min-width: 0; }
+
+.svc-project-info h4 {
+  font-size: 0.88rem;
+  font-weight: 800;
+  letter-spacing: -0.01em;
+  line-height: 1.3;
+  margin-bottom: 0.3rem;
+}
+
+.svc-project-info p {
+  font-size: 0.8rem;
+  line-height: 1.55;
+  color: var(--ink-muted);
+  margin-bottom: 0.5rem;
+}
+
+[data-theme="dark"] .svc-project-info p {
+  color: rgba(246,243,235,0.65);
+}
+
+.svc-project-tag {
+  font-family: var(--font-mono);
+  font-size: 0.6rem;
+  font-weight: 800;
+  letter-spacing: 0.1em;
+  padding: 0.15rem 0.5rem;
+  border: 1px solid var(--ink);
+  border-radius: 3px;
+  background: var(--amber);
+  color: var(--ink);
+  display: inline-block;
+}
+
+/* Modal footer */
+.svc-modal-footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  flex-wrap: wrap;
+  padding-top: 1rem;
+  border-top: 1px solid rgba(0,0,0,0.1);
+}
+
+[data-theme="dark"] .svc-modal-footer {
+  border-top-color: rgba(246,243,235,0.15);
+}
+
+.svc-modal-pill {
+  font-family: var(--font-mono);
+  font-size: 0.65rem;
+  font-weight: 800;
+  letter-spacing: 0.1em;
+  padding: 0.3rem 0.8rem;
+  border: 1.5px solid var(--ink);
+  border-radius: var(--radius-pill);
+  background: var(--bg-paper);
+  box-shadow: 2px 2px 0 var(--ink);
+}
+
+[data-theme="dark"] .svc-modal-pill {
+  background: rgba(255,255,255,0.1);
+  border-color: rgba(246,243,235,0.35);
+  color: var(--cream-text);
+  box-shadow: 2px 2px 0 rgba(0,0,0,0.3);
+}
+
+.svc-cta-btn {
+  font-size: 0.78rem !important;
+  padding: 0.55rem 1.2rem !important;
+}
+
+/* Responsive */
+@media (max-width: 640px) {
+  .svc-modal {
+    padding: 1.5rem 1.2rem 1.2rem;
+    max-height: 92vh;
+  }
+
+  .svc-modal-footer {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .svc-cta-btn {
+    width: 100%;
+    justify-content: center;
+  }
+
+  .svc-project-card {
+    flex-direction: column;
+    gap: 0.6rem;
+  }
+}
+
