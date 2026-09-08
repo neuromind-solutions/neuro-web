@@ -3585,17 +3585,15 @@ a {
   box-shadow: 0 0 8px rgba(217, 119, 6, 0.4);
 }
 
-/* Scroll Reveal Tokens */
+/* Scroll Reveal Tokens — ensure sections and cards are always visible */
 [data-scroll-reveal] {
-  opacity: 0;
-  transform: translateY(28px);
-  transition: opacity 0.65s cubic-bezier(0.16, 1, 0.3, 1), transform 0.65s cubic-bezier(0.16, 1, 0.3, 1);
-  will-change: opacity, transform;
+  opacity: 1;
+  transform: none;
 }
 
 [data-scroll-reveal].is-revealed {
   opacity: 1;
-  transform: translateY(0);
+  transform: none;
 }
 
 /* ==========================================================================
