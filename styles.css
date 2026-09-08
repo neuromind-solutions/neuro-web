@@ -5167,3 +5167,122 @@ a {
   }
 }
 
+/* ==========================================================================
+   SERVICE CARD — "VIEW OUR PROJECTS" Read-More Button
+   UI Designer + Frontend Developer agents
+   ========================================================================== */
+
+.service-read-more-area {
+  margin: 0.2rem 0 0.8rem;
+}
+
+.service-divider-dashed {
+  border: none;
+  border-top: 1.5px dashed currentColor;
+  opacity: 0.2;
+  margin-bottom: 1rem;
+}
+
+.service-read-more-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  padding: 0.45rem 1rem;
+  font-family: var(--font-mono);
+  font-size: 0.68rem;
+  font-weight: 800;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  border: 1.5px solid var(--ink);
+  border-radius: var(--radius-pill);
+  background: transparent;
+  color: var(--ink);
+  cursor: pointer;
+  box-shadow: 2px 2px 0 var(--ink);
+  transition: transform 0.15s ease, box-shadow 0.15s ease, background 0.15s ease;
+  white-space: nowrap;
+}
+
+.service-read-more-btn svg {
+  width: 14px;
+  height: 14px;
+  flex-shrink: 0;
+}
+
+.service-read-more-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 3px 3px 0 var(--ink);
+  background: var(--amber);
+}
+
+/* Dark card variant — light button on dark background */
+.service-read-more-btn--dark {
+  border-color: rgba(246, 243, 235, 0.5);
+  color: rgba(246, 243, 235, 0.9);
+  box-shadow: 2px 2px 0 rgba(246, 243, 235, 0.25);
+}
+
+.service-read-more-btn--dark:hover {
+  background: var(--amber);
+  color: var(--ink);
+  border-color: var(--amber);
+  box-shadow: 3px 3px 0 rgba(0, 0, 0, 0.4);
+}
+
+/* ==========================================================================
+   DARK MODAL (03 — AI & WhatsApp) — TEXT CONTRAST FIXES
+   UI Designer agent: cream text on dark emerald for WCAG AA compliance
+   ========================================================================== */
+
+/* Project card h4 titles — force cream on dark theme */
+.svc-modal[data-theme="dark"] .svc-project-info h4 {
+  color: #f0ece0;
+}
+
+/* Project card body text — light sage */
+.svc-modal[data-theme="dark"] .svc-project-info p {
+  color: rgba(240, 236, 224, 0.75);
+}
+
+/* Project card background — slightly more opaque for contrast */
+.svc-modal[data-theme="dark"] .svc-project-card {
+  background: rgba(255, 255, 255, 0.08);
+  border-color: rgba(246, 243, 235, 0.18);
+}
+
+/* Project icon box on dark — amber tinted */
+.svc-modal[data-theme="dark"] .svc-project-icon {
+  background: rgba(229, 148, 0, 0.15);
+  border-color: rgba(229, 148, 0, 0.4);
+  color: var(--amber);
+}
+
+/* Section label stays amber — already readable */
+.svc-modal[data-theme="dark"] .svc-modal-section-label {
+  color: var(--amber);
+  opacity: 1;
+}
+
+/* Divider — more visible on dark */
+.svc-modal[data-theme="dark"] .svc-modal-divider {
+  opacity: 0.2;
+}
+
+/* Project tag — amber pill stays crisp */
+.svc-modal[data-theme="dark"] .svc-project-tag {
+  background: var(--amber);
+  color: var(--ink);
+  border-color: var(--amber);
+}
+
+/* Modal title — already amber, ensure full opacity */
+.svc-modal[data-theme="dark"] .svc-modal-title {
+  color: var(--amber);
+}
+
+/* Description text */
+.svc-modal[data-theme="dark"] .svc-modal-desc {
+  color: rgba(240, 236, 224, 0.82);
+}
+
+
