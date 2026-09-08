@@ -935,6 +935,11 @@ a {
 
 .service-footer {
   margin-top: auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 0.5rem;
 }
 
 .service-pill {
@@ -4823,19 +4828,6 @@ a {
   box-shadow: 6px 6px 0 var(--ink);
 }
 
-.service-card[data-service]:hover::after {
-  content: "TAP TO EXPLORE →";
-  position: absolute;
-  bottom: 0.75rem;
-  right: 1rem;
-  font-family: var(--font-mono);
-  font-size: 0.6rem;
-  font-weight: 800;
-  letter-spacing: 0.1em;
-  color: var(--ink-muted);
-  opacity: 0.6;
-}
-
 .service-card { position: relative; }
 
 /* Overlay — dark scrim behind modal */
@@ -5168,65 +5160,38 @@ a {
 }
 
 /* ==========================================================================
-   SERVICE CARD — "VIEW OUR PROJECTS" Read-More Button
+   SERVICE CARD — "TAP TO EXPLORE" Small Button
    UI Designer + Frontend Developer agents
    ========================================================================== */
 
-.service-read-more-area {
-  margin: 0.2rem 0 0.8rem;
-}
-
-.service-divider-dashed {
-  border: none;
-  border-top: 1.5px dashed currentColor;
-  opacity: 0.2;
-  margin-bottom: 1rem;
-}
-
-.service-read-more-btn {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.45rem;
-  padding: 0.45rem 1rem;
+.service-tap-btn {
   font-family: var(--font-mono);
-  font-size: 0.68rem;
+  font-size: 0.6rem;
   font-weight: 800;
   letter-spacing: 0.1em;
-  text-transform: uppercase;
-  border: 1.5px solid var(--ink);
-  border-radius: var(--radius-pill);
-  background: transparent;
   color: var(--ink);
-  cursor: pointer;
-  box-shadow: 2px 2px 0 var(--ink);
-  transition: transform 0.15s ease, box-shadow 0.15s ease, background 0.15s ease;
+  text-transform: uppercase;
+  background: rgba(0, 0, 0, 0.05);
+  border: 1px solid rgba(0, 0, 0, 0.2);
+  padding: 0.35rem 0.75rem;
+  border-radius: var(--radius-pill);
+  transition: all 0.2s ease;
   white-space: nowrap;
 }
 
-.service-read-more-btn svg {
-  width: 14px;
-  height: 14px;
-  flex-shrink: 0;
-}
-
-.service-read-more-btn:hover {
-  transform: translateY(-2px);
-  box-shadow: 3px 3px 0 var(--ink);
-  background: var(--amber);
-}
-
-/* Dark card variant — light button on dark background */
-.service-read-more-btn--dark {
-  border-color: rgba(246, 243, 235, 0.5);
+[data-theme="dark"] .service-tap-btn,
+.card-dark .service-tap-btn {
   color: rgba(246, 243, 235, 0.9);
-  box-shadow: 2px 2px 0 rgba(246, 243, 235, 0.25);
+  background: rgba(255, 255, 255, 0.1);
+  border-color: rgba(255, 255, 255, 0.3);
 }
 
-.service-read-more-btn--dark:hover {
+.service-card[data-service]:hover .service-tap-btn {
   background: var(--amber);
   color: var(--ink);
-  border-color: var(--amber);
-  box-shadow: 3px 3px 0 rgba(0, 0, 0, 0.4);
+  border-color: var(--ink);
+  box-shadow: 2px 2px 0 var(--ink);
+  transform: translateY(-2px);
 }
 
 /* ==========================================================================
