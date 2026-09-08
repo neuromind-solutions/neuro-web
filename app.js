@@ -108,163 +108,68 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   /* ==========================================================================
-     2. FULL POS TERMINAL PLAYGROUND DEMO
+     2. METRICS COUNTER ANIMATION ("0+" to "50+")
      ========================================================================== */
-  let cart = [
-    { id: 1, name: "Wireless Optical Mouse", price: 450, taxRate: 18, qty: 1 },
-    { id: 2, name: "Mechanical Keyboard", price: 1200, taxRate: 18, qty: 1 }
-  ];
+  function initMetricsCounter() {
+    const counterEl = document.getElementById('metricCounter50');
+    if (!counterEl) return;
 
-  const productSelect = document.getElementById('productSelect');
-  const addItemBtn = document.getElementById('addItemBtn');
-  const cartTableBody = document.getElementById('cartTableBody');
-  const demoSubtotal = document.getElementById('demoSubtotal');
-  const demoTax = document.getElementById('demoTax');
-  const demoGrandTotal = document.getElementById('demoGrandTotal');
-  const generateReceiptBtn = document.getElementById('generateReceiptBtn');
-  const receiptModal = document.getElementById('receiptModal');
-  const closeReceiptModal = document.getElementById('closeReceiptModal');
-  const thermalReceiptContent = document.getElementById('thermalReceiptContent');
+    const target = parseInt(counterEl.getAttribute('data-target') || '50', 10);
+    const suffix = counterEl.getAttribute('data-suffix') || '+';
+    const duration = 1600; // ms
+    let hasAnimated = false;
 
-  const productsDatabase = {
-    "1": { name: "Wireless Optical Mouse", price: 450, taxRate: 18 },
-    "2": { name: "Mechanical Keyboard", price: 1200, taxRate: 18 },
-    "3": { name: "Thermal Receipt Paper 10pk", price: 250, taxRate: 5 },
-    "4": { name: "Barcode Laser Scanner", price: 850, taxRate: 12 }
-  };
-
-  const renderCart = () => {
-    cartTableBody.innerHTML = '';
-    let subtotal = 0;
-    let totalTax = 0;
-
-    if (cart.length === 0) {
-      cartTableBody.innerHTML = `<tr><td colspan="5" style="text-align:center; color:#888; padding: 1rem;">No items in cart. Add items above!</td></tr>`;
-      demoSubtotal.textContent = "₹0.00";
-      demoTax.textContent = "₹0.00";
-      demoGrandTotal.textContent = "₹0.00";
+    // Respect user's reduced motion setting
+    const prefersReducedMotion = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    if (prefersReducedMotion) {
+      counterEl.textContent = `${target}${suffix}`;
       return;
     }
 
-    cart.forEach((item, index) => {
-      const itemSubtotal = item.price * item.qty;
-      const itemTax = (itemSubtotal * item.taxRate) / 100;
-      subtotal += itemSubtotal;
-      totalTax += itemTax;
+    function animateCount() {
+      if (hasAnimated) return;
+      hasAnimated = true;
 
-      const tr = document.createElement('tr');
-      tr.innerHTML = `
-        <td><strong>${item.name}</strong></td>
-        <td>${item.qty}</td>
-        <td>₹${item.price}</td>
-        <td>₹${itemSubtotal}</td>
-        <td><button class="del-btn" data-index="${index}">&times;</button></td>
-      `;
-      cartTableBody.appendChild(tr);
-    });
+      const startTime = performance.now();
 
-    const grandTotal = subtotal + totalTax;
-    demoSubtotal.textContent = `₹${subtotal.toFixed(2)}`;
-    demoTax.textContent = `₹${totalTax.toFixed(2)}`;
-    demoGrandTotal.textContent = `₹${grandTotal.toFixed(2)}`;
-  };
+      function update(now) {
+        const elapsed = now - startTime;
+        const progress = Math.min(elapsed / duration, 1);
 
-  if (addItemBtn) {
-    addItemBtn.addEventListener('click', () => {
-      const selectedVal = productSelect.value;
-      const prod = productsDatabase[selectedVal];
-      if (!prod) return;
+        // Smooth ease-out cubic curve
+        const easeOut = 1 - Math.pow(1 - progress, 3);
+        const currentCount = Math.floor(easeOut * target);
 
-      const existing = cart.find(i => i.name === prod.name);
-      if (existing) {
-        existing.qty += 1;
-      } else {
-        cart.push({ ...prod, qty: 1 });
-      }
-      renderCart();
-    });
-  }
+        counterEl.textContent = `${currentCount}${suffix}`;
 
-  if (cartTableBody) {
-    cartTableBody.addEventListener('click', (e) => {
-      if (e.target.classList.contains('del-btn')) {
-        const index = parseInt(e.target.getAttribute('data-index'), 10);
-        cart.splice(index, 1);
-        renderCart();
-      }
-    });
-  }
-
-  renderCart();
-
-  if (generateReceiptBtn) {
-    generateReceiptBtn.addEventListener('click', () => {
-      if (cart.length === 0) {
-        alert("Please add at least one item to generate a receipt.");
-        return;
+        if (progress < 1) {
+          requestAnimationFrame(update);
+        } else {
+          counterEl.textContent = `${target}${suffix}`;
+        }
       }
 
-      const billNumber = `NM-${Math.floor(100000 + Math.random() * 900000)}`;
-      const now = new Date();
-      const dateStr = now.toLocaleDateString('en-IN', { day: '2-digit', month: 'short', year: 'numeric' });
-      const timeStr = now.toLocaleTimeString('en-IN', { hour: '2-digit', minute: '2-digit' });
+      requestAnimationFrame(update);
+    }
 
-      let itemsHtml = '';
-      let subtotal = 0;
-      let totalTax = 0;
+    // Trigger smoothly via IntersectionObserver when viewed or on page load
+    if ('IntersectionObserver' in window) {
+      const observer = new IntersectionObserver((entries, obs) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            animateCount();
+            obs.unobserve(entry.target);
+          }
+        });
+      }, { threshold: 0.15 });
 
-      cart.forEach(item => {
-        const itemSubtotal = item.price * item.qty;
-        const itemTax = (itemSubtotal * item.taxRate) / 100;
-        subtotal += itemSubtotal;
-        totalTax += itemTax;
-
-        itemsHtml += `
-          <div style="display:flex; justify-content:space-between; margin-bottom:4px;">
-            <span>${item.qty}x ${item.name}</span>
-            <span>₹${itemSubtotal}</span>
-          </div>
-        `;
-      });
-
-      const grandTotal = subtotal + totalTax;
-
-      thermalReceiptContent.innerHTML = `
-        <div style="text-align:center; margin-bottom: 8px;">
-          <h3 style="margin:0; font-size: 1.1rem; font-weight:900;">NEUROMIND RETAIL STORE</h3>
-          <p style="margin:2px 0; font-size:0.75rem;">GSTIN: 08AABCN1234F1Z5</p>
-          <p style="margin:2px 0; font-size:0.75rem;">Bill No: ${billNumber} | ${dateStr} ${timeStr}</p>
-        </div>
-        <div style="border-top:1px dashed #000; border-bottom:1px dashed #000; padding:6px 0; margin: 6px 0;">
-          ${itemsHtml}
-        </div>
-        <div style="display:flex; justify-content:space-between; margin-bottom:2px;">
-          <span>Subtotal:</span>
-          <span>₹${subtotal.toFixed(2)}</span>
-        </div>
-        <div style="display:flex; justify-content:space-between; margin-bottom:2px;">
-          <span>GST (CGST+SGST):</span>
-          <span>₹${totalTax.toFixed(2)}</span>
-        </div>
-        <div style="display:flex; justify-content:space-between; font-weight:900; font-size:0.95rem; border-top:1px solid #000; margin-top:4px; padding-top:4px;">
-          <span>GRAND TOTAL:</span>
-          <span>₹${grandTotal.toFixed(2)}</span>
-        </div>
-        <div style="text-align:center; margin-top:10px; font-size:0.7rem; color:#555;">
-          *** POWERED BY NEUROMIND POS ***<br>
-          Thank You! Visit Again
-        </div>
-      `;
-
-      receiptModal.classList.add('active');
-    });
+      observer.observe(counterEl);
+    } else {
+      animateCount();
+    }
   }
 
-  if (closeReceiptModal) {
-    closeReceiptModal.addEventListener('click', () => {
-      receiptModal.classList.remove('active');
-    });
-  }
+  initMetricsCounter();
 
   /* ==========================================================================
      3. 3-STEP INSTANT QUOTE MODAL CONTROLLER

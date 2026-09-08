@@ -1653,7 +1653,8 @@ a {
 .metrics-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  divide-x: 2px solid rgba(246, 243, 235, 0.25);
+  gap: 2rem;
+  align-items: center;
 }
 
 @media (max-width: 600px) {

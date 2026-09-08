@@ -37,7 +37,6 @@
 
       <nav class="nav-links">
         <a href="#services">SERVICES</a>
-        <a href="#demo">LIVE DEMO</a>
         <a href="#work">WORK</a>
         <a href="#team">FOUNDERS</a>
         <a href="#reviews">REVIEWS</a>
@@ -590,129 +589,26 @@
       </div>
     </div>
 
-    <!-- Interactive Live Billing Demo Widget -->
-    <section class="section demo-section" id="demo">
+    <!-- Metrics Proof Strip (Automated Stats & Reliability) -->
+    <div class="metrics-strip" id="metricsStrip">
       <div class="container">
-        <div class="demo-wrapper">
-          <div class="demo-info">
-            <span class="demo-tag">FULL POS TERMINAL PLAYGROUND</span>
-            <h2 class="demo-title">Test Our POS &amp; Billing Engine in 10 Seconds</h2>
-            <p class="demo-desc">
-              Experience the speed of Neuromind's custom billing systems. Add items, apply discounts, and generate an instant mock GST thermal receipt right here!
-            </p>
-            <div class="demo-highlights">
-              <div class="demo-highlight-item">
-                <span class="demo-vintage-highlight-icon">
-                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                    <line x1="3" y1="6" x2="3" y2="18"></line>
-                    <line x1="7" y1="6" x2="7" y2="18"></line>
-                    <line x1="10" y1="6" x2="10" y2="18"></line>
-                    <line x1="14" y1="6" x2="14" y2="18"></line>
-                    <line x1="17" y1="6" x2="17" y2="18"></line>
-                    <line x1="21" y1="6" x2="21" y2="18"></line>
-                    <line x1="1" y1="12" x2="23" y2="12" stroke="#e11d48" stroke-width="2.5"></line>
-                  </svg>
-                </span>
-                <span>Sub-second barcode lookup</span>
-              </div>
-              <div class="demo-highlight-item">
-                <span class="demo-vintage-highlight-icon">
-                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                    <rect x="4" y="4" width="16" height="16" rx="2"></rect>
-                    <rect x="9" y="9" width="6" height="6"></rect>
-                    <line x1="9" y1="1" x2="9" y2="4"></line>
-                    <line x1="15" y1="1" x2="15" y2="4"></line>
-                    <line x1="9" y1="20" x2="9" y2="23"></line>
-                    <line x1="15" y1="20" x2="15" y2="23"></line>
-                    <line x1="20" y1="9" x2="23" y2="9"></line>
-                    <line x1="20" y1="15" x2="23" y2="15"></line>
-                    <line x1="1" y1="9" x2="4" y2="9"></line>
-                    <line x1="1" y1="15" x2="4" y2="15"></line>
-                  </svg>
-                </span>
-                <span>Automated GST &amp; HSN calculations</span>
-              </div>
-              <div class="demo-highlight-item">
-                <span class="demo-vintage-highlight-icon">
-                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                    <polyline points="6 9 6 2 18 2 18 9"></polyline>
-                    <path d="M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2"></path>
-                    <rect x="6" y="14" width="12" height="8"></rect>
-                  </svg>
-                </span>
-                <span>Thermal 3-inch &amp; A4 print ready</span>
-              </div>
-            </div>
+        <div class="metrics-grid">
+          <div class="metric-item">
+            <div class="metric-number" id="metricCounter50" data-target="50" data-suffix="+">0+</div>
+            <div class="metric-label">BUSINESSES AUTOMATED</div>
           </div>
-
-          <!-- Interactive POS Terminal Card -->
-          <div class="demo-terminal">
-            <div class="terminal-header">
-              <div class="terminal-dots">
-                <span></span><span></span><span></span>
-              </div>
-              <span class="terminal-title">Neuromind POS Terminal v2.4</span>
-              <span class="terminal-badge">LIVE</span>
-            </div>
-
-            <div class="terminal-body">
-              <div class="terminal-item-select">
-                <label for="productSelect">Select Quick Item:</label>
-                <div class="select-group">
-                  <select id="productSelect" class="form-select">
-                    <option value="1" data-price="450" data-tax="18">Wireless Optical Mouse (₹450 | 18% GST)</option>
-                    <option value="2" data-price="1200" data-tax="18">Mechanical Keyboard (₹1200 | 18% GST)</option>
-                    <option value="3" data-price="250" data-tax="5">Thermal Receipt Paper 10pk (₹250 | 5% GST)</option>
-                    <option value="4" data-price="850" data-tax="12">Barcode Laser Scanner (₹850 | 12% GST)</option>
-                  </select>
-                  <button class="btn btn-sm btn-yellow" id="addItemBtn">+ ADD ITEM</button>
-                </div>
-              </div>
-
-              <!-- Cart Table -->
-              <div class="terminal-cart-wrap">
-                <table class="terminal-table" id="cartTable">
-                  <thead>
-                    <tr>
-                      <th>ITEM</th>
-                      <th>QTY</th>
-                      <th>PRICE</th>
-                      <th>TOTAL</th>
-                      <th></th>
-                    </tr>
-                  </thead>
-                  <tbody id="cartTableBody">
-                    <!-- Items dynamically rendered -->
-                  </tbody>
-                </table>
-              </div>
-
-              <!-- Totals Box -->
-              <div class="terminal-totals">
-                <div class="total-row">
-                  <span>Subtotal:</span>
-                  <span id="demoSubtotal">₹0.00</span>
-                </div>
-                <div class="total-row">
-                  <span>Total Tax (GST):</span>
-                  <span id="demoTax">₹0.00</span>
-                </div>
-                <div class="total-row grand-total">
-                  <span>Grand Total:</span>
-                  <span id="demoGrandTotal">₹0.00</span>
-                </div>
-              </div>
-
-              <div class="terminal-actions">
-                <button class="btn btn-full btn-primary" id="generateReceiptBtn">
-                  🖨️ PRINT MOCK GST BILL
-                </button>
-              </div>
-            </div>
+          <div class="metric-item">
+            <div class="metric-number">99.9%</div>
+            <div class="metric-label">UPTIME RELIABILITY</div>
+          </div>
+          <div class="metric-item">
+            <div class="metric-number">&lt;24h</div>
+            <div class="metric-label">RESPONSE &amp; SUPPORT</div>
           </div>
         </div>
       </div>
-    </section>
+    </div>
+
 
     <!-- Selected Work Showcase (#work) -->
     <section class="section work-section" id="work">
@@ -933,25 +829,7 @@
       </div>
     </section>
 
-    <!-- Metrics Proof Bar -->
-    <div class="metrics-strip" data-scroll-reveal>
-      <div class="container">
-        <div class="metrics-grid">
-          <div class="metric-item">
-            <div class="metric-number">50+</div>
-            <div class="metric-label">BUSINESSES AUTOMATED</div>
-          </div>
-          <div class="metric-item">
-            <div class="metric-number">99.9%</div>
-            <div class="metric-label">UPTIME RELIABILITY</div>
-          </div>
-          <div class="metric-item">
-            <div class="metric-number">&lt;24h</div>
-            <div class="metric-label">RESPONSE &amp; SUPPORT</div>
-          </div>
-        </div>
-      </div>
-    </div>
+
 
     <!-- ==========================================================================
          CO-FOUNDERS & BUILDERS SECTION (#team)
@@ -2608,20 +2486,7 @@
     </div>
   </div>
 
-  <!-- Receipt Preview Modal -->
-  <div class="modal-overlay" id="receiptModal">
-    <div class="receipt-card">
-      <div class="receipt-header">
-        <button class="modal-close" id="closeReceiptModal">&times;</button>
-      </div>
-      <div class="thermal-receipt" id="thermalReceiptContent">
-        <!-- Rendered dynamically -->
-      </div>
-      <div class="receipt-actions">
-        <button class="btn btn-primary btn-full" onclick="window.print()">🖨️ PRINT RECEIPT</button>
-      </div>
-    </div>
-  </div>
+
 
   <script src="app.js?v=2026.1"></script>
 </body>
