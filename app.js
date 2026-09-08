@@ -5,107 +5,33 @@
 document.addEventListener('DOMContentLoaded', () => {
 
   /* ==========================================================================
-     1. HERO HARDWARE DOCK 3-PILLAR CONTROLLER
+     1. HERO DYNAMIC HEADLINE WORD CYCLER
      ========================================================================== */
-  const dockTabs = document.querySelectorAll('.dock-tab');
-  const dockScreenPOS = document.getElementById('dockScreenPOS');
-  const dockScreenInventory = document.getElementById('dockScreenInventory');
-  const dockScreenWhatsapp = document.getElementById('dockScreenWhatsapp');
+  function initHeroWordCycler() {
+    const wordEl = document.getElementById('heroDynamicWord');
+    if (!wordEl) return;
 
-  const screens = {
-    pos: dockScreenPOS,
-    inventory: dockScreenInventory,
-    whatsapp: dockScreenWhatsapp
-  };
+    const words = ['SYSTEMS', 'PLATFORMS', 'CLOUD ERPs', 'AI BOTS'];
+    let currentIndex = 0;
 
-  dockTabs.forEach(tab => {
-    tab.addEventListener('click', () => {
-      const targetMode = tab.getAttribute('data-mode');
-
-      dockTabs.forEach(t => t.classList.remove('active'));
-      tab.classList.add('active');
-
-      Object.values(screens).forEach(s => {
-        if (s) s.classList.remove('active');
-      });
-
-      if (screens[targetMode]) {
-        screens[targetMode].classList.add('active');
-      }
-    });
-  });
-
-  // Hero POS Scan Button Interaction
-  const heroScanItemBtn = document.getElementById('heroScanItemBtn');
-  const heroMiniCart = document.getElementById('heroMiniCart');
-  const heroDockTotal = document.getElementById('heroDockTotal');
-
-  const sampleScanItems = [
-    { name: "Thermal Paper Roll 10pk", price: 250 },
-    { name: "USB Barcode Stand", price: 380 },
-    { name: "Receipt Printer Ribbon", price: 190 }
-  ];
-  let scanIndex = 0;
-  let heroTotal = 1300;
-
-  if (heroScanItemBtn) {
-    heroScanItemBtn.addEventListener('click', () => {
-      const item = sampleScanItems[scanIndex % sampleScanItems.length];
-      scanIndex++;
-      heroTotal += item.price;
-
-      const newRow = document.createElement('div');
-      newRow.className = 'mini-cart-row';
-      newRow.innerHTML = `<span>1x ${item.name} (₹${item.price})</span><span class="text-forest">OK ✓</span>`;
-      heroMiniCart.appendChild(newRow);
-      heroMiniCart.scrollTop = heroMiniCart.scrollHeight;
-
-      heroDockTotal.textContent = `₹${heroTotal.toLocaleString('en-IN')}.00`;
-      heroScanItemBtn.textContent = "✓ SCANNED (0.04s)";
-      setTimeout(() => {
-        heroScanItemBtn.textContent = "⚡ CLICK TO SCAN ITEM";
-      }, 1000);
-    });
-  }
-
-  // Hero Inventory Simulate Stock
-  const heroSimulateStockBtn = document.getElementById('heroSimulateStockBtn');
-  const godownStockA = document.getElementById('godownStockA');
-  let stockCountA = 142;
-
-  if (heroSimulateStockBtn) {
-    heroSimulateStockBtn.addEventListener('click', () => {
-      if (stockCountA > 5) {
-        stockCountA -= 3;
-        godownStockA.textContent = `${stockCountA} in stock`;
-        heroSimulateStockBtn.textContent = "✓ SALE RECORDED (-3)";
-        setTimeout(() => {
-          heroSimulateStockBtn.textContent = "🔄 SIMULATE SALE DEDUCTION";
-        }, 1000);
-      }
-    });
-  }
-
-  // Hero WhatsApp Bot Test Message
-  const heroSendTestMsgBtn = document.getElementById('heroSendTestMsgBtn');
-  const miniWhatsappChat = document.querySelector('.mini-whatsapp-chat');
-
-  if (heroSendTestMsgBtn && miniWhatsappChat) {
-    heroSendTestMsgBtn.addEventListener('click', () => {
-      const userMsg = document.createElement('div');
-      userMsg.className = 'chat-msg client-msg';
-      userMsg.innerHTML = `"Send latest price list for barcodes"<span class="msg-time">Just now</span>`;
-      miniWhatsappChat.appendChild(userMsg);
+    setInterval(() => {
+      wordEl.style.opacity = '0';
+      wordEl.style.transform = 'translateY(-10px)';
 
       setTimeout(() => {
-        const botReply = document.createElement('div');
-        botReply.className = 'chat-msg bot-msg';
-        botReply.innerHTML = `"📋 Catalog &amp; wholesale rates sent (PDF). Order link active."<span class="msg-time">Just now (0.4s)</span>`;
-        miniWhatsappChat.appendChild(botReply);
-        miniWhatsappChat.scrollTop = miniWhatsappChat.scrollHeight;
-      }, 400);
-    });
+        currentIndex = (currentIndex + 1) % words.length;
+        wordEl.textContent = words[currentIndex];
+        wordEl.style.transform = 'translateY(10px)';
+        requestAnimationFrame(() => {
+          wordEl.style.transition = 'all 0.35s cubic-bezier(0.16, 1, 0.3, 1)';
+          wordEl.style.opacity = '1';
+          wordEl.style.transform = 'translateY(0)';
+        });
+      }, 250);
+    }, 2800);
   }
+
+  initHeroWordCycler();
 
   /* ==========================================================================
      2. METRICS COUNTER ANIMATION ("0+" to "50+")
