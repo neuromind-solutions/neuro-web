@@ -23,7 +23,7 @@
   <link rel="preconnect" href="https://api.fontshare.com">
   <link rel="stylesheet" href="https://api.fontshare.com/v2/css?f[]=cabinet-grotesk@500,700,800,900&display=swap">
 
-  <link rel="stylesheet" href="styles.css?v=2026.3">
+  <link rel="stylesheet" href="styles.css?v=2026.4">
 </head>
 <body>
 
@@ -66,6 +66,50 @@
          Adopted from competitor's aesthetic with company-wide dynamic animation
          ========================================================================== -->
     <section class="hero-section" id="hero">
+      <!-- Floating Sticker Badges (firstprompt.build aesthetic) -->
+      <div class="hero-floating-badge" data-pos="left-top">
+        <div class="hero-badge-box">
+          <svg viewBox="0 0 24 24" width="32" height="32" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+            <rect x="2" y="3" width="20" height="14" rx="2"></rect>
+            <line x1="8" y1="21" x2="16" y2="21"></line>
+            <line x1="12" y1="17" x2="12" y2="21"></line>
+          </svg>
+        </div>
+        <span class="hero-badge-label">OFFLINE ERP</span>
+      </div>
+
+      <div class="hero-floating-badge" data-pos="left-bottom">
+        <div class="hero-badge-box">
+          <svg viewBox="0 0 24 24" width="30" height="30" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+            <rect x="5" y="2" width="14" height="20" rx="3"></rect>
+            <line x1="12" y1="18" x2="12.01" y2="18"></line>
+          </svg>
+        </div>
+        <span class="hero-badge-label">MOBILE APPS</span>
+      </div>
+
+      <div class="hero-floating-badge" data-pos="right-top">
+        <div class="hero-badge-box">
+          <svg viewBox="0 0 24 24" width="32" height="32" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+            <rect x="3" y="11" width="18" height="10" rx="2"></rect>
+            <circle cx="12" cy="5" r="2"></circle>
+            <path d="M12 7v4"></path>
+            <line x1="8" y1="16" x2="8.01" y2="16"></line>
+            <line x1="16" y1="16" x2="16.01" y2="16"></line>
+          </svg>
+        </div>
+        <span class="hero-badge-label">WHATSAPP BOTS</span>
+      </div>
+
+      <div class="hero-floating-badge" data-pos="right-bottom">
+        <div class="hero-badge-box">
+          <svg viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
+          </svg>
+        </div>
+        <span class="hero-badge-label">100% OWNERSHIP</span>
+      </div>
+
       <div class="container hero-editorial">
 
         <!-- 3-Tier Colossal Headline — fp-up stagger delay 0ms -->
@@ -90,8 +134,13 @@
           </a>
         </div>
 
-        <!-- Studio Capability Badges — fp-up stagger delay 400ms -->
-        <div class="hero-pill-tags" data-hero-item style="--delay: 400ms">
+        <!-- Trust Strip (firstprompt style) -->
+        <div class="hero-trust-strip" data-hero-item style="--delay: 350ms">
+          Zero subscription lock-in &middot; 100% in-house engineering &middot; <b style="color:var(--ink);">50+</b> active enterprise deployments
+        </div>
+
+        <!-- Studio Capability Badges — fp-up stagger delay 420ms -->
+        <div class="hero-pill-tags" data-hero-item style="--delay: 420ms">
           <span class="hero-spec-pill">
             <span class="spec-symbol">◈</span> Custom Software &amp; ERPs
           </span>
@@ -104,6 +153,266 @@
           <span class="hero-spec-pill">
             <span class="spec-symbol">◈</span> WhatsApp &amp; AI Bots
           </span>
+        </div>
+
+        <!-- ==================================================================
+             HERO INTERACTIVE LIVE DEMO FRAME (firstprompt.build showcase)
+             ================================================================== -->
+        <div class="fp-demo" data-hero-item style="--delay: 500ms">
+          <div class="fp-demo-glow" aria-hidden="true"></div>
+          <div class="fp-demo-frame">
+            <div class="fp-demo-grain" aria-hidden="true"></div>
+            
+            <div class="fp-dm-head">
+              <h2 class="fp-dm-eyebrow">INSIDE OUR SOFTWARE SYSTEMS</h2>
+              <div class="fp-dm-tabs" id="demoTabs">
+                <button type="button" class="fp-dm-tab" data-tab="erp" data-on="1">AgriBill ERP Core</button>
+                <button type="button" class="fp-dm-tab" data-tab="mobile">FieldSales Mobile</button>
+                <button type="button" class="fp-dm-tab" data-tab="bots">AutoOrder WhatsApp Bot</button>
+              </div>
+            </div>
+
+            <!-- Tab Pane 1: AgriBill ERP Core -->
+            <div class="fp-dm-pane" id="pane-erp" data-on="1">
+              <aside class="fp-dm-list">
+                <span class="fp-dm-list-h">5 Core Workflows</span>
+                <button type="button" class="fp-dm-row" data-pane="erp" data-slot="0" data-on="1">
+                  <span class="fp-dm-fill" aria-hidden="true"></span>
+                  <span class="fp-dm-n">01</span>
+                  <span class="fp-dm-t">Sub-Second Offline POS</span>
+                </button>
+                <button type="button" class="fp-dm-row" data-pane="erp" data-slot="1">
+                  <span class="fp-dm-fill" aria-hidden="true"></span>
+                  <span class="fp-dm-n">02</span>
+                  <span class="fp-dm-t">Multi-Godown Stock Sync</span>
+                </button>
+                <button type="button" class="fp-dm-row" data-pane="erp" data-slot="2">
+                  <span class="fp-dm-fill" aria-hidden="true"></span>
+                  <span class="fp-dm-n">03</span>
+                  <span class="fp-dm-t">1-Click GST B2B Invoicing</span>
+                </button>
+                <button type="button" class="fp-dm-row" data-pane="erp" data-slot="3">
+                  <span class="fp-dm-fill" aria-hidden="true"></span>
+                  <span class="fp-dm-n">04</span>
+                  <span class="fp-dm-t">Farmer Credit &amp; Khatabook</span>
+                </button>
+                <button type="button" class="fp-dm-row" data-pane="erp" data-slot="4">
+                  <span class="fp-dm-fill" aria-hidden="true"></span>
+                  <span class="fp-dm-n">05</span>
+                  <span class="fp-dm-t">Automated Cloud Backup</span>
+                </button>
+              </aside>
+              <div class="fp-dm-detail">
+                <div class="fp-dm-body" data-slot="0" data-on="1">
+                  <h3 class="fp-dm-h">Sub-Second Offline Billing</h3>
+                  <p class="fp-dm-how">Built for harsh field &amp; counter conditions where internet fluctuates. Operates 100% offline with zero lag or freezes.</p>
+                  <div class="fp-dm-io">
+                    <div class="fp-dm-io-col">
+                      <span class="fp-dm-io-l">Common Business Pain</span>
+                      <p>Generic cloud software freezes when internet drops. Long counter lines cause lost revenue and angry customers.</p>
+                    </div>
+                    <div class="fp-dm-io-col" data-out="1">
+                      <span class="fp-dm-io-l">Neuromind Engineering</span>
+                      <p>Native embedded database with sub-20ms keystroke response, instant barcode scan &amp; thermal print under 1 second.</p>
+                    </div>
+                  </div>
+                </div>
+                <div class="fp-dm-body" data-slot="1">
+                  <h3 class="fp-dm-h">Multi-Godown Stock Sync</h3>
+                  <p class="fp-dm-how">Real-time inventory visibility across main warehouse, sub-godowns, and retail counters with auto-alerts.</p>
+                  <div class="fp-dm-io">
+                    <div class="fp-dm-io-col">
+                      <span class="fp-dm-io-l">Common Business Pain</span>
+                      <p>Stock mismatches between physical godowns and register books. Items sell out before managers know.</p>
+                    </div>
+                    <div class="fp-dm-io-col" data-out="1">
+                      <span class="fp-dm-io-l">Neuromind Engineering</span>
+                      <p>Bi-directional sync engine that tracks batch numbers, expiry dates, and transfers between multiple godowns seamlessly.</p>
+                    </div>
+                  </div>
+                </div>
+                <div class="fp-dm-body" data-slot="2">
+                  <h3 class="fp-dm-h">1-Click GST B2B Invoicing</h3>
+                  <p class="fp-dm-how">Compliant GST filing exports, HSN lookup, e-Way bill JSON generation, and direct thermal/A4 printing.</p>
+                  <div class="fp-dm-io">
+                    <div class="fp-dm-io-col">
+                      <span class="fp-dm-io-l">Common Business Pain</span>
+                      <p>Manual tax reconciliation at month-end, accounting errors, and complex government portal upload failures.</p>
+                    </div>
+                    <div class="fp-dm-io-col" data-out="1">
+                      <span class="fp-dm-io-l">Neuromind Engineering</span>
+                      <p>Automated GSTR-1 &amp; GSTR-3B export format, instant GSTIN verification, and multi-tax slab calculations.</p>
+                    </div>
+                  </div>
+                </div>
+                <div class="fp-dm-body" data-slot="3">
+                  <h3 class="fp-dm-h">Farmer Credit &amp; Khatabook</h3>
+                  <p class="fp-dm-how">Digital ledger with automated WhatsApp payment balance reminders and harvest payment scheduling.</p>
+                  <div class="fp-dm-io">
+                    <div class="fp-dm-io-col">
+                      <span class="fp-dm-io-l">Common Business Pain</span>
+                      <p>Paper khata books get damaged, disputed balances with customers, and months of uncollected credit receivables.</p>
+                    </div>
+                    <div class="fp-dm-io-col" data-out="1">
+                      <span class="fp-dm-io-l">Neuromind Engineering</span>
+                      <p>Cryptographically verified balance histories, automatic SMS/WhatsApp payment links, and partial repayment ledger.</p>
+                    </div>
+                  </div>
+                </div>
+                <div class="fp-dm-body" data-slot="4">
+                  <h3 class="fp-dm-h">Automated Cloud Backup</h3>
+                  <p class="fp-dm-how">Never lose a single day's transaction. Encrypted nightly sync to private cloud storage whenever connected.</p>
+                  <div class="fp-dm-io">
+                    <div class="fp-dm-io-col">
+                      <span class="fp-dm-io-l">Common Business Pain</span>
+                      <p>Hard drive crashes or hardware theft obliterating 5+ years of customer financial records forever.</p>
+                    </div>
+                    <div class="fp-dm-io-col" data-out="1">
+                      <span class="fp-dm-io-l">Neuromind Engineering</span>
+                      <p>Automated encrypted differential backup with zero-friction 1-click restore to any replacement machine.</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Tab Pane 2: FieldSales Mobile -->
+            <div class="fp-dm-pane" id="pane-mobile">
+              <aside class="fp-dm-list">
+                <span class="fp-dm-list-h">Field Operations</span>
+                <button type="button" class="fp-dm-row" data-pane="mobile" data-slot="0" data-on="1">
+                  <span class="fp-dm-fill" aria-hidden="true"></span>
+                  <span class="fp-dm-n">01</span>
+                  <span class="fp-dm-t">Offline Beat Order Entry</span>
+                </button>
+                <button type="button" class="fp-dm-row" data-pane="mobile" data-slot="1">
+                  <span class="fp-dm-fill" aria-hidden="true"></span>
+                  <span class="fp-dm-n">02</span>
+                  <span class="fp-dm-t">GPS Attendance &amp; Route</span>
+                </button>
+                <button type="button" class="fp-dm-row" data-pane="mobile" data-slot="2">
+                  <span class="fp-dm-fill" aria-hidden="true"></span>
+                  <span class="fp-dm-n">03</span>
+                  <span class="fp-dm-t">Instant Stock Availability</span>
+                </button>
+              </aside>
+              <div class="fp-dm-detail">
+                <div class="fp-dm-body" data-slot="0" data-on="1">
+                  <h3 class="fp-dm-h">Offline Beat Order Entry</h3>
+                  <p class="fp-dm-how">Sales executives book retailer orders on Android phones even in remote rural basements without network.</p>
+                  <div class="fp-dm-io">
+                    <div class="fp-dm-io-col">
+                      <span class="fp-dm-io-l">Common Business Pain</span>
+                      <p>Sales reps take orders in physical pocket diaries, delaying dispatch by 24-48 hours until they return to office.</p>
+                    </div>
+                    <div class="fp-dm-io-col" data-out="1">
+                      <span class="fp-dm-io-l">Neuromind Engineering</span>
+                      <p>Offline-first SQLite app queues orders with zero signal; automatically fires to warehouse dispatch the moment 4G reconnects.</p>
+                    </div>
+                  </div>
+                </div>
+                <div class="fp-dm-body" data-slot="1">
+                  <h3 class="fp-dm-h">GPS Attendance &amp; Beat Route</h3>
+                  <p class="fp-dm-how">Geofenced check-ins ensure honest on-ground shop visits, mapped against daily delivery routes.</p>
+                  <div class="fp-dm-io">
+                    <div class="fp-dm-io-col">
+                      <span class="fp-dm-io-l">Common Business Pain</span>
+                      <p>Zero visibility into whether field reps actually visited assigned retail outlets or skipped territories.</p>
+                    </div>
+                    <div class="fp-dm-io-col" data-out="1">
+                      <span class="fp-dm-io-l">Neuromind Engineering</span>
+                      <p>Battery-efficient GPS verification on shop check-in, real-time manager route timeline, and customer visit photo capture.</p>
+                    </div>
+                  </div>
+                </div>
+                <div class="fp-dm-body" data-slot="2">
+                  <h3 class="fp-dm-h">Live Stock Availability</h3>
+                  <p class="fp-dm-how">Field agents check current warehouse quantities before taking promises they cannot deliver.</p>
+                  <div class="fp-dm-io">
+                    <div class="fp-dm-io-col">
+                      <span class="fp-dm-io-l">Common Business Pain</span>
+                      <p>Sales reps book out-of-stock items, leading to angry cancellations and stockouts on hot-selling products.</p>
+                    </div>
+                    <div class="fp-dm-io-col" data-out="1">
+                      <span class="fp-dm-io-l">Neuromind Engineering</span>
+                      <p>Instant live inventory badge with reserved stock tracking, price tiers, and custom dealer discounts.</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Tab Pane 3: AutoOrder WhatsApp Bot -->
+            <div class="fp-dm-pane" id="pane-bots">
+              <aside class="fp-dm-list">
+                <span class="fp-dm-list-h">Automation Hooks</span>
+                <button type="button" class="fp-dm-row" data-pane="bots" data-slot="0" data-on="1">
+                  <span class="fp-dm-fill" aria-hidden="true"></span>
+                  <span class="fp-dm-n">01</span>
+                  <span class="fp-dm-t">WhatsApp 24/7 Ordering</span>
+                </button>
+                <button type="button" class="fp-dm-row" data-pane="bots" data-slot="1">
+                  <span class="fp-dm-fill" aria-hidden="true"></span>
+                  <span class="fp-dm-n">02</span>
+                  <span class="fp-dm-t">Automated PDF Invoicing</span>
+                </button>
+                <button type="button" class="fp-dm-row" data-pane="bots" data-slot="2">
+                  <span class="fp-dm-fill" aria-hidden="true"></span>
+                  <span class="fp-dm-n">03</span>
+                  <span class="fp-dm-t">Payment Reminder &amp; UPI</span>
+                </button>
+              </aside>
+              <div class="fp-dm-detail">
+                <div class="fp-dm-body" data-slot="0" data-on="1">
+                  <h3 class="fp-dm-h">WhatsApp 24/7 Ordering</h3>
+                  <p class="fp-dm-how">Dealers text their order list on WhatsApp; our automated engine parses quantities and creates orders directly in ERP.</p>
+                  <div class="fp-dm-io">
+                    <div class="fp-dm-io-col">
+                      <span class="fp-dm-io-l">Common Business Pain</span>
+                      <p>Clerks spending 4+ hours daily manually reading unstructured WhatsApp messages and typing invoices.</p>
+                    </div>
+                    <div class="fp-dm-io-col" data-out="1">
+                      <span class="fp-dm-io-l">Neuromind Engineering</span>
+                      <p>Custom API webhook parses dealer catalogs, checks stock in ERP, confirms order instantly, and prints warehouse pick-list.</p>
+                    </div>
+                  </div>
+                </div>
+                <div class="fp-dm-body" data-slot="1">
+                  <h3 class="fp-dm-h">Automated PDF Invoicing</h3>
+                  <p class="fp-dm-how">Whenever a counter invoice is generated, the client receives a crisp PDF bill on WhatsApp instantly.</p>
+                  <div class="fp-dm-io">
+                    <div class="fp-dm-io-col">
+                      <span class="fp-dm-io-l">Common Business Pain</span>
+                      <p>Lost paper bills, customers demanding re-prints, and disputes on warranty or replacement dates.</p>
+                    </div>
+                    <div class="fp-dm-io-col" data-out="1">
+                      <span class="fp-dm-io-l">Neuromind Engineering</span>
+                      <p>Instant headless PDF generator fires official branded invoice with QR code payment directly to customer's phone.</p>
+                    </div>
+                  </div>
+                </div>
+                <div class="fp-dm-body" data-slot="2">
+                  <h3 class="fp-dm-h">Payment Reminders &amp; UPI Links</h3>
+                  <p class="fp-dm-how">Scheduled polite ledger balance updates sent automatically with dynamic UPI payment links.</p>
+                  <div class="fp-dm-io">
+                    <div class="fp-dm-io-col">
+                      <span class="fp-dm-io-l">Common Business Pain</span>
+                      <p>Awkward manual collection calls leading to strained customer relationships and delayed cash flow.</p>
+                    </div>
+                    <div class="fp-dm-io-col" data-out="1">
+                      <span class="fp-dm-io-l">Neuromind Engineering</span>
+                      <p>Configurable automated reminder rules with 1-click UPI intent links — funds land straight in your merchant bank account.</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="fp-dm-foot">
+              <span class="fp-dm-note">Every system built bespoke. Zero recurring seat licenses. You own the code.</span>
+              <button class="fp-dm-open" id="demoOpenQuoteBtn">Request a live architecture demo &rarr;</button>
+            </div>
+          </div>
         </div>
 
       </div>
@@ -132,14 +441,21 @@
     </div>
 
     <!-- ==========================================================================
-         DARK STATEMENT SECTION — Scroll-illuminated text (firstprompt.build style)
+         PINNED STATEMENT SECTION — Outlined text with rotating watermark asterisk
+         (firstprompt.build data-pin="lines" architecture)
          ========================================================================== -->
-    <section class="illuminate-section" aria-label="Our promise">
-      <div class="illuminate-inner">
-        <p class="illuminate-line" data-illuminate>Bespoke software.</p>
-        <p class="illuminate-line" data-illuminate>Zero bloat.</p>
-        <p class="illuminate-line" data-illuminate>You own it all.</p>
-        <p class="illuminate-line" data-illuminate>Made for India.</p>
+    <section class="pinned-statement-section" aria-label="Our Core Philosophy">
+      <svg class="watermark-asterisk" viewBox="0 0 100 100" fill="none" stroke="currentColor" stroke-width="8" stroke-linecap="round" aria-hidden="true">
+        <line x1="50" y1="10" x2="50" y2="90"></line>
+        <line x1="10" y1="50" x2="90" y2="50"></line>
+        <line x1="22" y1="22" x2="78" y2="78"></line>
+        <line x1="22" y1="78" x2="78" y2="22"></line>
+      </svg>
+      <div class="pinned-statement-inner">
+        <div class="pinned-statement-line" data-illuminate>No subscription traps.</div>
+        <div class="pinned-statement-line" data-illuminate>No third-party bloat.</div>
+        <div class="pinned-statement-line" data-illuminate>You own every line of code.</div>
+        <div class="pinned-statement-line accent-line" data-illuminate>Engineered for real operations.</div>
       </div>
     </section>
 
@@ -438,6 +754,165 @@
     </div>
 
 
+    <!-- ==========================================================================
+         HORIZONTAL BENTO FEATURE CAROUSEL (firstprompt.build bento architecture)
+         ========================================================================== -->
+    <section class="bento-section" id="capabilities">
+      <div class="bento-header reveal-on-scroll">
+        <div>
+          <p class="section-tag">ENGINEERING STANDARDS</p>
+          <h2 class="section-title">BUILT FOR ZERO FRICTION.</h2>
+        </div>
+        <p style="font-family: var(--font-main); font-size: 16px; color: #5c6b62; max-width: 44ch; margin: 0;">
+          Six fundamental architectural guarantees built into every line of code we ship.
+        </p>
+      </div>
+
+      <div class="bento-track-wrap">
+        <div class="bento-track">
+          
+          <!-- Bento Card 01 -->
+          <div class="bento-card card-amber reveal-on-scroll" style="--delay: 0ms">
+            <div class="bento-card-top">
+              <span class="bento-num-pill">01</span>
+              <span class="bento-tag-mono">OFFLINE ENGINE</span>
+            </div>
+            <div class="bento-art-stage" aria-hidden="true">
+              <svg viewBox="0 0 320 100" fill="none">
+                <rect x="20" y="15" width="130" height="70" rx="12" fill="#18231c" />
+                <rect x="30" y="25" width="110" height="42" rx="6" fill="#0f382c" />
+                <line x1="40" y1="38" x2="80" y2="38" stroke="#f59e0b" stroke-width="3" stroke-linecap="round" />
+                <line x1="40" y1="48" x2="110" y2="48" stroke="#faf6f0" stroke-width="2.5" stroke-linecap="round" opacity="0.6" />
+                <line x1="40" y1="56" x2="95" y2="56" stroke="#faf6f0" stroke-width="2.5" stroke-linecap="round" opacity="0.4" />
+                <path d="M165 50 L195 50 M195 50 L185 42 M195 50 L185 58" stroke="#18231c" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round" />
+                <circle cx="250" cy="50" r="32" fill="#fffdf7" stroke="#18231c" stroke-width="3" />
+                <path d="M240 50 L248 58 L262 42" stroke="#c2410c" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round" />
+              </svg>
+            </div>
+            <div>
+              <h3 class="bento-card-title">Sub-Second Offline POS</h3>
+              <p class="bento-card-desc">Operates with zero internet. Keystroke response under 20ms and instant printer triggers guarantee your counter never freezes.</p>
+            </div>
+          </div>
+
+          <!-- Bento Card 02 -->
+          <div class="bento-card card-peach reveal-on-scroll" style="--delay: 120ms">
+            <div class="bento-card-top">
+              <span class="bento-num-pill">02</span>
+              <span class="bento-tag-mono">MOBILE SPEED</span>
+            </div>
+            <div class="bento-art-stage" aria-hidden="true">
+              <svg viewBox="0 0 320 100" fill="none">
+                <rect x="60" y="10" width="55" height="80" rx="10" fill="#18231c" />
+                <rect x="68" y="18" width="39" height="56" rx="4" fill="#fed7aa" />
+                <circle cx="87.5" cy="82" r="3" fill="#faf6f0" />
+                <path d="M130 50 L160 50 M160 50 L150 42 M160 50 L150 58" stroke="#c2410c" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round" />
+                <rect x="180" y="10" width="80" height="80" rx="14" fill="#fffdf7" stroke="#18231c" stroke-width="2.5" />
+                <circle cx="220" cy="42" r="16" fill="#fb923c" opacity="0.2" />
+                <path d="M214 42 L219 47 L228 36" stroke="#c2410c" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" />
+                <rect x="195" y="66" width="50" height="6" rx="3" fill="#18231c" opacity="0.3" />
+              </svg>
+            </div>
+            <div>
+              <h3 class="bento-card-title">High-FPS Native Apps</h3>
+              <p class="bento-card-desc">Built for budget Android phones and premium iOS devices alike. Offline beat ordering, GPS attendance, and camera receipt scanning.</p>
+            </div>
+          </div>
+
+          <!-- Bento Card 03 -->
+          <div class="bento-card card-cream reveal-on-scroll" style="--delay: 240ms">
+            <div class="bento-card-top">
+              <span class="bento-num-pill">03</span>
+              <span class="bento-tag-mono">AUTOMATION</span>
+            </div>
+            <div class="bento-art-stage" aria-hidden="true">
+              <svg viewBox="0 0 320 100" fill="none">
+                <rect x="40" y="20" width="110" height="60" rx="14" fill="#25D366" opacity="0.15" />
+                <rect x="40" y="20" width="110" height="60" rx="14" stroke="#25D366" stroke-width="2" />
+                <path d="M60 42 h70 M60 54 h45" stroke="#18231c" stroke-width="3" stroke-linecap="round" />
+                <path d="M165 50 h35" stroke="#18231c" stroke-width="3" stroke-linecap="round" stroke-dasharray="4 4" />
+                <rect x="215" y="16" width="70" height="68" rx="12" fill="#18231c" />
+                <path d="M235 34 l15 15 l-15 15" stroke="#f59e0b" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round" />
+              </svg>
+            </div>
+            <div>
+              <h3 class="bento-card-title">WhatsApp Ops on Autopilot</h3>
+              <p class="bento-card-desc">Dealers place catalog orders directly via WhatsApp message. Invoices, delivery notifications, and payment reminders trigger 24/7.</p>
+            </div>
+          </div>
+
+          <!-- Bento Card 04 -->
+          <div class="bento-card card-dark reveal-on-scroll" style="--delay: 360ms">
+            <div class="bento-card-top">
+              <span class="bento-num-pill">04</span>
+              <span class="bento-tag-mono">ARCHITECTURE</span>
+            </div>
+            <div class="bento-art-stage" aria-hidden="true">
+              <svg viewBox="0 0 320 100" fill="none">
+                <ellipse cx="90" cy="30" rx="50" ry="14" fill="#0f382c" stroke="#3b82f6" stroke-width="2" />
+                <path d="M40 30 v22 c0 8 22 14 50 14 s50 -6 50 -14 v-22" fill="#0f382c" stroke="#3b82f6" stroke-width="2" />
+                <path d="M40 52 v22 c0 8 22 14 50 14 s50 -6 50 -14 v-22" fill="#0f382c" stroke="#3b82f6" stroke-width="2" />
+                <path d="M160 52 h45" stroke="#f59e0b" stroke-width="3" stroke-linecap="round" />
+                <rect x="220" y="24" width="60" height="52" rx="10" fill="#2e4437" stroke="#fb923c" stroke-width="2" />
+                <text x="250" y="54" text-anchor="middle" font-family="monospace" font-size="14" font-weight="bold" fill="#faf6f0">&lt;5ms</text>
+              </svg>
+            </div>
+            <div>
+              <h3 class="bento-card-title">Zero Bloat Storage</h3>
+              <p class="bento-card-desc">Engineered on battle-tested SQL foundations without heavy frameworks or runtime cruft. Millions of transactions indexed cleanly.</p>
+            </div>
+          </div>
+
+          <!-- Bento Card 05 -->
+          <div class="bento-card card-cream reveal-on-scroll" style="--delay: 480ms">
+            <div class="bento-card-top">
+              <span class="bento-num-pill">05</span>
+              <span class="bento-tag-mono">HARDWARE READY</span>
+            </div>
+            <div class="bento-art-stage" aria-hidden="true">
+              <svg viewBox="0 0 320 100" fill="none">
+                <rect x="50" y="40" width="100" height="48" rx="8" fill="#18231c" />
+                <rect x="68" y="12" width="64" height="35" rx="3" fill="#fffdf7" stroke="#e6d9bf" stroke-width="1.5" />
+                <line x1="76" y1="20" x2="124" y2="20" stroke="#18231c" stroke-width="2" />
+                <line x1="76" y1="28" x2="110" y2="28" stroke="#18231c" stroke-width="2" />
+                <circle cx="132" cy="64" r="4" fill="#22c55e" />
+                <path d="M170 55 h35" stroke="#c2410c" stroke-width="3" stroke-linecap="round" stroke-dasharray="3 3" />
+                <circle cx="245" cy="55" r="28" fill="#fde68a" stroke="#18231c" stroke-width="2" />
+                <path d="M235 55 l8 8 l14 -14" stroke="#18231c" stroke-width="3" stroke-linecap="round" />
+              </svg>
+            </div>
+            <div>
+              <h3 class="bento-card-title">Direct Thermal &amp; ESC/POS</h3>
+              <p class="bento-card-desc">Plug-and-play driver support for TVS, Epson, and Bluetooth 2-inch &amp; 3-inch roll printers. Instant receipt cuts with zero dialog prompts.</p>
+            </div>
+          </div>
+
+          <!-- Bento Card 06 -->
+          <div class="bento-card card-amber reveal-on-scroll" style="--delay: 600ms">
+            <div class="bento-card-top">
+              <span class="bento-num-pill">06</span>
+              <span class="bento-tag-mono">IP OWNERSHIP</span>
+            </div>
+            <div class="bento-art-stage" aria-hidden="true">
+              <svg viewBox="0 0 320 100" fill="none">
+                <path d="M90 15 L130 30 v30 c0 25 -40 35 -40 35 s-40 -10 -40 -35 V30 Z" fill="#18231c" />
+                <circle cx="90" cy="48" r="8" fill="#f59e0b" />
+                <rect x="87" y="54" width="6" height="12" rx="2" fill="#f59e0b" />
+                <path d="M150 50 h40" stroke="#c2410c" stroke-width="3" stroke-linecap="round" />
+                <rect x="210" y="24" width="70" height="54" rx="12" fill="#fffdf7" stroke="#18231c" stroke-width="2.5" />
+                <text x="245" y="56" text-anchor="middle" font-family="monospace" font-size="15" font-weight="900" fill="#18231c">100%</text>
+              </svg>
+            </div>
+            <div>
+              <h3 class="bento-card-title">Full Intellectual Property</h3>
+              <p class="bento-card-desc">You are not renting an account on someone else's server. You receive full source code, database schemas, and complete data sovereignty.</p>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
     <!-- Selected Work Showcase (#work) -->
     <section class="section work-section" id="work">
       <div class="container">
@@ -584,6 +1059,157 @@
               <span class="work-arrow-circle">↗</span>
             </div>
           </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==========================================================================
+         SOLUTIONS SHELF (16 FLOATING CAPABILITY TILES - firstprompt.build pack shelf)
+         ========================================================================== -->
+    <section class="shelf-section" id="shelf">
+      <div class="container reveal-on-scroll">
+        <p class="section-tag">CAPABILITY MATRIX</p>
+        <h2 class="section-title">ONE STUDIO. SIXTEEN MODULES.</h2>
+        <p style="font-family: var(--font-main); font-size: 17px; color: #5c6b62; max-width: 58ch; margin: 12px auto 0;">
+          Pre-tested software building blocks we adapt and assemble for your specific business workflow in weeks, not years.
+        </p>
+
+        <div class="shelf-grid">
+          
+          <!-- Tile 01 -->
+          <div class="shelf-tile reveal-on-scroll" style="--delay: 0ms">
+            <div class="shelf-tile-box" style="background:#18231c; color:#f59e0b; animation: fp-tfloat 6.4s ease-in-out 0s infinite; transform: rotate(-4deg)">
+              <svg viewBox="0 0 24 24" width="34" height="34" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3" width="20" height="14" rx="2"></rect><line x1="8" y1="21" x2="16" y2="21"></line><line x1="12" y1="17" x2="12" y2="21"></line></svg>
+            </div>
+            <span class="shelf-tile-label">AgriBill ERP</span>
+          </div>
+
+          <!-- Tile 02 -->
+          <div class="shelf-tile reveal-on-scroll" style="--delay: 40ms">
+            <div class="shelf-tile-box" style="background:#e86322; color:#fff; animation: fp-tfloat 7.1s ease-in-out 0.4s infinite; transform: rotate(5deg)">
+              <svg viewBox="0 0 24 24" width="34" height="34" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="2" width="14" height="20" rx="3"></rect><line x1="12" y1="18" x2="12.01" y2="18"></line></svg>
+            </div>
+            <span class="shelf-tile-label">FieldSales App</span>
+          </div>
+
+          <!-- Tile 03 -->
+          <div class="shelf-tile reveal-on-scroll" style="--delay: 80ms">
+            <div class="shelf-tile-box" style="background:#fde68a; color:#18231c; animation: fp-tfloat 7.8s ease-in-out 0.8s infinite; transform: rotate(-6deg)">
+              <svg viewBox="0 0 24 24" width="34" height="34" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="10" rx="2"></rect><circle cx="12" cy="5" r="2"></circle><path d="M12 7v4"></path></svg>
+            </div>
+            <span class="shelf-tile-label">WhatsApp Bot</span>
+          </div>
+
+          <!-- Tile 04 -->
+          <div class="shelf-tile reveal-on-scroll" style="--delay: 120ms">
+            <div class="shelf-tile-box" style="background:#fffdf7; border:2px solid #e6d9bf; color:#c2410c; animation: fp-tfloat 6.6s ease-in-out 0.3s infinite; transform: rotate(4deg)">
+              <svg viewBox="0 0 24 24" width="34" height="34" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="16" y1="13" x2="8" y2="13"></line><line x1="16" y1="17" x2="8" y2="17"></line></svg>
+            </div>
+            <span class="shelf-tile-label">GST Invoicing</span>
+          </div>
+
+          <!-- Tile 05 -->
+          <div class="shelf-tile reveal-on-scroll" style="--delay: 160ms">
+            <div class="shelf-tile-box" style="background:#ffc99e; color:#18231c; animation: fp-tfloat 7.3s ease-in-out 0.7s infinite; transform: rotate(-5deg)">
+              <svg viewBox="0 0 24 24" width="34" height="34" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"></path><polyline points="3.27 6.96 12 12.01 20.73 6.96"></polyline><line x1="12" y1="22.08" x2="12" y2="12"></line></svg>
+            </div>
+            <span class="shelf-tile-label">Multi-Godown</span>
+          </div>
+
+          <!-- Tile 06 -->
+          <div class="shelf-tile reveal-on-scroll" style="--delay: 200ms">
+            <div class="shelf-tile-box" style="background:#18231c; color:#fb923c; animation: fp-tfloat 8.0s ease-in-out 0.2s infinite; transform: rotate(6deg)">
+              <svg viewBox="0 0 24 24" width="34" height="34" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 6 2 18 2 18 9"></polyline><path d="M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2"></path><rect x="6" y="14" width="12" height="8"></rect></svg>
+            </div>
+            <span class="shelf-tile-label">Thermal Print</span>
+          </div>
+
+          <!-- Tile 07 -->
+          <div class="shelf-tile reveal-on-scroll" style="--delay: 240ms">
+            <div class="shelf-tile-box" style="background:#e86322; color:#fff; animation: fp-tfloat 6.8s ease-in-out 0.6s infinite; transform: rotate(-4deg)">
+              <svg viewBox="0 0 24 24" width="34" height="34" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7" height="7"></rect><rect x="14" y="3" width="7" height="7"></rect><rect x="14" y="14" width="7" height="7"></rect><rect x="3" y="14" width="7" height="7"></rect></svg>
+            </div>
+            <span class="shelf-tile-label">Barcode Engine</span>
+          </div>
+
+          <!-- Tile 08 -->
+          <div class="shelf-tile reveal-on-scroll" style="--delay: 280ms">
+            <div class="shelf-tile-box" style="background:#fde68a; color:#18231c; animation: fp-tfloat 7.5s ease-in-out 0.1s infinite; transform: rotate(5deg)">
+              <svg viewBox="0 0 24 24" width="34" height="34" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="5" width="20" height="14" rx="2"></rect><line x1="2" y1="10" x2="22" y2="10"></line></svg>
+            </div>
+            <span class="shelf-tile-label">UPI &amp; QR Pay</span>
+          </div>
+
+          <!-- Tile 09 -->
+          <div class="shelf-tile reveal-on-scroll" style="--delay: 320ms">
+            <div class="shelf-tile-box" style="background:#fffdf7; border:2px solid #e6d9bf; color:#18231c; animation: fp-tfloat 8.2s ease-in-out 0.5s infinite; transform: rotate(-3deg)">
+              <svg viewBox="0 0 24 24" width="34" height="34" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"></path><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"></path></svg>
+            </div>
+            <span class="shelf-tile-label">Khatabook Ledgers</span>
+          </div>
+
+          <!-- Tile 10 -->
+          <div class="shelf-tile reveal-on-scroll" style="--delay: 360ms">
+            <div class="shelf-tile-box" style="background:#ffc99e; color:#18231c; animation: fp-tfloat 7.0s ease-in-out 0s infinite; transform: rotate(4deg)">
+              <svg viewBox="0 0 24 24" width="34" height="34" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17.5 19H9a7 7 0 1 1 6.71-9h1.79a4.5 4.5 0 1 1 0 9Z"></path></svg>
+            </div>
+            <span class="shelf-tile-label">Cloud Backup</span>
+          </div>
+
+          <!-- Tile 11 -->
+          <div class="shelf-tile reveal-on-scroll" style="--delay: 400ms">
+            <div class="shelf-tile-box" style="background:#18231c; color:#f59e0b; animation: fp-tfloat 7.7s ease-in-out 0.4s infinite; transform: rotate(-5deg)">
+              <svg viewBox="0 0 24 24" width="34" height="34" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 2 7 12 12 22 7 12 2"></polygon><polyline points="2 17 12 22 22 17"></polyline><polyline points="2 12 12 17 22 12"></polyline></svg>
+            </div>
+            <span class="shelf-tile-label">Offline Sync</span>
+          </div>
+
+          <!-- Tile 12 -->
+          <div class="shelf-tile reveal-on-scroll" style="--delay: 440ms">
+            <div class="shelf-tile-box" style="background:#e86322; color:#fff; animation: fp-tfloat 6.5s ease-in-out 0.8s infinite; transform: rotate(6deg)">
+              <svg viewBox="0 0 24 24" width="34" height="34" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="21" r="1"></circle><circle cx="20" cy="21" r="1"></circle><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"></path></svg>
+            </div>
+            <span class="shelf-tile-label">E-Commerce</span>
+          </div>
+
+          <!-- Tile 13 -->
+          <div class="shelf-tile reveal-on-scroll" style="--delay: 480ms">
+            <div class="shelf-tile-box" style="background:#fde68a; color:#18231c; animation: fp-tfloat 7.2s ease-in-out 0.3s infinite; transform: rotate(-4deg)">
+              <svg viewBox="0 0 24 24" width="34" height="34" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2"></rect><path d="M3 9h18"></path><path d="M9 21V9"></path></svg>
+            </div>
+            <span class="shelf-tile-label">Admin Portal</span>
+          </div>
+
+          <!-- Tile 14 -->
+          <div class="shelf-tile reveal-on-scroll" style="--delay: 520ms">
+            <div class="shelf-tile-box" style="background:#fffdf7; border:2px solid #e6d9bf; color:#c2410c; animation: fp-tfloat 7.9s ease-in-out 0.7s infinite; transform: rotate(5deg)">
+              <svg viewBox="0 0 24 24" width="34" height="34" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path></svg>
+            </div>
+            <span class="shelf-tile-label">Stock Guard</span>
+          </div>
+
+          <!-- Tile 15 -->
+          <div class="shelf-tile reveal-on-scroll" style="--delay: 560ms">
+            <div class="shelf-tile-box" style="background:#ffc99e; color:#18231c; animation: fp-tfloat 6.7s ease-in-out 0.2s infinite; transform: rotate(-3deg)">
+              <svg viewBox="0 0 24 24" width="34" height="34" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
+            </div>
+            <span class="shelf-tile-label">GPS Beat Map</span>
+          </div>
+
+          <!-- Tile 16 -->
+          <div class="shelf-tile reveal-on-scroll" style="--delay: 600ms">
+            <div class="shelf-tile-box" style="background:#18231c; color:#f59e0b; animation: fp-tfloat 7.4s ease-in-out 0.6s infinite; transform: rotate(4deg)">
+              <svg viewBox="0 0 24 24" width="34" height="34" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"></path><path d="M13.73 21a2 2 0 0 1-3.46 0"></path></svg>
+            </div>
+            <span class="shelf-tile-label">Lead Alerts</span>
+          </div>
+
+        </div>
+
+        <div style="margin-top: 3.5rem;">
+          <button class="btn btn-hero-primary" id="shelfConsultBtn">
+            DISCUSS YOUR CUSTOM REQUIREMENTS &rarr;
+          </button>
         </div>
       </div>
     </section>
@@ -921,6 +1547,150 @@
             <h3 class="process-title">DEPLOY &amp; ON-SITE SUPPORT</h3>
             <p class="process-desc">We install hardware/software, configure databases &amp; printers, train your staff, and provide ongoing 24/7 support.</p>
           </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==========================================================================
+         4-TIER ENGAGEMENT / PRICING GRID (firstprompt.build architecture)
+         ========================================================================== -->
+    <section class="pricing-section" id="pricing">
+      <div class="container reveal-on-scroll">
+        <p class="section-tag" style="text-align: center;">TRANSPARENT ENGAGEMENT</p>
+        <h2 class="section-title" style="text-align: center;">HONEST SCOPING. CLEAR DELIVERY.</h2>
+        <p style="font-family: var(--font-main); font-size: 17px; color: #5c6b62; max-width: 60ch; margin: 12px auto 0; text-align: center;">
+          No recurring seat fees, no vendor lock-in. You pay once for engineering rigor and own the entire system forever.
+        </p>
+
+        <div class="pricing-grid">
+          
+          <!-- Tier 1 -->
+          <div class="pricing-card reveal-on-scroll" style="--delay: 0ms">
+            <div class="pricing-tier-name">Discovery Audit</div>
+            <div class="pricing-price-wrap">
+              <span class="pricing-price-val">₹0</span>
+              <span class="pricing-price-sub"> / free consultation</span>
+            </div>
+            <div class="pricing-list">
+              <div class="pricing-item">
+                <span class="pricing-check">✓</span>
+                <span>30-minute system architecture review</span>
+              </div>
+              <div class="pricing-item">
+                <span class="pricing-check">✓</span>
+                <span>Bottleneck &amp; workflow mapping</span>
+              </div>
+              <div class="pricing-item">
+                <span class="pricing-check">✓</span>
+                <span>Feasibility &amp; timeline estimate</span>
+              </div>
+              <div class="pricing-item">
+                <span class="pricing-check">✓</span>
+                <span>Zero sales pressure, engineer-to-owner</span>
+              </div>
+            </div>
+            <button class="pricing-cta-btn open-quote-trigger" data-service="audit">Book Free Audit</button>
+          </div>
+
+          <!-- Tier 2 (Featured) -->
+          <div class="pricing-card featured reveal-on-scroll" style="--delay: 120ms">
+            <div style="display:flex; justify-content:space-between; align-items:center;">
+              <div class="pricing-tier-name">Custom Business ERP</div>
+              <span style="background:var(--terracotta); color:#fff; font-family:var(--font-mono); font-size:10px; font-weight:700; padding:3px 8px; border-radius:999px;">POPULAR</span>
+            </div>
+            <div class="pricing-price-wrap">
+              <span class="pricing-price-val">Bespoke</span>
+              <span class="pricing-price-sub"> / one-time ownership</span>
+            </div>
+            <div class="pricing-list">
+              <div class="pricing-item">
+                <span class="pricing-check">✓</span>
+                <span>Sub-second offline POS &amp; cash counter</span>
+              </div>
+              <div class="pricing-item">
+                <span class="pricing-check">✓</span>
+                <span>Multi-godown stock &amp; batch expiry</span>
+              </div>
+              <div class="pricing-item">
+                <span class="pricing-check">✓</span>
+                <span>1-Click GST billing &amp; Khatabook</span>
+              </div>
+              <div class="pricing-item">
+                <span class="pricing-check">✓</span>
+                <span>Thermal ESC/POS printer direct cut</span>
+              </div>
+              <div class="pricing-item">
+                <span class="pricing-check">✓</span>
+                <span>100% source code &amp; local DB ownership</span>
+              </div>
+            </div>
+            <button class="pricing-cta-btn open-quote-trigger" data-service="erp">Engineer Your ERP</button>
+          </div>
+
+          <!-- Tier 3 -->
+          <div class="pricing-card reveal-on-scroll" style="--delay: 240ms">
+            <div class="pricing-tier-name">Mobile Apps</div>
+            <div class="pricing-price-wrap">
+              <span class="pricing-price-val">Native</span>
+              <span class="pricing-price-sub"> / iOS &amp; Android</span>
+            </div>
+            <div class="pricing-list">
+              <div class="pricing-item">
+                <span class="pricing-check">✓</span>
+                <span>High-FPS offline beat order booking</span>
+              </div>
+              <div class="pricing-item">
+                <span class="pricing-check">✓</span>
+                <span>GPS geofenced attendance &amp; routes</span>
+              </div>
+              <div class="pricing-item">
+                <span class="pricing-check">✓</span>
+                <span>Instant warehouse stock check</span>
+              </div>
+              <div class="pricing-item">
+                <span class="pricing-check">✓</span>
+                <span>Camera receipt &amp; barcode scanning</span>
+              </div>
+              <div class="pricing-item">
+                <span class="pricing-check">✓</span>
+                <span>App Store &amp; Play Store deployment</span>
+              </div>
+            </div>
+            <button class="pricing-cta-btn open-quote-trigger" data-service="mobile">Build Your App</button>
+          </div>
+
+          <!-- Tier 4 -->
+          <div class="pricing-card reveal-on-scroll" style="--delay: 360ms">
+            <div class="pricing-tier-name">Automation &amp; Bots</div>
+            <div class="pricing-price-wrap">
+              <span class="pricing-price-val">Autonomous</span>
+              <span class="pricing-price-sub"> / 24/7 ops</span>
+            </div>
+            <div class="pricing-list">
+              <div class="pricing-item">
+                <span class="pricing-check">✓</span>
+                <span>WhatsApp 24/7 dealer order taking</span>
+              </div>
+              <div class="pricing-item">
+                <span class="pricing-check">✓</span>
+                <span>Automated PDF invoices sent on WhatsApp</span>
+              </div>
+              <div class="pricing-item">
+                <span class="pricing-check">✓</span>
+                <span>Dynamic UPI payment reminder links</span>
+              </div>
+              <div class="pricing-item">
+                <span class="pricing-check">✓</span>
+                <span>Custom API pipelines &amp; webhooks</span>
+              </div>
+              <div class="pricing-item">
+                <span class="pricing-check">✓</span>
+                <span>Dedicated support engineer hotline</span>
+              </div>
+            </div>
+            <button class="pricing-cta-btn open-quote-trigger" data-service="ai">Automate Operations</button>
+          </div>
+
         </div>
       </div>
     </section>
@@ -2316,6 +3086,6 @@
 
 
 
-  <script src="app.js?v=2026.3"></script>
+  <script src="app.js?v=2026.4"></script>
 </body>
 </html>

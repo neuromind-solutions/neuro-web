@@ -775,6 +775,152 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   });
 
+  /* ==========================================================================
+     8. FIRSTPROMPT INTERACTIVE LIVE DEMO SHOWCASE CONTROLLER
+     ========================================================================== */
+  function initInteractiveDemo() {
+    const demoFrame = document.querySelector('.fp-demo-frame');
+    const tabs = document.querySelectorAll('.fp-dm-tab');
+    const panes = document.querySelectorAll('.fp-dm-pane');
+    if (!demoFrame || tabs.length === 0) return;
+
+    let activePaneKey = 'erp';
+    let isPaused = false;
+    let fillAnimFrame = null;
+    let fillStartTime = null;
+    const DWELL_DURATION = 4200; // ms
+
+    // Pause on hover/touch so the user can freely read
+    demoFrame.addEventListener('mouseenter', () => { isPaused = true; });
+    demoFrame.addEventListener('mouseleave', () => { isPaused = false; fillStartTime = performance.now(); });
+    demoFrame.addEventListener('touchstart', () => { isPaused = true; }, { passive: true });
+
+    function switchTab(key) {
+      activePaneKey = key;
+      tabs.forEach(tab => {
+        tab.setAttribute('data-on', tab.dataset.tab === key ? '1' : '0');
+      });
+      panes.forEach(pane => {
+        pane.setAttribute('data-on', pane.id === `pane-${key}` ? '1' : '0');
+      });
+      // Switch to first slot of this pane
+      switchSlot(activePaneKey, 0);
+    }
+
+    tabs.forEach(tab => {
+      tab.addEventListener('click', () => {
+        switchTab(tab.dataset.tab);
+      });
+    });
+
+    function switchSlot(paneKey, slotIndex) {
+      const activePane = document.getElementById(`pane-${paneKey}`);
+      if (!activePane) return;
+
+      const rows = activePane.querySelectorAll('.fp-dm-row');
+      const bodies = activePane.querySelectorAll('.fp-dm-body');
+
+      rows.forEach(r => {
+        const isMatch = parseInt(r.dataset.slot, 10) === slotIndex;
+        r.setAttribute('data-on', isMatch ? '1' : '0');
+        const fill = r.querySelector('.fp-dm-fill');
+        if (fill) fill.style.width = '0%';
+      });
+
+      bodies.forEach(b => {
+        b.setAttribute('data-on', parseInt(b.dataset.slot, 10) === slotIndex ? '1' : '0');
+      });
+
+      fillStartTime = performance.now();
+    }
+
+    // Attach click listeners to all rows in all panes
+    panes.forEach(pane => {
+      const rows = pane.querySelectorAll('.fp-dm-row');
+      rows.forEach(row => {
+        row.addEventListener('click', () => {
+          const slot = parseInt(row.dataset.slot, 10);
+          switchSlot(pane.id.replace('pane-', ''), slot);
+        });
+      });
+    });
+
+    // Auto-advance loop with fill bar animation
+    function updatePlayhead(now) {
+      if (!fillStartTime) fillStartTime = now;
+      const activePane = document.getElementById(`pane-${activePaneKey}`);
+      if (activePane && !isPaused && !prefersMotionReduced) {
+        const rows = activePane.querySelectorAll('.fp-dm-row');
+        let currentSlot = 0;
+        rows.forEach((r, idx) => {
+          if (r.getAttribute('data-on') === '1') currentSlot = idx;
+        });
+
+        const elapsed = now - fillStartTime;
+        const progress = Math.min(elapsed / DWELL_DURATION, 1);
+
+        const activeRow = rows[currentSlot];
+        if (activeRow) {
+          const fill = activeRow.querySelector('.fp-dm-fill');
+          if (fill) fill.style.width = `${progress * 100}%`;
+        }
+
+        if (progress >= 1) {
+          const nextSlot = (currentSlot + 1) % rows.length;
+          switchSlot(activePaneKey, nextSlot);
+        }
+      }
+      fillAnimFrame = requestAnimationFrame(updatePlayhead);
+    }
+
+    if (!prefersMotionReduced) {
+      fillAnimFrame = requestAnimationFrame(updatePlayhead);
+    }
+  }
+
+  initInteractiveDemo();
+
+  /* ==========================================================================
+     9. BENTO CAROUSEL HORIZONTAL WHEEL SCROLL ASSIST (DESKTOP)
+     ========================================================================== */
+  const bentoTrackWrap = document.querySelector('.bento-track-wrap');
+  if (bentoTrackWrap) {
+    bentoTrackWrap.addEventListener('wheel', (e) => {
+      if (Math.abs(e.deltaY) > Math.abs(e.deltaX) && Math.abs(e.deltaY) > 5) {
+        const maxScroll = bentoTrackWrap.scrollWidth - bentoTrackWrap.clientWidth;
+        const current = bentoTrackWrap.scrollLeft;
+        if ((e.deltaY > 0 && current < maxScroll - 5) || (e.deltaY < 0 && current > 5)) {
+          e.preventDefault();
+          bentoTrackWrap.scrollBy({
+            left: e.deltaY * 1.5,
+            behavior: 'smooth'
+          });
+        }
+      }
+    }, { passive: false });
+  }
+
+  /* ==========================================================================
+     10. HOOK NEW CTAS TO GLOBAL 3-STEP QUOTE MODAL
+     ========================================================================== */
+  const quoteModalEl = document.getElementById('quoteModal');
+  const additionalQuoteTriggers = [
+    document.getElementById('demoOpenQuoteBtn'),
+    document.getElementById('shelfConsultBtn'),
+    ...document.querySelectorAll('.open-quote-trigger')
+  ];
+
+  additionalQuoteTriggers.forEach(btn => {
+    if (btn) {
+      btn.addEventListener('click', (e) => {
+        e.preventDefault();
+        currentStep = 1;
+        updateStepUI();
+        if (quoteModalEl) quoteModalEl.classList.add('active');
+      });
+    }
+  });
+
 });
 
 
