@@ -921,6 +921,34 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   });
 
+  /* ==========================================================================
+     11. FLOATING PILL NAVBAR SCROLL STATE & MOBILE DRAWER
+     ========================================================================== */
+  const navbarWrapper = document.querySelector('.navbar-wrapper');
+  if (navbarWrapper) {
+    window.addEventListener('scroll', () => {
+      if (window.scrollY > 24) {
+        navbarWrapper.classList.add('is-scrolled');
+      } else {
+        navbarWrapper.classList.remove('is-scrolled');
+      }
+    }, { passive: true });
+  }
+
+  const mobileToggle = document.getElementById('mobileMenuToggle');
+  const mobileDrawer = document.getElementById('mobileNavDrawer');
+  if (mobileToggle && mobileDrawer) {
+    mobileToggle.addEventListener('click', () => {
+      mobileDrawer.classList.toggle('is-open');
+    });
+
+    mobileDrawer.querySelectorAll('.mobile-nav-link').forEach(link => {
+      link.addEventListener('click', () => {
+        mobileDrawer.classList.remove('is-open');
+      });
+    });
+  }
+
 });
 
 
