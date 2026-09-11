@@ -607,27 +607,67 @@ document.addEventListener('DOMContentLoaded', () => {
   updateScrollProgress();
 
   /* ==========================================================================
-     6. SCROLL-TRIGGERED INTERSECTION OBSERVER
+     6. FIRSTPROMPT SCROLL REVEAL & TEXT ILLUMINATION OBSERVERS
      ========================================================================== */
-  const revealElements = document.querySelectorAll('[data-scroll-reveal]');
-  if ('IntersectionObserver' in window) {
+  const prefersMotionReduced = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  // 6a. Scroll Reveal (.reveal-on-scroll -> .is-visible)
+  const revealElements = document.querySelectorAll('.reveal-on-scroll, [data-scroll-reveal]');
+  if (prefersMotionReduced) {
+    revealElements.forEach(el => {
+      el.classList.add('is-visible');
+      el.classList.add('is-revealed');
+    });
+  } else if ('IntersectionObserver' in window) {
     const revealObserver = new IntersectionObserver((entries, observer) => {
       entries.forEach(entry => {
         if (entry.isIntersecting) {
+          entry.target.classList.add('is-visible');
           entry.target.classList.add('is-revealed');
           observer.unobserve(entry.target);
         }
       });
     }, {
       root: null,
-      threshold: 0.1,
-      rootMargin: '0px 0px -40px 0px'
+      threshold: 0.12,
+      rootMargin: '0px 0px -30px 0px'
     });
 
     revealElements.forEach(el => revealObserver.observe(el));
   } else {
-    // Fallback for older browsers
-    revealElements.forEach(el => el.classList.add('is-revealed'));
+    revealElements.forEach(el => {
+      el.classList.add('is-visible');
+      el.classList.add('is-revealed');
+    });
+  }
+
+  // 6b. Scroll-driven Text Illumination (Dark Statement Section)
+  const illuminateLines = document.querySelectorAll('.illuminate-line, [data-illuminate]');
+  if (illuminateLines.length > 0) {
+    if (prefersMotionReduced) {
+      illuminateLines.forEach(line => line.classList.add('is-lit'));
+    } else if ('IntersectionObserver' in window) {
+      const illumObserver = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('is-lit');
+          } else {
+            // When scrolling back up, smoothly dim line
+            const rect = entry.boundingClientRect;
+            if (rect.top > window.innerHeight * 0.7) {
+              entry.target.classList.remove('is-lit');
+            }
+          }
+        });
+      }, {
+        threshold: 0.5,
+        rootMargin: '0px 0px -10% 0px'
+      });
+
+      illuminateLines.forEach(line => illumObserver.observe(line));
+    } else {
+      illuminateLines.forEach(line => line.classList.add('is-lit'));
+    }
   }
 
   /* ==========================================================================

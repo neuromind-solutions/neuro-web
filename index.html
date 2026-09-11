@@ -17,9 +17,13 @@
   <!-- Google Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@700;800&family=Plus+Jakarta+Sans:wght@400;500;600;700;800;900&family=JetBrains+Mono:wght@500;700;800&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800;900&family=JetBrains+Mono:wght@500;700;800&display=swap" rel="stylesheet">
 
-  <link rel="stylesheet" href="styles.css?v=2026.2">
+  <!-- Cabinet Grotesk: Display / Hero headlines (firstprompt.build aesthetic) -->
+  <link rel="preconnect" href="https://api.fontshare.com">
+  <link rel="stylesheet" href="https://api.fontshare.com/v2/css?f[]=cabinet-grotesk@500,700,800,900&display=swap">
+
+  <link rel="stylesheet" href="styles.css?v=2026.3">
 </head>
 <body>
 
@@ -28,8 +32,8 @@
     <div class="nav-container">
       <a href="#" class="brand-logo">
         <div class="brand-icon">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
-            <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" class="brand-draw-svg">
+            <path class="brand-draw-path" d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/>
           </svg>
         </div>
         <span class="brand-text">NEUROMIND</span>
@@ -64,19 +68,20 @@
     <section class="hero-section" id="hero">
       <div class="container hero-editorial">
 
-        <!-- 3-Tier Colossal Headline -->
-        <h1 class="hero-colossal-title">
+        <!-- 3-Tier Colossal Headline — fp-up stagger delay 0ms -->
+        <h1 class="hero-colossal-title" data-hero-item style="--delay: 0ms">
           <span class="hero-line hero-line-solid">WE ENGINEER APPS</span>
           <span class="hero-line hero-line-outline">WE BUILD <span class="hero-dynamic-word" id="heroDynamicWord">SYSTEMS</span></span>
           <span class="hero-line hero-line-accent">THAT ACTUALLY RUN.</span>
         </h1>
 
-        <!-- Plain One-Liner Description (Clean & Non-Techie) -->
-        <p class="hero-lead-text">
+        <!-- Plain One-Liner Description — fp-up stagger delay 140ms -->
+        <p class="hero-lead-text" data-hero-item style="--delay: 140ms">
           Custom software, mobile apps &amp; AI automation — made for real businesses, with zero subscription lock&#8209;in.
         </p>
 
-        <div class="hero-actions-row">
+        <!-- Buttons row — fp-up stagger delay 270ms -->
+        <div class="hero-actions-row" data-hero-item style="--delay: 270ms">
           <button class="btn btn-hero-primary" id="heroStartProjectBtn">
             START A PROJECT &rarr;
           </button>
@@ -85,8 +90,8 @@
           </a>
         </div>
 
-        <!-- Studio Capability Badges -->
-        <div class="hero-pill-tags">
+        <!-- Studio Capability Badges — fp-up stagger delay 400ms -->
+        <div class="hero-pill-tags" data-hero-item style="--delay: 400ms">
           <span class="hero-spec-pill">
             <span class="spec-symbol">◈</span> Custom Software &amp; ERPs
           </span>
@@ -126,17 +131,29 @@
       </div>
     </div>
 
+    <!-- ==========================================================================
+         DARK STATEMENT SECTION — Scroll-illuminated text (firstprompt.build style)
+         ========================================================================== -->
+    <section class="illuminate-section" aria-label="Our promise">
+      <div class="illuminate-inner">
+        <p class="illuminate-line" data-illuminate>Bespoke software.</p>
+        <p class="illuminate-line" data-illuminate>Zero bloat.</p>
+        <p class="illuminate-line" data-illuminate>You own it all.</p>
+        <p class="illuminate-line" data-illuminate>Made for India.</p>
+      </div>
+    </section>
+
     <!-- Core Services Section (01, 02, 03) -->
     <section class="section services-section" id="services">
       <div class="container">
-        <div class="section-header">
+        <div class="section-header reveal-on-scroll">
           <p class="section-tag">FULL-CYCLE SOFTWARE STUDIO</p>
           <h2 class="section-title">WHAT WE BUILD</h2>
         </div>
 
         <div class="services-grid">
           <!-- Service 01: Custom Software & ERPs -->
-          <div class="service-card card-yellow" data-service="erp" role="button" tabindex="0" aria-label="Learn more about Custom Software & ERPs">
+          <div class="service-card card-yellow reveal-on-scroll" style="--delay: 0ms" data-service="erp" role="button" tabindex="0" aria-label="Learn more about Custom Software & ERPs">
             <div class="service-card-header">
               <div class="service-num">01</div>
               <div class="service-vintage-badge" title="Vintage CRT Terminal & ERP Core">
@@ -159,7 +176,7 @@
           </div>
 
           <!-- Service 02: Mobile Apps & Web Platforms -->
-          <div class="service-card card-paper" data-service="mobile" role="button" tabindex="0" aria-label="Learn more about Mobile Apps & Web Platforms">
+          <div class="service-card card-paper reveal-on-scroll" style="--delay: 130ms" data-service="mobile" role="button" tabindex="0" aria-label="Learn more about Mobile Apps & Web Platforms">
             <div class="service-card-header">
               <div class="service-num">02</div>
               <div class="service-vintage-badge" title="Vintage Cellular & Web Platform">
@@ -180,7 +197,7 @@
           </div>
 
           <!-- Service 03: AI & WhatsApp Automation -->
-          <div class="service-card card-dark" data-service="ai" role="button" tabindex="0" aria-label="Learn more about AI & WhatsApp Automation">
+          <div class="service-card card-dark reveal-on-scroll" style="--delay: 260ms" data-service="ai" role="button" tabindex="0" aria-label="Learn more about AI & WhatsApp Automation">
             <div class="service-card-header">
               <div class="service-num">03</div>
               <div class="service-vintage-badge" title="Vintage Robot & Automation Bot">
@@ -424,7 +441,7 @@
     <!-- Selected Work Showcase (#work) -->
     <section class="section work-section" id="work">
       <div class="container">
-        <div class="section-header work-header">
+        <div class="section-header work-header reveal-on-scroll">
           <div>
             <p class="section-tag">SELECTED BUILDS &amp; CASE STUDIES</p>
             <h2 class="section-title">BUILT BY US. RUNNING DAILY.</h2>
@@ -436,7 +453,7 @@
 
         <div class="work-grid">
           <!-- Featured Case Study: AgriBill -->
-          <div class="work-card agribill-featured-card" id="openAgriBillFromWork">
+          <div class="work-card agribill-featured-card reveal-on-scroll" style="--delay: 0ms" id="openAgriBillFromWork">
             <div class="work-img-box bg-dark" style="background-color: #0f382c;">
               <div class="work-initials text-amber">AB</div>
               <div class="work-mock-screen agribill-thumb-screen">
@@ -503,7 +520,7 @@
           </div>
 
           <!-- Project 2 -->
-          <div class="work-card">
+          <div class="work-card reveal-on-scroll" style="--delay: 100ms">
             <div class="work-img-box bg-yellow">
               <div class="work-initials text-dark">AH</div>
               <div class="work-mock-screen">
@@ -525,7 +542,7 @@
           </div>
 
           <!-- Project 3 -->
-          <div class="work-card">
+          <div class="work-card reveal-on-scroll" style="--delay: 200ms">
             <div class="work-img-box bg-orange">
               <div class="work-initials text-white">VL</div>
               <div class="work-mock-screen">
@@ -547,7 +564,7 @@
           </div>
 
           <!-- Project 4 -->
-          <div class="work-card">
+          <div class="work-card reveal-on-scroll" style="--delay: 300ms">
             <div class="work-img-box bg-cyan">
               <div class="work-initials text-dark">KP</div>
               <div class="work-mock-screen">
@@ -574,16 +591,16 @@
     <!-- Social Proof: Straight from the DMs (#reviews) -->
     <section class="section reviews-section" id="reviews">
       <div class="container">
-        <div class="section-header">
+        <div class="section-header reveal-on-scroll">
           <p class="section-tag">VERIFIED CLIENTS</p>
           <h2 class="section-title">STRAIGHT FROM THE DMs</h2>
-          <p class="reviews-subtitle">Real feedback from business owners and shop directors after switching to Neuromind.</p>
+          <p class="reviews-subtitle reveal-on-scroll" style="--delay: 120ms">Real feedback from business owners and shop directors after switching to Neuromind.</p>
         </div>
 
         <div class="reviews-carousel-wrap">
           <div class="reviews-carousel" id="reviewsCarousel">
             <!-- Review 1: Agri Shop Owner -->
-            <div class="review-card">
+            <div class="review-card reveal-on-scroll" style="--delay: 0ms">
               <div class="review-card-top">
                 <div class="review-avatar">VK</div>
                 <div>
@@ -601,7 +618,7 @@
             </div>
 
             <!-- Review 2 -->
-            <div class="review-card">
+            <div class="review-card reveal-on-scroll" style="--delay: 150ms">
               <div class="review-card-top">
                 <div class="review-avatar bg-orange text-white">AP</div>
                 <div>
@@ -619,7 +636,7 @@
             </div>
 
             <!-- Review 3 -->
-            <div class="review-card">
+            <div class="review-card reveal-on-scroll" style="--delay: 300ms">
               <div class="review-card-top">
                 <div class="review-avatar bg-yellow text-dark">MK</div>
                 <div>
@@ -652,7 +669,7 @@
             <p class="section-tag">PARTNERS IN CRIME • CORE BUILDERS</p>
             <span class="team-status-tag">● ZERO OUTSOURCING • 100% IN-HOUSE</span>
           </div>
-          <h2 class="section-title">THE TRIO BEHIND THE TERMINALS</h2>
+          <h2 class="section-title reveal-on-scroll">THE TRIO BEHIND THE TERMINALS</h2>
           <p class="section-sub-desc">
             No bloated account managers or outsourced code. We design, architect, and deploy every line of software ourselves with engineering rigor.
           </p>
@@ -661,7 +678,7 @@
         <div class="founders-grid">
           
           <!-- Founder 1: Nishant Bagnavar -->
-          <article class="founder-card" data-tilt>
+          <article class="founder-card reveal-on-scroll" style="--delay: 0ms" data-tilt>
             <div class="founder-card-inner">
               <div class="founder-chassis-top">
                 <div class="founder-status-indicator">
@@ -724,7 +741,7 @@
           </article>
 
           <!-- Founder 2: Abhay Raut -->
-          <article class="founder-card" data-tilt>
+          <article class="founder-card reveal-on-scroll" style="--delay: 150ms" data-tilt>
             <div class="founder-card-inner">
               <div class="founder-chassis-top">
                 <div class="founder-status-indicator">
@@ -787,7 +804,7 @@
           </article>
 
           <!-- Founder 3: Nirbhay Raut -->
-          <article class="founder-card" data-tilt>
+          <article class="founder-card reveal-on-scroll" style="--delay: 300ms" data-tilt>
             <div class="founder-card-inner">
               <div class="founder-chassis-top">
                 <div class="founder-status-indicator">
@@ -856,13 +873,13 @@
     <!-- 3-Step Process -->
     <section class="section process-section" id="process">
       <div class="container">
-        <div class="section-header">
+        <div class="section-header reveal-on-scroll">
           <p class="section-tag">HOW WE WORK</p>
           <h2 class="section-title">NO DRAMA. JUST DELIVERY.</h2>
         </div>
 
         <div class="process-grid">
-          <div class="process-card">
+          <div class="process-card reveal-on-scroll" style="--delay: 0ms">
             <div class="process-step-header">
               <div class="process-step-num">1</div>
               <div class="process-vintage-badge" title="Workflow Discovery & Blueprints">
@@ -877,7 +894,7 @@
             <p class="process-desc">We study how your business operates today. No generic templates — we document your exact billing, mobile app, or software requirements.</p>
           </div>
 
-          <div class="process-card">
+          <div class="process-card reveal-on-scroll" style="--delay: 150ms">
             <div class="process-step-header">
               <div class="process-step-num">2</div>
               <div class="process-vintage-badge" title="Rapid Sprint Build & Mechanical Rigor">
@@ -890,7 +907,7 @@
             <p class="process-desc">We build your custom system with continuous live preview links. You test the buttons, screens, and speed as we build.</p>
           </div>
 
-          <div class="process-card">
+          <div class="process-card reveal-on-scroll" style="--delay: 300ms">
             <div class="process-step-header">
               <div class="process-step-num">3</div>
               <div class="process-vintage-badge" title="Deploy & 24/7 Support Antenna">
@@ -911,7 +928,7 @@
     <!-- High-Impact Call to Action (#contact) -->
     <section class="section cta-section" id="contact">
       <div class="container">
-        <div class="cta-box">
+        <div class="cta-box reveal-on-scroll">
           <div class="cta-badge">⚡ READY TO LEVEL UP?</div>
           <h2 class="cta-title">Got a business or app to build?<br><span class="highlight-orange">Let's engineer your software.</span></h2>
           <p class="cta-desc">
@@ -2299,6 +2316,6 @@
 
 
 
-  <script src="app.js?v=2026.1"></script>
+  <script src="app.js?v=2026.3"></script>
 </body>
 </html>

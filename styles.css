@@ -35,6 +35,7 @@
 
   /* Geometry & Typography */
   --font-main: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  --font-display: 'Cabinet Grotesk', 'Plus Jakarta Sans', -apple-system, sans-serif;
   --font-mono: 'JetBrains Mono', monospace;
   --radius-sm: 6px;
   --radius-md: 12px;
@@ -100,6 +101,95 @@ a {
 .text-forest { color: var(--forest-green); }
 .text-amber { color: var(--amber); }
 .text-terracotta { color: var(--terracotta); }
+
+/* ==========================================================================
+   FIRSTPROMPT.BUILD ANIMATION SYSTEM
+   fp-up: hero stagger on load  |  fp-pop: badge pop-in
+   brand-draw: SVG logo draw    |  reveal-on-scroll: scroll trigger
+   ========================================================================== */
+
+@keyframes fp-up {
+  from { opacity: 0; transform: translateY(28px); }
+  to   { opacity: 1; transform: none; }
+}
+
+@keyframes fp-pop {
+  from { opacity: 0; transform: translateY(14px) scale(0.94); }
+  to   { opacity: 1; transform: none; }
+}
+
+@keyframes brand-draw {
+  from { stroke-dashoffset: 60; opacity: 0; }
+  to   { stroke-dashoffset: 0;  opacity: 1; }
+}
+
+/* Hero stagger: data-hero-item + style="--delay:Xms" on each child */
+[data-hero-item] {
+  animation: fp-up 0.72s cubic-bezier(0.22, 1, 0.36, 1) var(--delay, 0ms) both;
+  will-change: opacity, transform;
+}
+
+/* Brand SVG draw on page load */
+.brand-draw-svg .brand-draw-path {
+  stroke-dasharray: 60;
+  stroke-dashoffset: 60;
+  animation: brand-draw 0.65s cubic-bezier(0.22, 1, 0.36, 1) 0.1s both;
+}
+
+/* Scroll-reveal: JS IntersectionObserver adds .is-visible when in viewport */
+.reveal-on-scroll {
+  opacity: 0;
+  transform: translateY(28px);
+  transition:
+    opacity  0.65s cubic-bezier(0.22, 1, 0.36, 1) var(--delay, 0ms),
+    transform 0.65s cubic-bezier(0.22, 1, 0.36, 1) var(--delay, 0ms);
+  will-change: opacity, transform;
+}
+.reveal-on-scroll.is-visible {
+  opacity: 1;
+  transform: none;
+}
+
+/* ==========================================================================
+   DARK STATEMENT / TEXT ILLUMINATION SECTION
+   Scroll past each line to illuminate it from ghosted to fully visible
+   ========================================================================== */
+
+.illuminate-section {
+  background-color: var(--bg-dark);
+  padding: clamp(4.5rem, 11vh, 8rem) 2rem;
+  overflow: hidden;
+}
+
+.illuminate-inner {
+  max-width: 900px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 0.08em;
+}
+
+.illuminate-line {
+  font-family: var(--font-display);
+  font-size: clamp(2.8rem, 6.5vw, 6rem);
+  font-weight: 800;
+  letter-spacing: -0.04em;
+  line-height: 1.0;
+  color: rgba(246, 243, 235, 0.1);
+  transition: color 0.65s cubic-bezier(0.22, 1, 0.36, 1);
+  user-select: none;
+}
+
+.illuminate-line.is-lit {
+  color: rgba(246, 243, 235, 1);
+}
+
+@media (max-width: 768px) {
+  .illuminate-line {
+    font-size: clamp(2rem, 11vw, 3.2rem);
+  }
+}
+
 
 /* ==========================================================================
    TACTILE BUTTONS (MECHANICAL DEPRESSION)
@@ -249,11 +339,29 @@ a {
   font-weight: 800;
   letter-spacing: 0.05em;
   color: var(--ink);
-  transition: color 0.15s ease;
+  transition: color 0.2s ease;
+  position: relative;
+  padding-bottom: 3px;
+}
+
+/* Sliding underline from left on hover (firstprompt.build nav style) */
+.nav-links a::after {
+  content: '';
+  position: absolute;
+  bottom: -1px;
+  left: 0;
+  width: 0%;
+  height: 2px;
+  background: var(--terracotta);
+  transition: width 0.28s cubic-bezier(0.22, 1, 0.36, 1);
 }
 
 .nav-links a:hover {
-  color: var(--amber);
+  color: var(--terracotta);
+}
+
+.nav-links a:hover::after {
+  width: 100%;
 }
 
 @media (max-width: 768px) {
@@ -347,9 +455,9 @@ a {
   100% { transform: scale(0.9); opacity: 0.8; }
 }
 
-/* Colossal 3-Tier Headline (Competitor AI Jugaad Co Style) */
+/* Colossal 3-Tier Headline — Cabinet Grotesk display font */
 .hero-colossal-title {
-  font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  font-family: var(--font-display);
   font-size: clamp(2.4rem, 4.6vw, 4.2rem);
   font-weight: 800;
   line-height: 1.0;
@@ -431,8 +539,8 @@ a {
 }
 
 .btn-hero-primary:hover {
-  transform: translate(-2px, -2px);
-  box-shadow: 6px 6px 0px #ea580c;
+  transform: translate(-2px, -2px) scale(1.015);
+  box-shadow: 7px 7px 0px #ea580c;
 }
 
 .btn-hero-secondary {
@@ -456,8 +564,8 @@ a {
 
 .btn-hero-secondary:hover {
   background-color: #fde68a;
-  transform: translate(-2px, -2px);
-  box-shadow: 6px 6px 0px var(--ink);
+  transform: translate(-2px, -2px) scale(1.015);
+  box-shadow: 7px 7px 0px var(--ink);
 }
 
 /* Studio Capability Badges */
@@ -646,6 +754,7 @@ a {
 }
 
 .section-title {
+  font-family: var(--font-display);
   font-size: clamp(1.8rem, 5vw, 3.2rem);
   font-weight: 900;
   text-transform: uppercase;
@@ -672,8 +781,8 @@ a {
 }
 
 .service-card:hover {
-  transform: translateY(-4px);
-  box-shadow: var(--shadow-lg);
+  transform: translateY(-5px);
+  box-shadow: 9px 9px 0px var(--ink);
 }
 
 .card-yellow {
@@ -1090,8 +1199,8 @@ a {
 }
 
 .work-card:hover {
-  transform: translateY(-4px);
-  box-shadow: var(--shadow-lg);
+  transform: translateY(-5px);
+  box-shadow: 9px 9px 0px var(--ink);
 }
 
 .agribill-featured-card {
