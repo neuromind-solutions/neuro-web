@@ -1,0 +1,282 @@
+/* ============================================
+   NEUROMIND SOLUTIONS — Responsive Breakpoints
+   Mobile-first: base → sm (640) → md (768) → lg (1024) → xl (1280)
+   ============================================ */
+
+/* ═══════════════════════════════════════════
+   SM: ≥ 640px (Large phones / small tablets)
+   ═══════════════════════════════════════════ */
+
+@media (min-width: 640px) {
+  .container {
+    padding-left: var(--space-6);
+    padding-right: var(--space-6);
+  }
+
+  /* Hero */
+  .hero__title {
+    font-size: var(--text-6xl);
+  }
+
+  .hero__subtitle {
+    margin-top: var(--space-8);
+    font-size: var(--text-xl);
+  }
+
+  .hero__buttons {
+    flex-direction: row;
+  }
+
+  .btn--full-mobile {
+    width: auto;
+  }
+
+  /* Marquee */
+  .marquee {
+    font-size: var(--text-sm);
+  }
+
+  /* Section titles */
+  .section__title {
+    font-size: var(--text-5xl);
+  }
+
+  /* CTA */
+  .cta__title {
+    font-size: var(--text-6xl);
+  }
+
+  .cta__description {
+    font-size: var(--text-xl);
+  }
+
+  .cta__buttons {
+    flex-direction: row;
+  }
+
+  /* Metrics */
+  .metric__value {
+    font-size: var(--text-6xl);
+  }
+
+  /* Card titles */
+  .card__title {
+    font-size: var(--text-2xl);
+  }
+
+  .card__description {
+    font-size: var(--text-base);
+  }
+
+  .step-card__text {
+    font-size: var(--text-base);
+  }
+
+  .founder-card__bio {
+    font-size: var(--text-sm);
+  }
+
+  /* Header logo */
+  .header__logo-img {
+    height: 52px;
+  }
+
+  /* Footer contact grid */
+  .grid--contact {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+
+/* ═══════════════════════════════════════════
+   MD: ≥ 768px (Tablets)
+   ═══════════════════════════════════════════ */
+
+@media (min-width: 768px) {
+  /* Show desktop nav, hide hamburger */
+  .header__nav {
+    display: flex;
+  }
+
+  .header__hamburger {
+    display: none;
+  }
+
+  /* Sections spacing */
+  .section {
+    padding-top: var(--space-24);
+    padding-bottom: var(--space-24);
+  }
+
+  .section--hero {
+    padding-top: var(--space-20);
+    padding-bottom: var(--space-24);
+  }
+
+  .section--cta {
+    padding-top: var(--space-28);
+    padding-bottom: var(--space-28);
+  }
+
+  /* Show hero floating badges */
+  .hero__badges {
+    display: block;
+  }
+
+  /* Grids: 2 columns for case studies, metrics */
+  .grid--2 {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .grid--3 {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  .grid--4 {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  /* Metrics: horizontal */
+  .grid--metrics {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  /* Founders section header */
+  .founders-header {
+    flex-direction: row;
+    align-items: flex-end;
+    justify-content: space-between;
+  }
+
+  .founders-header__badge {
+    margin-top: 0;
+  }
+
+  /* Footer grid */
+  .grid--footer-nav {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .footer__bottom {
+    flex-direction: row;
+    justify-content: space-between;
+  }
+
+  /* CTA title */
+  .cta__title {
+    font-size: var(--text-6xl);
+  }
+}
+
+
+/* ═══════════════════════════════════════════
+   LG: ≥ 1024px (Desktop)
+   ═══════════════════════════════════════════ */
+
+@media (min-width: 1024px) {
+  .container {
+    padding-left: var(--space-8);
+    padding-right: var(--space-8);
+  }
+
+  /* Hero */
+  .hero__title {
+    font-size: var(--text-7xl);
+  }
+
+  /* Grids: full columns */
+  .grid--3 {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  .grid--4 {
+    grid-template-columns: repeat(4, 1fr);
+  }
+
+  /* Footer top */
+  .grid--footer-top {
+    grid-template-columns: 5fr 7fr;
+  }
+
+  /* CTA */
+  .cta__title {
+    font-size: var(--text-7xl);
+  }
+
+  /* Hero badge positions */
+  .hero-badge--tl {
+    left: 8px;
+    top: 56px;
+  }
+
+  .hero-badge--bl {
+    left: 48px;
+    top: 62%;
+  }
+
+  .hero-badge--tr {
+    right: 8px;
+    top: 56px;
+  }
+
+  .hero-badge--br {
+    right: 48px;
+    top: 62%;
+  }
+}
+
+
+/* ═══════════════════════════════════════════
+   XL: ≥ 1280px (Large desktop)
+   ═══════════════════════════════════════════ */
+
+@media (min-width: 1280px) {
+  .hero-badge--tl {
+    left: 56px;
+    top: 64px;
+  }
+
+  .hero-badge--bl {
+    left: 80px;
+    top: 62%;
+  }
+
+  .hero-badge--tr {
+    right: 56px;
+    top: 64px;
+  }
+
+  .hero-badge--br {
+    right: 80px;
+    top: 62%;
+  }
+}
+
+
+/* ═══════════════════════════════════════════
+   REDUCED MOTION
+   ═══════════════════════════════════════════ */
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+
+  .marquee-track,
+  .reviews-carousel__track {
+    animation: none;
+  }
+
+  .hover-lift:hover,
+  .card:hover,
+  .case-card:hover,
+  .step-card:hover,
+  .btn-lift:hover {
+    transform: none;
+  }
+}
