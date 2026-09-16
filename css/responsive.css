@@ -78,7 +78,7 @@
 
   /* Header logo */
   .header__logo-img {
-    height: 52px;
+    height: 48px;
   }
 
   /* Footer contact grid */
@@ -100,6 +100,15 @@
 
   .header__hamburger {
     display: none;
+  }
+
+  /* Show start project button in header on tablet/desktop */
+  .header__actions .open-project-modal {
+    display: inline-flex;
+  }
+
+  .header__logo-img {
+    height: 56px;
   }
 
   /* Sections spacing */
@@ -177,6 +186,11 @@
   .container {
     padding-left: var(--space-8);
     padding-right: var(--space-8);
+  }
+
+  /* Header logo slightly bigger on desktop */
+  .header__logo-img {
+    height: 64px;
   }
 
   /* Hero */

@@ -37,9 +37,9 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
-  height: var(--header-height);
-  padding-top: var(--space-3-5);
-  padding-bottom: var(--space-3-5);
+  min-height: var(--header-height);
+  padding-top: var(--space-2);
+  padding-bottom: var(--space-2);
 }
 
 .header__logo {
@@ -49,7 +49,7 @@
 }
 
 .header__logo-img {
-  height: 44px;
+  height: 60px;
   width: auto;
   object-fit: contain;
   transition: transform var(--transition-base);
@@ -83,6 +83,11 @@
   display: flex;
   align-items: center;
   gap: var(--space-3);
+}
+
+/* Hide Start Project button on mobile view */
+.header__actions .open-project-modal {
+  display: none;
 }
 
 /* Mobile hamburger button */
