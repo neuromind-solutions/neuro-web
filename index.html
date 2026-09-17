@@ -1,23 +1,28 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>NEUROMIND SOLUTIONS — Custom Software, Mobile Apps &amp; Automation Studio</title>
-  <meta name="description" content="Neuromind Solutions builds custom software, mobile apps, offline ERPs, and WhatsApp automation bots for real businesses — with zero subscription lock-in. Made in India.">
-  <meta name="keywords" content="custom software, mobile apps, ERP, WhatsApp automation, inventory management, Neuromind Solutions">
+  <meta name="description"
+    content="Neuromind Solutions builds custom software, mobile apps, offline ERPs, and WhatsApp automation bots for real businesses — with zero subscription lock-in. Made in India.">
+  <meta name="keywords"
+    content="custom software, mobile apps, ERP, WhatsApp automation, inventory management, Neuromind Solutions">
   <meta name="author" content="Neuromind Solutions">
 
   <!-- Open Graph -->
   <meta property="og:title" content="NEUROMIND SOLUTIONS — Custom Software, Mobile Apps & Automation">
-  <meta property="og:description" content="Custom software engineering, mobile apps & AI automation — made for real businesses, with zero subscription lock-in.">
+  <meta property="og:description"
+    content="Custom software engineering, mobile apps & AI automation — made for real businesses, with zero subscription lock-in.">
   <meta property="og:type" content="website">
   <meta property="og:locale" content="en_IN">
 
   <!-- Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:ital,wght@0,400;0,500;0,700;0,800;1,400&family=Space+Grotesk:wght@400;500;600;700;800&display=swap">
+  <link rel="stylesheet"
+    href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:ital,wght@0,400;0,500;0,700;0,800;1,400&family=Space+Grotesk:wght@400;500;600;700;800&display=swap">
 
   <!-- Stylesheets -->
   <link rel="stylesheet" href="css/variables.css">
@@ -27,68 +32,68 @@
   <link rel="stylesheet" href="css/layout.css">
   <link rel="stylesheet" href="css/responsive.css">
 </head>
+
 <body>
 
   <!-- ═══════════════════════════════════════
        HEADER
        ═══════════════════════════════════════ -->
-  <header class="header" id="site-header">
-    <div class="container header__inner">
-      <!-- Logo -->
-      <a href="#" class="header__logo" aria-label="Neuromind Solutions Home">
-        <img
-          src="https://lh3.googleusercontent.com/aida-public/AB6AXuDKWM9enGpHtv1WwaT8e4GKqTQl-MblSy07wvpiZgVtbRvSjPa6VciKyGjgY0maoKMzmzerZFaL41M1Uoh8LAK-UnBt2iJTC3U0nL8wpqXskI5jbBiFXMLbXxuBDH_WQwewdZwuUoCmce3Lx29fd_loXWXQxi513HIwkSY52VVuKv8hVgKR8MPfc4qbU3EpjNd14-H0KbuDmyEysWZoPkfTv6VQZVry-d9BWJLFrldUXCky0OQCHmLFGuAr0XqCV7-Wcw"
-          alt="Neuromind Solutions"
-          class="header__logo-img"
-        >
+  <!-- Scroll Progress Indicator Bar -->
+  <div class="scroll-progress-bar" id="scrollProgressBar"></div>
+
+  <!-- ═══════════════════════════════════════
+       1. FLOATING PILL NAVBAR
+       ═══════════════════════════════════════ -->
+  <header class="navbar-wrapper" id="site-header">
+    <div class="navbar-pill">
+      <a href="#" class="brand-logo" aria-label="Neuromind Solutions Home">
+        <span class="brand-asterisk">
+          <svg viewBox="0 0 24 24" width="22" height="22" fill="currentColor">
+            <path
+              d="M12 2a1 1 0 0 1 1 1v6.2l4.38-4.38a1 1 0 1 1 1.42 1.42L14.4 10.6H21a1 1 0 1 1 0 2h-6.6l4.4 4.38a1 1 0 1 1-1.42 1.42L13 14.02V21a1 1 0 1 1-2 0v-6.98l-4.38 4.4a1 1 0 1 1-1.42-1.42L9.6 12.6H3a1 1 0 1 1 0-2h6.6L5.2 6.22a1 1 0 1 1 1.42-1.42L11 9.2V3a1 1 0 0 1 1-1z" />
+          </svg>
+        </span>
+        <span class="brand-text">Neuromind</span>
       </a>
 
-      <!-- Desktop Nav -->
-      <nav class="header__nav" id="desktop-nav">
-        <a href="#services" class="header__nav-link">Services</a>
-        <a href="#work" class="header__nav-link">Work</a>
-        <a href="#reviews" class="header__nav-link">Reviews</a>
-        <a href="#founders" class="header__nav-link">Founders</a>
-        <a href="#process" class="header__nav-link">Process</a>
+      <nav class="nav-links" id="desktop-nav">
+        <a href="#services" class="nav-item">Services <span class="nav-caret">▾</span></a>
+        <a href="#services" class="nav-item">Capabilities <span class="nav-caret">▾</span></a>
+        <a href="#work" class="nav-item">Work</a>
+        <a href="#pricing" class="nav-item">Pricing <span class="nav-caret">▾</span></a>
+        <a href="#reviews" class="nav-item">Reviews</a>
+        <a href="#process" class="nav-item">Process</a>
       </nav>
 
-      <!-- Actions -->
-      <div class="header__actions">
-        <button type="button" class="btn btn--pill open-project-modal" aria-haspopup="dialog">
-          <span>START A PROJECT</span>
-          <span class="btn-arrow">→</span>
+      <div class="nav-actions">
+        
+        <button type="button" class="nav-cta-fp open-project-modal" id="openQuoteModalBtn" aria-haspopup="dialog">
+          <span>Start a Project</span>
+          <span class="nav-cta-arrow">&rsaquo;</span>
         </button>
-
-        <!-- Mobile Hamburger -->
-        <button
-          class="header__hamburger"
-          id="hamburger"
-          aria-label="Toggle navigation menu"
-          aria-expanded="false"
-          aria-controls="mobile-nav"
-        >
-          <span class="header__hamburger-line"></span>
-          <span class="header__hamburger-line"></span>
-          <span class="header__hamburger-line"></span>
+        <button class="mobile-menu-toggle" id="mobileMenuToggle" aria-label="Toggle Navigation" aria-expanded="false"
+          aria-controls="mobileNavDrawer">
+          <span></span><span></span><span></span>
         </button>
       </div>
     </div>
-  </header>
 
-  <!-- Mobile Nav Overlay -->
-  <nav class="mobile-nav" id="mobile-nav" aria-label="Mobile navigation">
-    <a href="#services" class="mobile-nav__link">Services</a>
-    <a href="#work" class="mobile-nav__link">Work</a>
-    <a href="#reviews" class="mobile-nav__link">Reviews</a>
-    <a href="#founders" class="mobile-nav__link">Founders</a>
-    <a href="#process" class="mobile-nav__link">Process</a>
-    <!-- <div class="mobile-nav__cta">
-      <button type="button" class="btn btn--primary btn--full-mobile mobile-nav__link open-project-modal" aria-haspopup="dialog">
-        <span>START A PROJECT</span>
-        <span class="btn-arrow">→</span>
+    <!-- Mobile Navigation Drawer -->
+    <div class="mobile-nav-drawer" id="mobileNavDrawer" aria-label="Mobile navigation">
+      <a href="#services" class="mobile-nav-link">Services</a>
+      <a href="#services" class="mobile-nav-link">Capabilities</a>
+      <a href="#work" class="mobile-nav-link">Work</a>
+      <a href="#pricing" class="mobile-nav-link">Pricing</a>
+      <a href="#reviews" class="mobile-nav-link">Reviews</a>
+      <a href="#founders" class="mobile-nav-link">Founders</a>
+      <a href="#process" class="mobile-nav-link">Process</a>
+      <button type="button" class="btn btn--primary open-project-modal" id="mobileStartProjectBtn"
+        style="width:100%; margin-top:8px; border-radius:9999px;">
+        <span>Start a Project</span>
+        <span class="btn-arrow">&rarr;</span>
       </button>
-    </div> -->
-  </nav>
+    </div>
+  </header>
 
 
   <!-- ═══════════════════════════════════════
@@ -102,7 +107,8 @@
         <!-- Top-Left: Custom Apps -->
         <div class="hero-badge hero-badge--tl" style="pointer-events: auto;">
           <div class="hero-badge__icon hero-badge__icon--orange">
-            <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24" style="color: #fff;">
+            <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+              viewBox="0 0 24 24" style="color: #fff;">
               <rect height="18" rx="2" ry="2" width="18" x="3" y="3"></rect>
               <line x1="3" x2="21" y1="9" y2="9"></line>
               <line x1="9" x2="9" y1="21" y2="9"></line>
@@ -114,7 +120,8 @@
         <!-- Bottom-Left: Mobile App -->
         <div class="hero-badge hero-badge--bl" style="pointer-events: auto;">
           <div class="hero-badge__icon hero-badge__icon--dark">
-            <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24" style="color: #F6EAC2;">
+            <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+              viewBox="0 0 24 24" style="color: #F6EAC2;">
               <rect x="5" y="2" width="14" height="20" rx="2" ry="2"></rect>
               <line x1="12" y1="18" x2="12.01" y2="18"></line>
             </svg>
@@ -125,10 +132,12 @@
         <!-- Top-Right: Website -->
         <div class="hero-badge hero-badge--tr" style="pointer-events: auto;">
           <div class="hero-badge__icon hero-badge__icon--white">
-            <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24" style="color: #0D281E;">
+            <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+              viewBox="0 0 24 24" style="color: #0D281E;">
               <circle cx="12" cy="12" r="10"></circle>
               <line x1="2" y1="12" x2="22" y2="12"></line>
-              <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path>
+              <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z">
+              </path>
             </svg>
           </div>
           <span class="hero-badge__label">website</span>
@@ -137,7 +146,8 @@
         <!-- Bottom-Right: Emails -->
         <div class="hero-badge hero-badge--br" style="pointer-events: auto;">
           <div class="hero-badge__icon hero-badge__icon--butter">
-            <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24" style="color: #0D281E;">
+            <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+              viewBox="0 0 24 24" style="color: #0D281E;">
               <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
               <polyline points="22,6 12,13 2,6"></polyline>
             </svg>
@@ -163,16 +173,16 @@
             <div class="hero__rotator-slide">
               <span class="hero__rotator-pill">“रोजचं काम Automatic करायचं आहे.”</span>
             </div>
-             <div class="hero__rotator-slide">
+            <div class="hero__rotator-slide">
               <span class="hero__rotator-pill">“Business साठी Billing Software हवंय”</span>
             </div>
-             <div class="hero__rotator-slide">
+            <div class="hero__rotator-slide">
               <span class="hero__rotator-pill">“AI ने काम सोपं करायचं आहे.”</span>
             </div>
-             <div class="hero__rotator-slide">
+            <div class="hero__rotator-slide">
               <span class="hero__rotator-pill">“Business Grow करायचा आहे.”</span>
             </div>
-            
+
             <!-- Cloned first slide for seamless continuous loop -->
             <div class="hero__rotator-slide" aria-hidden="true">
               <span class="hero__rotator-pill">“एक Website बनवायची आहे.”</span>
@@ -184,7 +194,8 @@
 
       <!-- Supporting Text -->
       <p class="hero__subtitle">
-        Custom software, mobile apps &amp; AI automation — made for real businesses, with <strong>zero subscription lock-in</strong>.
+        Custom software, mobile apps &amp; AI automation — made for real businesses, with <strong>zero subscription
+          lock-in</strong>.
       </p>
 
       <!-- CTA Buttons -->
@@ -225,79 +236,91 @@
 
 
   <!-- ═══════════════════════════════════════
-       WHAT WE BUILD (Services)
+       2. CORE SERVICES SECTION ("WHAT WE BUILD")
        ═══════════════════════════════════════ -->
-  <section class="section" id="services">
+  <section class="section services-section" id="services">
     <div class="container">
       <div class="section__header fade-in-section">
         <p class="section__eyebrow">FULL-CYCLE SOFTWARE STUDIO</p>
         <h2 class="section__title">WHAT WE BUILD</h2>
       </div>
 
-      <div class="grid grid--3 fade-in-section">
-        <!-- Card 01: Custom Software & ERPs -->
-        <div class="card card--butter">
-          <div>
-            <div class="card__header">
-              <span class="card__number">01</span>
-              <div class="card__icon-box">
-                <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24">
-                  <ellipse cx="12" cy="5" rx="9" ry="3"></ellipse>
-                  <path d="M21 12c0 1.66-4 3-9 3s-9-1.34-9-3"></path>
-                  <path d="M3 5v14c0 1.66 4 3 9 3s9-1.34 9-3V5"></path>
-                </svg>
-              </div>
+      <div class="services-grid fade-in-section">
+        <!-- Service 01: Custom Software & ERPs -->
+        <div class="service-card card-yellow" data-service="erp" role="button" tabindex="0"
+          aria-label="Learn more about Custom Software & ERPs">
+          <div class="service-card-header">
+            <div class="service-num">01</div>
+            <div class="service-vintage-badge" title="Vintage CRT Terminal & ERP Core">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                stroke-linejoin="round">
+                <rect x="2" y="3" width="20" height="13" rx="2"></rect>
+                <line x1="6" y1="7" x2="6.01" y2="7" stroke-width="3"></line>
+                <line x1="9" y1="7" x2="14" y2="7"></line>
+                <line x1="6" y1="11" x2="12" y2="11"></line>
+                <path d="M8 20h8"></path>
+                <path d="M12 16v4"></path>
+              </svg>
             </div>
-            <h3 class="card__title">SOFTWARE & BUSINESS SYSTEMS</h3>
-            <p class="card__description">
-             Custom software for the way your business actually works — billing, ERP, inventory, operations, dashboards, and everything in between.
-            </p>
           </div>
-          <div class="card__footer">
-            <span class="card__tag">FOR OFFLINE DESKTOP &amp; CLOUD</span>
+          <h3 class="service-name">CUSTOM SOFTWARE &amp; ERPS</h3>
+          <p class="service-desc">Tailored offline &amp; cloud systems engineered for complex, industry-specific
+            workflows — from agriculture to pharmaceuticals.</p>
+          <div class="service-footer">
+            <span class="service-pill">FOR OFFLINE DESKTOP &amp; CLOUD</span>
+            <span class="service-tap-btn">TAP TO EXPLORE &rarr;</span>
           </div>
         </div>
 
-        <!-- Card 02: Mobile Apps & Web Platforms -->
-        <div class="card card--soft">
-          <div>
-            <div class="card__header">
-              <span class="card__number">02</span>
-              <div class="card__icon-box">
-                <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24">
-                  <rect height="20" rx="2" ry="2" width="14" x="5" y="2"></rect>
-                  <line x1="12" x2="12.01" y1="18" y2="18"></line>
-                </svg>
-              </div>
+        <!-- Service 02: Mobile Apps & Web Platforms -->
+        <div class="service-card card-paper" data-service="mobile" role="button" tabindex="0"
+          aria-label="Learn more about Mobile Apps & Web Platforms">
+          <div class="service-card-header">
+            <div class="service-num">02</div>
+            <div class="service-vintage-badge" title="Vintage Cellular & Web Platform">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                stroke-linejoin="round">
+                <rect x="5" y="2" width="14" height="20" rx="3"></rect>
+                <line x1="9" y1="5" x2="15" y2="5"></line>
+                <rect x="8" y="8" width="8" height="7" rx="1"></rect>
+                <circle cx="12" cy="18.5" r="1" fill="currentColor"></circle>
+              </svg>
             </div>
-            <h3 class="card__title">MOBILE APPS &amp; WEB PLATFORMS</h3>
-            <p class="card__description">
-              From a simple business website to a full-blown web or mobile product. Fast, modern, and built around what you actually need.
-            </p>
           </div>
-          <div class="card__footer">
-            <span class="card__tag">FOR PHONES &amp; BROWSERS</span>
+          <h3 class="service-name">MOBILE APPS &amp; WEB PLATFORMS</h3>
+          <p class="service-desc">High-performance native and cross-platform apps for iOS, Android, and modern web
+            browsers — from e-commerce to SaaS portals.</p>
+          <div class="service-footer">
+            <span class="service-pill">FOR PHONES, TABLETS &amp; BROWSERS</span>
+            <span class="service-tap-btn">TAP TO EXPLORE &rarr;</span>
           </div>
         </div>
 
-        <!-- Card 03: AI & WhatsApp Automation -->
-        <div class="card card--dark">
-          <div>
-            <div class="card__header">
-              <span class="card__number">03</span>
-              <div class="card__icon-box">
-                <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24">
-                  <path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"></path>
-                </svg>
-              </div>
+        <!-- Service 03: AI & WhatsApp Automation -->
+        <div class="service-card card-dark" data-service="ai" role="button" tabindex="0"
+          aria-label="Learn more about AI & WhatsApp Automation">
+          <div class="service-card-header">
+            <div class="service-num">03</div>
+            <div class="service-vintage-badge" title="Vintage Robot & Automation Bot">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                stroke-linejoin="round">
+                <rect x="4" y="8" width="16" height="13" rx="2"></rect>
+                <circle cx="9" cy="13" r="1.5" fill="currentColor"></circle>
+                <circle cx="15" cy="13" r="1.5" fill="currentColor"></circle>
+                <line x1="9" y1="17" x2="15" y2="17"></line>
+                <line x1="12" y1="2" x2="12" y2="8"></line>
+                <circle cx="12" cy="2" r="1" fill="currentColor"></circle>
+                <line x1="1" y1="14" x2="4" y2="14"></line>
+                <line x1="20" y1="14" x2="23" y2="14"></line>
+              </svg>
             </div>
-            <h3 class="card__title">AI & AUTOMATION</h3>
-            <p class="card__description">
-              Let software do the boring stuff. We build AI tools, WhatsApp bots, workflows, and automations that save time and keep things moving.
-            </p>
           </div>
-          <div class="card__footer">
-            <span class="card__tag">FOR 24/7 HANDS-FREE OPS</span>
+          <h3 class="service-name">AI &amp; WHATSAPP AUTOMATION</h3>
+          <p class="service-desc">Put your repetitive business operations on autopilot with intelligent bots and custom
+            API hooks — orders, reminders &amp; leads handled 24/7.</p>
+          <div class="service-footer">
+            <span class="service-pill">FOR 24/7 HANDS-FREE OPS</span>
+            <span class="service-tap-btn">TAP TO EXPLORE &rarr;</span>
           </div>
         </div>
       </div>
@@ -312,15 +335,18 @@
     <div class="container">
       <div class="grid grid--metrics fade-in-section" id="metrics-bar">
         <div class="metric">
-          <div class="metric__value metric__value--burnt" data-target="20" data-prefix="" data-suffix="+" data-decimals="0">20+</div>
+          <div class="metric__value metric__value--burnt" data-target="20" data-prefix="" data-suffix="+"
+            data-decimals="0">20+</div>
           <p class="metric__label metric__label--butter">BUSINESSES AUTOMATED</p>
         </div>
         <div class="metric">
-          <div class="metric__value metric__value--butter" data-target="99.9" data-prefix="" data-suffix="%" data-decimals="1">99.9%</div>
+          <div class="metric__value metric__value--butter" data-target="99.9" data-prefix="" data-suffix="%"
+            data-decimals="1">99.9%</div>
           <p class="metric__label metric__label--green">UPTIME RELIABILITY</p>
         </div>
         <div class="metric">
-          <div class="metric__value metric__value--burnt" data-target="24" data-prefix="<" data-suffix="h" data-decimals="0">&lt;24h</div>
+          <div class="metric__value metric__value--burnt" data-target="24" data-prefix="<" data-suffix="h"
+            data-decimals="0">&lt;24h</div>
           <p class="metric__label metric__label--butter">RESPONSE &amp; SUPPORT</p>
         </div>
       </div>
@@ -337,7 +363,8 @@
         <p class="section__eyebrow">SELECTED BUILDS &amp; CASE STUDIES</p>
         <h2 class="section__title">BUILT BY US. RUNNING DAILY.</h2>
         <p class="section__subtitle">
-          Real enterprise software, agriculture billing suites, mobile apps, and e-commerce platforms deployed for our clients.
+          Real enterprise software, agriculture billing suites, mobile apps, and e-commerce platforms deployed for our
+          clients.
         </p>
       </div>
 
@@ -362,7 +389,8 @@
               </span>
             </div>
             <h4 class="case-card__title">AGRIBILL — AGRICULTURE BILLING &amp; INVENTORY</h4>
-            <p class="case-card__text">Custom offline-desktop suite with Marathi UI, Udhar customer ledger &amp; fertilizer batch tracking.</p>
+            <p class="case-card__text">Custom offline-desktop suite with Marathi UI, Udhar customer ledger &amp;
+              fertilizer batch tracking.</p>
           </div>
           <div class="case-card__footer">
             <span class="case-card__arrow">↗</span>
@@ -389,7 +417,8 @@
               </span>
             </div>
             <h4 class="case-card__title">APEX HARDWARE &amp; TOOLS</h4>
-            <p class="case-card__text">Custom inventory management with ledger accounts and automated supplier orders.</p>
+            <p class="case-card__text">Custom inventory management with ledger accounts and automated supplier orders.
+            </p>
           </div>
           <div class="case-card__footer">
             <span class="case-card__arrow">↗</span>
@@ -415,7 +444,8 @@
               </div>
             </div>
             <h4 class="case-card__title">VELVET LIVING APPAREL</h4>
-            <p class="case-card__text">Ultra-fast headless web storefront integrated with WhatsApp checkout &amp; Shiprocket.</p>
+            <p class="case-card__text">Ultra-fast headless web storefront integrated with WhatsApp checkout &amp;
+              Shiprocket.</p>
           </div>
           <div class="case-card__footer">
             <span class="case-card__arrow">↗</span>
@@ -463,13 +493,14 @@
         <h2 class="section__title">STRAIGHT FROM THE DMS</h2>
         <p class="section__subtitle">
           Real feedback from business owners and shop directors after switching to Neuromind.
-        <!-- Status Pill & Pause/Resume Control -->
+          <!-- Status Pill & Pause/Resume Control -->
         <div class="reviews-carousel__status">
           <span class="reviews-carousel__status-pill">
             <span class="reviews-carousel__status-dot pulse" id="carousel-status-dot"></span>
             <span class="reviews-carousel__status-text" id="carousel-status-text">TAP ANY CARD TO PAUSE</span>
           </span>
-          <button type="button" class="reviews-carousel__toggle-btn" id="carousel-toggle-btn" aria-label="Pause auto scroll">
+          <button type="button" class="reviews-carousel__toggle-btn" id="carousel-toggle-btn"
+            aria-label="Pause auto scroll">
             <span class="reviews-carousel__toggle-icon" id="carousel-toggle-icon">❚❚</span>
             <span class="reviews-carousel__toggle-label" id="carousel-toggle-label">PAUSE</span>
           </button>
@@ -485,7 +516,8 @@
           <!-- GROUP 1: Primary 4 Cards -->
           <div class="reviews-carousel__group">
             <!-- Review 1: Abhinav Bagnavar -->
-            <div class="review-card" tabindex="0" role="button" aria-label="Review from Abhinav Bagnavar, Owner, Kisan Krushi Kendra">
+            <div class="review-card" tabindex="0" role="button"
+              aria-label="Review from Abhinav Bagnavar, Owner, Kisan Krushi Kendra">
               <div>
                 <div class="review-card__header">
                   <div class="review-card__profile">
@@ -498,7 +530,8 @@
                   <span class="review-card__wa-badge">WhatsApp Client</span>
                 </div>
                 <blockquote class="review-card__quote">
-                  "AgriBill completely solved our pesticide batch expiry and farmer Udhar ledger tracking. The Marathi language option makes it easy for our counter staff to use without training."
+                  "AgriBill completely solved our pesticide batch expiry and farmer Udhar ledger tracking. The Marathi
+                  language option makes it easy for our counter staff to use without training."
                 </blockquote>
               </div>
               <div class="review-card__footer">
@@ -507,7 +540,8 @@
             </div>
 
             <!-- Review 2: Anand Patel -->
-            <div class="review-card" tabindex="0" role="button" aria-label="Review from Anand Patel, Director, Patel Electronics">
+            <div class="review-card" tabindex="0" role="button"
+              aria-label="Review from Anand Patel, Director, Patel Electronics">
               <div>
                 <div class="review-card__header">
                   <div class="review-card__profile">
@@ -520,7 +554,8 @@
                   <span class="review-card__wa-badge">WhatsApp Client</span>
                 </div>
                 <blockquote class="review-card__quote">
-                  "The WhatsApp automation bot alone saved us hiring 2 full time staff for order tracking. Customers send their requirement on WhatsApp and get instant PDF quotation. 10/10 execution."
+                  "The WhatsApp automation bot alone saved us hiring 2 full time staff for order tracking. Customers
+                  send their requirement on WhatsApp and get instant PDF quotation. 10/10 execution."
                 </blockquote>
               </div>
               <div class="review-card__footer">
@@ -529,7 +564,8 @@
             </div>
 
             <!-- Review 3: Meera Kapoor -->
-            <div class="review-card" tabindex="0" role="button" aria-label="Review from Meera Kapoor, Founder, PureGlow Cosmetics">
+            <div class="review-card" tabindex="0" role="button"
+              aria-label="Review from Meera Kapoor, Founder, PureGlow Cosmetics">
               <div>
                 <div class="review-card__header">
                   <div class="review-card__profile">
@@ -542,7 +578,8 @@
                   <span class="review-card__wa-badge">WhatsApp Client</span>
                 </div>
                 <blockquote class="review-card__quote">
-                  "Our website speed increased by 300% after Neuromind rebuilt our store. No WordPress bloat, super clean design, and our direct WhatsApp sales jumped 40% in month one."
+                  "Our website speed increased by 300% after Neuromind rebuilt our store. No WordPress bloat, super
+                  clean design, and our direct WhatsApp sales jumped 40% in month one."
                 </blockquote>
               </div>
               <div class="review-card__footer">
@@ -551,7 +588,8 @@
             </div>
 
             <!-- Review 4: Rajesh Sharma (NEW 4th review) -->
-            <div class="review-card" tabindex="0" role="button" aria-label="Review from Rajesh Sharma, MD, Apex Cargo Logistics">
+            <div class="review-card" tabindex="0" role="button"
+              aria-label="Review from Rajesh Sharma, MD, Apex Cargo Logistics">
               <div>
                 <div class="review-card__header">
                   <div class="review-card__profile">
@@ -564,7 +602,8 @@
                   <span class="review-card__wa-badge">WhatsApp Client</span>
                 </div>
                 <blockquote class="review-card__quote">
-                  "Neuromind built our dispatch portal and driver WhatsApp notification bot. Proof of delivery photos upload straight to our billing ledger. Cut customer status queries by 65%."
+                  "Neuromind built our dispatch portal and driver WhatsApp notification bot. Proof of delivery photos
+                  upload straight to our billing ledger. Cut customer status queries by 65%."
                 </blockquote>
               </div>
               <div class="review-card__footer">
@@ -589,7 +628,8 @@
                   <span class="review-card__wa-badge">WhatsApp Client</span>
                 </div>
                 <blockquote class="review-card__quote">
-                  "AgriBill completely solved our pesticide batch expiry and farmer Udhar ledger tracking. The Marathi language option makes it easy for our counter staff to use without training."
+                  "AgriBill completely solved our pesticide batch expiry and farmer Udhar ledger tracking. The Marathi
+                  language option makes it easy for our counter staff to use without training."
                 </blockquote>
               </div>
               <div class="review-card__footer">
@@ -611,7 +651,8 @@
                   <span class="review-card__wa-badge">WhatsApp Client</span>
                 </div>
                 <blockquote class="review-card__quote">
-                  "The WhatsApp automation bot alone saved us hiring 2 full time staff for order tracking. Customers send their requirement on WhatsApp and get instant PDF quotation. 10/10 execution."
+                  "The WhatsApp automation bot alone saved us hiring 2 full time staff for order tracking. Customers
+                  send their requirement on WhatsApp and get instant PDF quotation. 10/10 execution."
                 </blockquote>
               </div>
               <div class="review-card__footer">
@@ -633,7 +674,8 @@
                   <span class="review-card__wa-badge">WhatsApp Client</span>
                 </div>
                 <blockquote class="review-card__quote">
-                  "Our website speed increased by 300% after Neuromind rebuilt our store. No WordPress bloat, super clean design, and our direct WhatsApp sales jumped 40% in month one."
+                  "Our website speed increased by 300% after Neuromind rebuilt our store. No WordPress bloat, super
+                  clean design, and our direct WhatsApp sales jumped 40% in month one."
                 </blockquote>
               </div>
               <div class="review-card__footer">
@@ -655,7 +697,8 @@
                   <span class="review-card__wa-badge">WhatsApp Client</span>
                 </div>
                 <blockquote class="review-card__quote">
-                  "Neuromind built our dispatch portal and driver WhatsApp notification bot. Proof of delivery photos upload straight to our billing ledger. Cut customer status queries by 65%."
+                  "Neuromind built our dispatch portal and driver WhatsApp notification bot. Proof of delivery photos
+                  upload straight to our billing ledger. Cut customer status queries by 65%."
                 </blockquote>
               </div>
               <div class="review-card__footer">
@@ -680,7 +723,8 @@
                   <span class="review-card__wa-badge">WhatsApp Client</span>
                 </div>
                 <blockquote class="review-card__quote">
-                  "AgriBill completely solved our pesticide batch expiry and farmer Udhar ledger tracking. The Marathi language option makes it easy for our counter staff to use without training."
+                  "AgriBill completely solved our pesticide batch expiry and farmer Udhar ledger tracking. The Marathi
+                  language option makes it easy for our counter staff to use without training."
                 </blockquote>
               </div>
               <div class="review-card__footer">
@@ -702,7 +746,8 @@
                   <span class="review-card__wa-badge">WhatsApp Client</span>
                 </div>
                 <blockquote class="review-card__quote">
-                  "The WhatsApp automation bot alone saved us hiring 2 full time staff for order tracking. Customers send their requirement on WhatsApp and get instant PDF quotation. 10/10 execution."
+                  "The WhatsApp automation bot alone saved us hiring 2 full time staff for order tracking. Customers
+                  send their requirement on WhatsApp and get instant PDF quotation. 10/10 execution."
                 </blockquote>
               </div>
               <div class="review-card__footer">
@@ -724,7 +769,8 @@
                   <span class="review-card__wa-badge">WhatsApp Client</span>
                 </div>
                 <blockquote class="review-card__quote">
-                  "Our website speed increased by 300% after Neuromind rebuilt our store. No WordPress bloat, super clean design, and our direct WhatsApp sales jumped 40% in month one."
+                  "Our website speed increased by 300% after Neuromind rebuilt our store. No WordPress bloat, super
+                  clean design, and our direct WhatsApp sales jumped 40% in month one."
                 </blockquote>
               </div>
               <div class="review-card__footer">
@@ -746,7 +792,8 @@
                   <span class="review-card__wa-badge">WhatsApp Client</span>
                 </div>
                 <blockquote class="review-card__quote">
-                  "Neuromind built our dispatch portal and driver WhatsApp notification bot. Proof of delivery photos upload straight to our billing ledger. Cut customer status queries by 65%."
+                  "Neuromind built our dispatch portal and driver WhatsApp notification bot. Proof of delivery photos
+                  upload straight to our billing ledger. Cut customer status queries by 65%."
                 </blockquote>
               </div>
               <div class="review-card__footer">
@@ -772,7 +819,8 @@
           <p class="section__eyebrow">PARTNERS IN CRIME • CORE BUILDERS</p>
           <h2 class="section__title">THE TRIO BEHIND THE TERMINALS</h2>
           <p class="section__subtitle">
-            No bloated account managers or outsourced code. We design, architect, and deploy every line of software ourselves with engineering rigor.
+            No bloated account managers or outsourced code. We design, architect, and deploy every line of software
+            ourselves with engineering rigor.
           </p>
         </div>
         <div class="founders-header__badge">
@@ -796,9 +844,11 @@
             <div class="founder-card__avatar founder-card__avatar--amber">NB</div>
             <div class="founder-card__status founder-card__status--amber">STATUS: READY_TO_DEPLOY</div>
             <h3 class="founder-card__name">Nishant Bagnavar</h3>
-            <p class="founder-card__designation founder-card__designation--amber">Co-Founder &amp; Lead Systems Architect</p>
+            <p class="founder-card__designation founder-card__designation--amber">Co-Founder &amp; Lead Systems
+              Architect</p>
             <p class="founder-card__bio">
-              Architects high-speed offline ERPs, database engines, GST calculation cores, and complex business logic systems.
+              Architects high-speed offline ERPs, database engines, GST calculation cores, and complex business logic
+              systems.
             </p>
             <div class="founder-card__pills">
               <span class="founder-card__pill">Offline ERPs</span>
@@ -809,7 +859,8 @@
           <div class="founder-card__socials">
             <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer">LinkedIn ↗</a>
             <span>•</span>
-            <a href="https://instagram.com/neuromindsolutions.in" target="_blank" rel="noopener noreferrer">Instagram ↗</a>
+            <a href="https://instagram.com/neuromindsolutions.in" target="_blank" rel="noopener noreferrer">Instagram
+              ↗</a>
             <span>•</span>
             <a href="mailto:neuromind1511@gmail.com">Email ↗</a>
           </div>
@@ -827,9 +878,11 @@
             <div class="founder-card__avatar founder-card__avatar--emerald">AR</div>
             <div class="founder-card__status founder-card__status--emerald">STATUS: OPTIMIZING_FLOWS</div>
             <h3 class="founder-card__name">Abhay Raut</h3>
-            <p class="founder-card__designation founder-card__designation--emerald">Co-Founder &amp; Product Engineering Lead</p>
+            <p class="founder-card__designation founder-card__designation--emerald">Co-Founder &amp; Product Engineering
+              Lead</p>
             <p class="founder-card__bio">
-              Drives end-to-end product architecture, client workflows, inventory logic, and seamless WhatsApp automation bots.
+              Drives end-to-end product architecture, client workflows, inventory logic, and seamless WhatsApp
+              automation bots.
             </p>
             <div class="founder-card__pills">
               <span class="founder-card__pill">Product Eng</span>
@@ -840,7 +893,8 @@
           <div class="founder-card__socials">
             <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer">LinkedIn ↗</a>
             <span>•</span>
-            <a href="https://instagram.com/neuromindsolutions.in" target="_blank" rel="noopener noreferrer">Instagram ↗</a>
+            <a href="https://instagram.com/neuromindsolutions.in" target="_blank" rel="noopener noreferrer">Instagram
+              ↗</a>
             <span>•</span>
             <a href="mailto:neuromind1511@gmail.com">Email ↗</a>
           </div>
@@ -858,9 +912,11 @@
             <div class="founder-card__avatar founder-card__avatar--rose">NR</div>
             <div class="founder-card__status founder-card__status--rose">STATUS: COMPILE_MOBILE_APPS</div>
             <h3 class="founder-card__name">Nirbhay Raut</h3>
-            <p class="founder-card__designation founder-card__designation--rose">Co-Founder &amp; Mobile Apps / UI Lead</p>
+            <p class="founder-card__designation founder-card__designation--rose">Co-Founder &amp; Mobile Apps / UI Lead
+            </p>
             <p class="founder-card__bio">
-              Specializes in high-performance iOS &amp; Android mobile apps, lightning-fast web storefronts, and intuitive user interfaces.
+              Specializes in high-performance iOS &amp; Android mobile apps, lightning-fast web storefronts, and
+              intuitive user interfaces.
             </p>
             <div class="founder-card__pills">
               <span class="founder-card__pill">iOS &amp; Android</span>
@@ -871,7 +927,8 @@
           <div class="founder-card__socials">
             <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer">LinkedIn ↗</a>
             <span>•</span>
-            <a href="https://instagram.com/neuromindsolutions.in" target="_blank" rel="noopener noreferrer">Instagram ↗</a>
+            <a href="https://instagram.com/neuromindsolutions.in" target="_blank" rel="noopener noreferrer">Instagram
+              ↗</a>
             <span>•</span>
             <a href="mailto:neuromind1511@gmail.com">Email ↗</a>
           </div>
@@ -907,7 +964,8 @@
           </div>
           <h3 class="step-card__title">YOU TALK.</h3>
           <p class="step-card__text">
-            Tell us the idea, problem, or “can you build this?” moment. We understand your workflow, ask the right questions, and turn the mess into a clear plan.
+            Tell us the idea, problem, or “can you build this?” moment. We understand your workflow, ask the right
+            questions, and turn the mess into a clear plan.
           </p>
         </div>
 
@@ -924,7 +982,8 @@
           </div>
           <h3 class="step-card__title">WE BUILD.</h3>
           <p class="step-card__text">
-            You don’t have to wait until the end to see what we made. Get regular previews, test the product, share feedback, and watch the idea come to life.
+            You don’t have to wait until the end to see what we made. Get regular previews, test the product, share
+            feedback, and watch the idea come to life.
           </p>
         </div>
 
@@ -934,13 +993,16 @@
             <div class="step-card__number">3</div>
             <div class="step-card__icon">
               <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
-                <path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"></path>
+                <path
+                  d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z">
+                </path>
               </svg>
             </div>
           </div>
           <h3 class="step-card__title">WE SHIP.</h3>
           <p class="step-card__text">
-            Ready means ready. We launch, set things up, handle the technical bits, and stay around to keep improving things after launch.
+            Ready means ready. We launch, set things up, handle the technical bits, and stay around to keep improving
+            things after launch.
           </p>
         </div>
       </div>
@@ -977,10 +1039,13 @@
           <span>START A PROJECT</span>
           <span>→</span>
         </button>
-        <a href="https://wa.me/919689159776?text=Hi%20Neuromind%2C%20I%20want%20to%20build%20a%20custom%20software%2Fapp" target="_blank" rel="noopener noreferrer" class="btn btn--cta-green btn--full-mobile">
+        <a href="https://wa.me/919689159776?text=Hi%20Neuromind%2C%20I%20want%20to%20build%20a%20custom%20software%2Fapp"
+          target="_blank" rel="noopener noreferrer" class="btn btn--cta-green btn--full-mobile">
           <!-- WhatsApp icon -->
           <svg style="width:20px;height:20px;color:#22C55E;" fill="currentColor" viewBox="0 0 24 24">
-            <path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414z"></path>
+            <path
+              d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414z">
+            </path>
           </svg>
           <span>CHAT ON WHATSAPP</span>
         </a>
@@ -995,93 +1060,468 @@
 
 
   <!-- ═══════════════════════════════════════
-       FOOTER
+       3. INTERACTIVE SERVICE DETAIL MODALS
+       ═══════════════════════════════════════ -->
+
+  <!-- Modal 01: Custom Software & ERPs -->
+  <div class="svc-modal-overlay" id="svcModal-erp" role="dialog" aria-modal="true" aria-labelledby="svcModal-erp-title">
+    <div class="svc-modal" data-theme="yellow">
+      <button class="svc-modal-close" aria-label="Close modal">&#x2715;</button>
+      <div class="svc-modal-header">
+        <div class="svc-modal-num">01</div>
+        <div class="svc-modal-domain-badge">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+            stroke-linejoin="round">
+            <rect x="2" y="3" width="20" height="13" rx="2"></rect>
+            <line x1="6" y1="7" x2="6.01" y2="7" stroke-width="3"></line>
+            <line x1="9" y1="7" x2="14" y2="7"></line>
+            <line x1="6" y1="11" x2="12" y2="11"></line>
+            <path d="M8 20h8"></path>
+            <path d="M12 16v4"></path>
+          </svg>
+        </div>
+      </div>
+      <h2 class="svc-modal-title" id="svcModal-erp-title">CUSTOM SOFTWARE &amp; ERPs</h2>
+      <p class="svc-modal-desc">Tailored offline &amp; cloud systems engineered for complex, industry-specific workflows
+        — built entirely in-house, zero subscription lock-in.</p>
+      <div class="svc-modal-divider"></div>
+      <p class="svc-modal-section-label">PROJECTS BUILT IN THIS DOMAIN</p>
+      <div class="svc-modal-projects">
+        <div class="svc-project-card">
+          <div class="svc-project-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+              stroke-linejoin="round">
+              <path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6" />
+            </svg>
+          </div>
+          <div class="svc-project-info">
+            <h4>AgriBill — Agriculture &amp; Chemical Dealer Suite</h4>
+            <p>Complete offline ERP for pesticide &amp; fertilizer dealers. Batch tracking, GST billing, party ledger
+              &amp; seasonal credit management.</p>
+            <span class="svc-project-tag">AGRICULTURE</span>
+          </div>
+        </div>
+        <div class="svc-project-card">
+          <div class="svc-project-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+              stroke-linejoin="round">
+              <path d="M19 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11l5 5v11a2 2 0 0 1-2 2z" />
+              <polyline points="17 21 17 13 7 13 7 21" />
+              <polyline points="7 3 7 8 15 8" />
+            </svg>
+          </div>
+          <div class="svc-project-info">
+            <h4>PharmaTrack — Pharmacy &amp; Batch Management</h4>
+            <p>Expiry-date forecasting, schedule H drug compliance, wholesale distributor ledger &amp; multi-counter POS
+              integration.</p>
+            <span class="svc-project-tag">HEALTHCARE</span>
+          </div>
+        </div>
+        <div class="svc-project-card">
+          <div class="svc-project-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+              stroke-linejoin="round">
+              <polygon points="12 2 2 7 12 12 22 7 12 2" />
+              <polyline points="2 17 12 22 22 17" />
+              <polyline points="2 12 12 17 22 12" />
+            </svg>
+          </div>
+          <div class="svc-project-info">
+            <h4>TextileFlow — Loom &amp; Yarn Inventory ERP</h4>
+            <p>Raw material to finished fabric tracker with warp/weft waste calculation, weaver pay ledger &amp; GST
+              invoice generation.</p>
+            <span class="svc-project-tag">MANUFACTURING</span>
+          </div>
+        </div>
+      </div>
+      <div class="svc-modal-footer">
+        <span class="svc-modal-pill">FOR OFFLINE DESKTOP &amp; CLOUD</span>
+        <button type="button" class="btn btn-primary svc-cta-btn open-project-modal" id="svcErpCta">
+          <span>START A PROJECT &rarr;</span>
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Modal 02: Mobile Apps & Web Platforms -->
+  <div class="svc-modal-overlay" id="svcModal-mobile" role="dialog" aria-modal="true"
+    aria-labelledby="svcModal-mobile-title">
+    <div class="svc-modal" data-theme="paper">
+      <button class="svc-modal-close" aria-label="Close modal">&#x2715;</button>
+      <div class="svc-modal-header">
+        <div class="svc-modal-num">02</div>
+        <div class="svc-modal-domain-badge">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+            stroke-linejoin="round">
+            <rect x="5" y="2" width="14" height="20" rx="3"></rect>
+            <line x1="9" y1="5" x2="15" y2="5"></line>
+            <rect x="8" y="8" width="8" height="7" rx="1"></rect>
+            <circle cx="12" cy="18.5" r="1" fill="currentColor"></circle>
+          </svg>
+        </div>
+      </div>
+      <h2 class="svc-modal-title" id="svcModal-mobile-title">MOBILE APPS &amp; WEB PLATFORMS</h2>
+      <p class="svc-modal-desc">High-performance native and cross-platform apps for iOS, Android, and modern browsers —
+        designed for extreme real-world reliability.</p>
+      <div class="svc-modal-divider"></div>
+      <p class="svc-modal-section-label">PROJECTS BUILT IN THIS DOMAIN</p>
+      <div class="svc-modal-projects">
+        <div class="svc-project-card">
+          <div class="svc-project-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+              stroke-linejoin="round">
+              <circle cx="9" cy="21" r="1" />
+              <circle cx="20" cy="21" r="1" />
+              <path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6" />
+            </svg>
+          </div>
+          <div class="svc-project-info">
+            <h4>AgroCommerce — Farmer-to-Dealer Ordering App</h4>
+            <p>Flutter cross-platform app with offline catalog caching, vernacular UI (Marathi/Hindi), and razorpay
+              integration.</p>
+            <span class="svc-project-tag">E-COMMERCE</span>
+          </div>
+        </div>
+        <div class="svc-project-card">
+          <div class="svc-project-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+              stroke-linejoin="round">
+              <rect x="3" y="3" width="18" height="18" rx="2" />
+              <path d="M3 9h18" />
+              <path d="M9 21V9" />
+            </svg>
+          </div>
+          <div class="svc-project-info">
+            <h4>BizPortal — Multi-Tenant Client Dashboard</h4>
+            <p>Next.js web portal with role-based access, real-time sales reporting, PDF statement exports, and webhook
+              notifications.</p>
+            <span class="svc-project-tag">SAAS / WEB</span>
+          </div>
+        </div>
+        <div class="svc-project-card">
+          <div class="svc-project-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+              stroke-linejoin="round">
+              <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z" />
+              <polyline points="14 2 14 8 20 8" />
+              <line x1="16" y1="13" x2="8" y2="13" />
+              <line x1="16" y1="17" x2="8" y2="17" />
+            </svg>
+          </div>
+          <div class="svc-project-info">
+            <h4>ServiceHub — Field Technician Dispatch App</h4>
+            <p>Native Android app for field service engineers: GPS job tracking, signature capture, parts consumption
+              log &amp; invoice print.</p>
+            <span class="svc-project-tag">FIELD SERVICE</span>
+          </div>
+        </div>
+      </div>
+      <div class="svc-modal-footer">
+        <span class="svc-modal-pill">FOR PHONES, TABLETS &amp; BROWSERS</span>
+        <button type="button" class="btn btn-primary svc-cta-btn open-project-modal" id="svcMobileCta">
+          <span>START A PROJECT &rarr;</span>
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Modal 03: AI & WhatsApp Automation -->
+  <div class="svc-modal-overlay" id="svcModal-ai" role="dialog" aria-modal="true" aria-labelledby="svcModal-ai-title">
+    <div class="svc-modal" data-theme="dark">
+      <button class="svc-modal-close" aria-label="Close modal">&#x2715;</button>
+      <div class="svc-modal-header">
+        <div class="svc-modal-num">03</div>
+        <div class="svc-modal-domain-badge">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+            stroke-linejoin="round">
+            <rect x="4" y="8" width="16" height="13" rx="2"></rect>
+            <circle cx="9" cy="13" r="1.5" fill="currentColor"></circle>
+            <circle cx="15" cy="13" r="1.5" fill="currentColor"></circle>
+            <line x1="9" y1="17" x2="15" y2="17"></line>
+            <line x1="12" y1="2" x2="12" y2="8"></line>
+            <circle cx="12" cy="2" r="1" fill="currentColor"></circle>
+            <line x1="1" y1="14" x2="4" y2="14"></line>
+            <line x1="20" y1="14" x2="23" y2="14"></line>
+          </svg>
+        </div>
+      </div>
+      <h2 class="svc-modal-title" id="svcModal-ai-title">AI &amp; WHATSAPP AUTOMATION</h2>
+      <p class="svc-modal-desc">Put your repetitive business operations on autopilot with intelligent bots and custom
+        API hooks — orders, reminders &amp; leads handled 24/7.</p>
+      <div class="svc-modal-divider"></div>
+      <p class="svc-modal-section-label">PROJECTS BUILT IN THIS DOMAIN</p>
+      <div class="svc-modal-projects">
+        <div class="svc-project-card">
+          <div class="svc-project-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+              stroke-linejoin="round">
+              <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z" />
+            </svg>
+          </div>
+          <div class="svc-project-info">
+            <h4>OrderBot — WhatsApp Conversational Ordering</h4>
+            <p>Meta Cloud API bot that takes orders over WhatsApp, checks inventory in real time, generates a PDF bill
+              &amp; confirms via payment link.</p>
+            <span class="svc-project-tag">WHATSAPP / API</span>
+          </div>
+        </div>
+        <div class="svc-project-card">
+          <div class="svc-project-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+              stroke-linejoin="round">
+              <circle cx="12" cy="12" r="10" />
+              <polyline points="12 6 12 12 16 14" />
+            </svg>
+          </div>
+          <div class="svc-project-info">
+            <h4>LedgerNudge — Automated Payment Reminders</h4>
+            <p>Scheduled WhatsApp dispatch engine: sends friendly payment reminders with live balance, bank details
+              &amp; UPI QR code directly to clients.</p>
+            <span class="svc-project-tag">FINTECH / OPS</span>
+          </div>
+        </div>
+        <div class="svc-project-card">
+          <div class="svc-project-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+              stroke-linejoin="round">
+              <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2" />
+              <circle cx="9" cy="7" r="4" />
+              <path d="M23 21v-2a4 4 0 0 0-3-3.87" />
+              <path d="M16 3.13a4 4 0 0 1 0 7.75" />
+            </svg>
+          </div>
+          <div class="svc-project-info">
+            <h4>LeadFlow — WhatsApp Lead Capture to CRM</h4>
+            <p>Captures enquiries from WhatsApp, website &amp; forms, qualifies them via AI chatbot &amp; pushes into
+              CRM pipeline automatically.</p>
+            <span class="svc-project-tag">CRM / AI</span>
+          </div>
+        </div>
+      </div>
+      <div class="svc-modal-footer">
+        <span class="svc-modal-pill">FOR 24/7 HANDS-FREE OPS</span>
+        <button type="button" class="btn btn-yellow svc-cta-btn open-project-modal" id="svcAiCta">
+          <span>START A PROJECT &rarr;</span>
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- ═══════════════════════════════════════
+       4. WARM RETRO HARDWARE STUDIO FOOTER
        ═══════════════════════════════════════ -->
   <footer class="footer">
-    <div class="container">
-      <!-- Top Grid: Bio & Inquiries -->
-      <div class="grid grid--footer-top footer__top">
-        <!-- Brand Column -->
-        <div class="footer__brand">
-          <div>
-            <div class="footer__logo-row">
-              <div class="footer__logo-icon">N</div>
-              <span class="footer__brand-name">NEUROMIND SOLUTIONS</span>
-            </div>
-            <p class="footer__brand-desc">
-              Custom software engineering, high-speed offline ERPs, and native mobile applications built by engineers with speed &amp; rigor.
-            </p>
+    <div class="footer-top-stripe"></div>
+    <div class="container footer-container">
+      <!-- Col 1: Brand & Engineering Identity -->
+      <div class="footer-col-brand">
+        <div class="brand-logo">
+          <div class="brand-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"
+              stroke-linejoin="round">
+              <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5" />
+            </svg>
           </div>
+          <span class="brand-text">NEUROMIND SOLUTIONS</span>
         </div>
+        <p class="footer-tagline">
+          Custom software engineering, high-speed offline ERPs, and native mobile applications built by engineers with
+          speed &amp; rigor.
+        </p>
+      
+      </div>
 
-        <!-- Inquiries Column -->
-        <div>
-          <p class="footer__inquiries-title">DIRECT INQUIRIES &amp; ORDERS</p>
-          <div class="grid grid--contact">
-            <!-- Phone -->
-            <a href="tel:+919689159776" class="contact-card">
-              <div class="contact-card__top">
-                <span class="contact-card__emoji-box contact-card__emoji-box--green">📞</span>
-                <span class="contact-card__label">Direct Call &amp; WhatsApp</span>
-              </div>
-              <span class="contact-card__value">+91 96891 59776</span>
-            </a>
+      <!-- Col 2: Direct Contact Channels -->
+      <div class="footer-col-channels">
+        <h4 class="footer-heading">DIRECT INQUIRIES &amp; ORDERS</h4>
+        <div class="footer-contact-list">
+          <a href="https://wa.me/919689159776?text=Hi%20Neuromind%20Solutions" target="_blank" rel="noopener noreferrer"
+            class="footer-contact-card" title="WhatsApp">
+            <div class="contact-icon-bubble whatsapp-bubble">
+              <svg viewBox="0 0 24 24" class="icon-svg" fill="currentColor">
+                <path
+                  d="M12.04 2c-5.46 0-9.91 4.45-9.91 9.91 0 1.75.46 3.45 1.32 4.95L2.05 22l5.25-1.38c1.45.79 3.08 1.21 4.74 1.21 5.46 0 9.91-4.45 9.91-9.91 0-2.65-1.03-5.14-2.9-7.01A9.816 9.816 0 0 0 12.04 2m.01 1.67c2.2 0 4.26.86 5.82 2.42a8.225 8.225 0 0 1 2.41 5.83c0 4.54-3.7 8.24-8.24 8.24-1.48 0-2.93-.4-4.2-1.15l-.3-.18-3.12.82.83-3.04-.2-.31a8.196 8.196 0 0 1-1.26-4.38c0-4.54 3.7-8.24 8.24-8.24m4.52 11.66c-.19.53-1.11 1.04-1.53 1.1-.4.07-.9.1-1.48-.09-.35-.11-.8-.26-1.5-.56-2.97-1.29-4.89-4.3-5.04-4.5-.15-.2-1.2-1.6-1.2-3.05s.76-2.17 1.03-2.47c.27-.3.59-.38.79-.38.2 0 .39 0 .56.01.18.01.42-.07.66.5.24.58.83 2.02.9 2.17.07.15.12.33.02.53-.1.2-.15.33-.3.5-.15.18-.32.39-.46.53-.15.14-.31.3-.13.6.17.3.77 1.27 1.65 2.05 1.13 1.01 2.09 1.32 2.39 1.47.3.15.47.13.65-.08.18-.2.77-.9 1-1.2.2-.3.39-.25.65-.15.26.1 1.65.78 1.93.92.28.14.47.21.54.33.07.12.07.69-.12 1.22z" />
+              </svg>
+            </div>
+            <div class="contact-details">
+              <span class="contact-type">DIRECT CALL &amp; WHATSAPP</span>
+              <strong class="contact-val">+91 96891 59776</strong>
+            </div>
+          </a>
 
-            <!-- Email -->
-            <a href="mailto:neuromind1511@gmail.com" class="contact-card">
-              <div class="contact-card__top">
-                <span class="contact-card__emoji-box contact-card__emoji-box--amber">✉</span>
-                <span class="contact-card__label">Company Email</span>
-              </div>
-              <span class="contact-card__value truncate">neuromind1511@gmail.com</span>
-            </a>
+          <a href="mailto:neuromind311@gmail.com" class="footer-contact-card" title="Email">
+            <div class="contact-icon-bubble email-bubble">
+              <svg viewBox="0 0 24 24" class="icon-svg" fill="none" stroke="currentColor" stroke-width="2"
+                stroke-linecap="round" stroke-linejoin="round">
+                <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
+                <polyline points="22,6 12,13 2,6"></polyline>
+              </svg>
+            </div>
+            <div class="contact-details">
+              <span class="contact-type">COMPANY EMAIL</span>
+              <strong class="contact-val">neuromind311@gmail.com</strong>
+            </div>
+          </a>
 
-            <!-- Instagram -->
-            <a href="https://instagram.com/neuromindsolutions.in" target="_blank" rel="noopener noreferrer" class="contact-card">
-              <div class="contact-card__top">
-                <span class="contact-card__emoji-box contact-card__emoji-box--rose">📸</span>
-                <span class="contact-card__label">Instagram</span>
-              </div>
-              <span class="contact-card__value truncate">@neuromindsolutions.in</span>
-            </a>
-          </div>
+          <a href="https://www.instagram.com/neuromindsolutions.in" target="_blank" rel="noopener noreferrer"
+            class="footer-contact-card" title="Instagram">
+            <div class="contact-icon-bubble insta-bubble">
+              <svg viewBox="0 0 24 24" class="icon-svg" fill="none" stroke="currentColor" stroke-width="2"
+                stroke-linecap="round" stroke-linejoin="round">
+                <rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect>
+                <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path>
+                <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line>
+              </svg>
+            </div>
+            <div class="contact-details">
+              <span class="contact-type">INSTAGRAM</span>
+              <strong class="contact-val">@neuromindsolutions.in</strong>
+            </div>
+          </a>
         </div>
       </div>
 
-      <!-- Navigation Section -->
-      <div class="footer__nav-section">
-        <div class="grid grid--footer-nav">
-          <div>
-            <span class="footer__nav-title">SOLUTIONS</span>
-            <div class="footer__nav-links">
-              <a href="#work">✦ Custom ERPs</a>
-              <a href="#services">✦ Mobile Applications</a>
-              <a href="#services">✦ Web Platforms &amp; Portals</a>
-              <a href="#services">✦ WhatsApp Automation</a>
-              <a href="#contact">✦ Live Hardware Demos</a>
-            </div>
-          </div>
-          <div>
-            <span class="footer__nav-title">NAVIGATION</span>
-            <div class="footer__nav-links">
-              <a href="#work">① Our Work</a>
-              <a href="#founders">② Founding Trio</a>
-              <a href="#reviews">③ Client Reviews</a>
-              <a href="#process">④ 3-Step Process</a>
-              <a href="#contact" class="open-project-modal">⑤ Start a Project</a>
-            </div>
-          </div>
-        </div>
+      <!-- Col 3: Solutions -->
+      <div class="footer-col-nav">
+        <h4 class="footer-heading">SOLUTIONS</h4>
+        <ul class="footer-nav-list">
+          <li>
+            <a href="#work">
+              <span class="vintage-svg-icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                  stroke-linejoin="round">
+                  <rect x="2" y="3" width="20" height="14" rx="2"></rect>
+                  <line x1="8" y1="21" x2="16" y2="21"></line>
+                  <line x1="12" y1="17" x2="12" y2="21"></line>
+                </svg>
+              </span>
+              <span>Custom ERPs</span>
+            </a>
+          </li>
+          <li>
+            <a href="#services">
+              <span class="vintage-svg-icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                  stroke-linejoin="round">
+                  <rect x="5" y="2" width="14" height="20" rx="3"></rect>
+                  <line x1="12" y1="18" x2="12.01" y2="18" stroke-width="3"></line>
+                </svg>
+              </span>
+              <span>Mobile Applications</span>
+            </a>
+          </li>
+          <li>
+            <a href="#services">
+              <span class="vintage-svg-icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                  stroke-linejoin="round">
+                  <circle cx="12" cy="12" r="10"></circle>
+                  <line x1="2" y1="12" x2="22" y2="12"></line>
+                  <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z">
+                  </path>
+                </svg>
+              </span>
+              <span>Web Platforms &amp; Portals</span>
+            </a>
+          </li>
+          <li>
+            <a href="#services">
+              <span class="vintage-svg-icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                  stroke-linejoin="round">
+                  <rect x="4" y="6" width="16" height="14" rx="2"></rect>
+                  <circle cx="9" cy="12" r="1.5" fill="currentColor"></circle>
+                  <circle cx="15" cy="12" r="1.5" fill="currentColor"></circle>
+                  <line x1="9" y1="16" x2="15" y2="16"></line>
+                  <line x1="12" y1="2" x2="12" y2="6"></line>
+                </svg>
+              </span>
+              <span>WhatsApp Automation</span>
+            </a>
+          </li>
+        </ul>
       </div>
 
-      <!-- Bottom Compliance -->
-      <div class="footer__bottom">
-        <div class="footer__copyright">
-          © <span id="current-year">2026</span> Neuromind Solutions. All rights reserved.
-        </div>
-        <div class="footer__badges">
-          <span class="footer__badge footer__badge--white">BUILT WITH SPEED &amp; RIGOR</span>
-          <span class="footer__badge footer__badge--butter">MADE IN INDIA 🇮🇳</span>
+      <!-- Col 4: Quick Navigation -->
+      <div class="footer-col-nav">
+        <h4 class="footer-heading">NAVIGATION</h4>
+        <ul class="footer-nav-list">
+          <li>
+            <a href="#work">
+              <span class="vintage-svg-icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                  stroke-linejoin="round">
+                  <path d="M22 19a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5l2 3h9a2 2 0 0 1 2 2z"></path>
+                </svg>
+              </span>
+              <span>Our Work</span>
+            </a>
+          </li>
+          <li>
+            <a href="#reviews">
+              <span class="vintage-svg-icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                  stroke-linejoin="round">
+                  <polygon
+                    points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2">
+                  </polygon>
+                </svg>
+              </span>
+              <span>Client Reviews</span>
+            </a>
+          </li>
+          <li>
+            <a href="#process">
+              <span class="vintage-svg-icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                  stroke-linejoin="round">
+                  <circle cx="12" cy="12" r="3"></circle>
+                  <path
+                    d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z">
+                  </path>
+                </svg>
+              </span>
+              <span>3-Step Process</span>
+            </a>
+          </li>
+          <li>
+            <a href="#contact" class="open-project-modal">
+              <span class="vintage-svg-icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                  stroke-linejoin="round">
+                  <path d="M4.5 16.5c-1.5 1.26-2 5-2 5s3.74-.5 5-2c.71-.84.7-2.13-.09-2.91a2.18 2.18 0 0 0-2.91-.09z">
+                  </path>
+                  <path
+                    d="M12 15l-3-3a22 22 0 0 1 2-3.95A12.88 12.88 0 0 1 22 2c0 2.72-.78 7.5-6 11a22.35 22.35 0 0 1-4 2z">
+                  </path>
+                </svg>
+              </span>
+              <span>Start a Project</span>
+            </a>
+          </li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- Bottom Copyright & Hardware Badges -->
+    <div class="footer-bottom">
+      <div class="container footer-bottom-container">
+        <p>© <span id="current-year">2026</span> Neuromind Solutions. All rights reserved.</p>
+        <div class="footer-badges-strip">
+          <span class="footer-hw-badge">⚡ BUILT WITH SPEED &amp; RIGOR</span>
+
+          <span class="footer-hw-badge">
+            MADE IN INDIA
+            <span class="flag-india-vector" title="India">
+              <svg viewBox="0 0 24 16" width="18" height="12" class="svg-flag" aria-hidden="true">
+                <rect width="24" height="16" rx="2" fill="#ffffff" />
+                <path d="M0 0h24v5.33H0z" fill="#FF9933" />
+                <path d="M0 10.67h24V16H0z" fill="#138808" />
+                <circle cx="12" cy="8" r="2.2" fill="none" stroke="#000080" stroke-width="0.7" />
+                <circle cx="12" cy="8" r="0.6" fill="#000080" />
+              </svg>
+            </span>
+          </span>
         </div>
       </div>
     </div>
@@ -1090,7 +1530,8 @@
   <!-- ═══════════════════════════════════════
        START PROJECT MULTI-STEP DIALOG MODAL
        ═══════════════════════════════════════ -->
-  <div class="project-modal" id="project-modal" aria-hidden="true" role="dialog" aria-modal="true" aria-labelledby="modal-title">
+  <div class="project-modal" id="project-modal" aria-hidden="true" role="dialog" aria-modal="true"
+    aria-labelledby="modal-title">
     <div class="project-modal__backdrop" id="project-modal-backdrop"></div>
     <div class="project-modal__dialog">
       <!-- Close Button -->
@@ -1110,7 +1551,8 @@
           <h3 class="project-modal__title" id="modal-title">WHAT SHOULD WE CALL YOU?</h3>
           <p class="project-modal__subtitle">First name is plenty.</p>
           <div class="project-modal__field">
-            <input type="text" id="modal-name-input" class="project-modal__input" placeholder="Your name" autocomplete="name" autofocus required>
+            <input type="text" id="modal-name-input" class="project-modal__input" placeholder="Your name"
+              autocomplete="name" autofocus required>
             <div class="project-modal__error" id="modal-error-1">Please enter your name to proceed.</div>
           </div>
           <div class="project-modal__action-row">
@@ -1137,9 +1579,11 @@
               </select>
               <span class="project-modal__country-arrow">▼</span>
             </div>
-            <input type="tel" id="modal-phone-input" class="project-modal__input" placeholder="Phone number" autocomplete="tel" required>
+            <input type="tel" id="modal-phone-input" class="project-modal__input" placeholder="Phone number"
+              autocomplete="tel" required>
           </div>
-          <div class="project-modal__error" id="modal-error-2">Please enter a valid phone number (at least 8 digits).</div>
+          <div class="project-modal__error" id="modal-error-2">Please enter a valid phone number (at least 8 digits).
+          </div>
           <div class="project-modal__action-row">
             <button type="button" class="project-modal__btn" id="modal-btn-2">NEXT</button>
           </div>
@@ -1152,10 +1596,12 @@
           <p class="project-modal__subtitle">Pick as many as you like.</p>
           <div class="project-modal__badges" id="modal-badges-step-3"></div>
           <div class="project-modal__services-grid" id="modal-services-grid">
-            <button type="button" class="project-modal__service-chip is-selected" data-service="Website">Website</button>
+            <button type="button" class="project-modal__service-chip is-selected"
+              data-service="Website">Website</button>
             <button type="button" class="project-modal__service-chip" data-service="Meta ads">Meta ads</button>
             <button type="button" class="project-modal__service-chip" data-service="Chat bot">Chat bot</button>
-            <button type="button" class="project-modal__service-chip" data-service="Logo &amp; branding">Logo &amp; branding</button>
+            <button type="button" class="project-modal__service-chip" data-service="Logo &amp; branding">Logo &amp;
+              branding</button>
             <button type="button" class="project-modal__service-chip" data-service="Mobile app">Mobile app</button>
             <button type="button" class="project-modal__service-chip" data-service="Custom ERP">Custom ERP</button>
           </div>
@@ -1168,11 +1614,13 @@
         <!-- STEP 4: Tell us about your business -->
         <div class="project-modal__step" id="modal-step-4" style="display: none;">
           <span class="project-modal__step-tag">STEP 4 OF 4</span>
-          <h3 class="project-modal__title">TELL US ABOUT YOUR BUSINESS <span class="project-modal__title-optional">optional</span></h3>
+          <h3 class="project-modal__title">TELL US ABOUT YOUR BUSINESS <span
+              class="project-modal__title-optional">optional</span></h3>
           <p class="project-modal__subtitle">In short — what you do, and where you want to get to.</p>
           <div class="project-modal__badges" id="modal-badges-step-4"></div>
           <div class="project-modal__field">
-            <textarea id="modal-notes-input" class="project-modal__textarea" placeholder="We sell handmade candles and need a website that actually sells..."></textarea>
+            <textarea id="modal-notes-input" class="project-modal__textarea"
+              placeholder="We sell handmade candles and need a website that actually sells..."></textarea>
           </div>
           <div class="project-modal__action-row">
             <button type="button" class="project-modal__btn" id="modal-btn-4">SEND IT</button>
@@ -1185,7 +1633,8 @@
             <div class="project-modal__success-icon">✓</div>
             <h3 class="project-modal__success-title">PROJECT BRIEF RECEIVED!</h3>
             <p class="project-modal__success-desc" id="modal-success-desc">
-              Thanks! We've received your requirements. One of our founding engineers will message you directly on WhatsApp within 2 hours.
+              Thanks! We've received your requirements. One of our founding engineers will message you directly on
+              WhatsApp within 2 hours.
             </p>
             <div class="project-modal__action-row">
               <button type="button" class="project-modal__btn" id="modal-btn-close-success">CONTINUE BROWSING</button>
@@ -1209,5 +1658,5 @@
   <!-- JavaScript -->
   <script src="js/main.js"></script>
 </body>
-</html>
 
+</html>

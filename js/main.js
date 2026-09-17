@@ -7,46 +7,68 @@
 document.addEventListener('DOMContentLoaded', () => {
 
   /* ═══════════════════════════════════════════
-     MOBILE HAMBURGER MENU
+     SCROLL PROGRESS INDICATOR BAR
      ═══════════════════════════════════════════ */
 
-  const hamburger = document.getElementById('hamburger');
-  const mobileNav = document.getElementById('mobile-nav');
-  const mobileLinks = mobileNav ? mobileNav.querySelectorAll('.mobile-nav__link') : [];
+  const scrollProgressBar = document.getElementById('scrollProgressBar');
+  const updateScrollProgress = () => {
+    if (!scrollProgressBar) return;
+    const totalHeight = document.documentElement.scrollHeight - window.innerHeight;
+    if (totalHeight <= 0) return;
+    const progress = Math.min(Math.max(window.scrollY / totalHeight, 0), 1);
+    scrollProgressBar.style.transform = `scaleX(${progress})`;
+  };
+  window.addEventListener('scroll', updateScrollProgress, { passive: true });
+  updateScrollProgress();
 
-  function toggleMenu() {
-    const isOpen = mobileNav.classList.toggle('is-open');
-    hamburger.classList.toggle('is-active', isOpen);
-    hamburger.setAttribute('aria-expanded', isOpen);
-    document.body.style.overflow = isOpen ? 'hidden' : '';
+
+  /* ═══════════════════════════════════════════
+     FLOATING PILL NAVBAR SCROLL STATE
+     ═══════════════════════════════════════════ */
+
+  const navbarWrapper = document.querySelector('.navbar-wrapper');
+  if (navbarWrapper) {
+    window.addEventListener('scroll', () => {
+      if (window.scrollY > 24) {
+        navbarWrapper.classList.add('is-scrolled');
+      } else {
+        navbarWrapper.classList.remove('is-scrolled');
+      }
+    }, { passive: true });
   }
 
-  function closeMenu() {
-    mobileNav.classList.remove('is-open');
-    hamburger.classList.remove('is-active');
-    hamburger.setAttribute('aria-expanded', 'false');
-    document.body.style.overflow = '';
-  }
 
-  if (hamburger && mobileNav) {
-    hamburger.addEventListener('click', toggleMenu);
+  /* ═══════════════════════════════════════════
+     MOBILE NAVIGATION DRAWER
+     ═══════════════════════════════════════════ */
 
-    // Close menu when a mobile nav link is clicked
-    mobileLinks.forEach(link => {
-      link.addEventListener('click', closeMenu);
+  const mobileToggle = document.getElementById('mobileMenuToggle') || document.getElementById('hamburger');
+  const mobileDrawer = document.getElementById('mobileNavDrawer') || document.getElementById('mobile-nav');
+
+  if (mobileToggle && mobileDrawer) {
+    mobileToggle.addEventListener('click', () => {
+      const isOpen = mobileDrawer.classList.toggle('is-open');
+      mobileToggle.setAttribute('aria-expanded', isOpen);
     });
 
-    // Close menu on Escape key
+    mobileDrawer.querySelectorAll('.mobile-nav-link, .mobile-nav__link').forEach(link => {
+      link.addEventListener('click', () => {
+        mobileDrawer.classList.remove('is-open');
+        mobileToggle.setAttribute('aria-expanded', 'false');
+      });
+    });
+
     document.addEventListener('keydown', (e) => {
-      if (e.key === 'Escape' && mobileNav.classList.contains('is-open')) {
-        closeMenu();
+      if (e.key === 'Escape' && mobileDrawer.classList.contains('is-open')) {
+        mobileDrawer.classList.remove('is-open');
+        mobileToggle.setAttribute('aria-expanded', 'false');
       }
     });
 
-    // Close menu if window resizes past mobile breakpoint
     window.addEventListener('resize', () => {
-      if (window.innerWidth >= 768 && mobileNav.classList.contains('is-open')) {
-        closeMenu();
+      if (window.innerWidth >= 860 && mobileDrawer.classList.contains('is-open')) {
+        mobileDrawer.classList.remove('is-open');
+        mobileToggle.setAttribute('aria-expanded', 'false');
       }
     });
   }
@@ -56,7 +78,7 @@ document.addEventListener('DOMContentLoaded', () => {
      SMOOTH SCROLLING (with header offset)
      ═══════════════════════════════════════════ */
 
-  const headerOffset = 70;
+  const headerOffset = 80;
 
   document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     anchor.addEventListener('click', function (e) {
@@ -76,28 +98,6 @@ document.addEventListener('DOMContentLoaded', () => {
       }
     });
   });
-
-
-  /* ═══════════════════════════════════════════
-     HEADER SCROLL EFFECT
-     ═══════════════════════════════════════════ */
-
-  const header = document.getElementById('site-header');
-  let lastScrollY = 0;
-
-  if (header) {
-    window.addEventListener('scroll', () => {
-      const currentScrollY = window.scrollY;
-
-      if (currentScrollY > 100) {
-        header.classList.add('header--scrolled');
-      } else {
-        header.classList.remove('header--scrolled');
-      }
-
-      lastScrollY = currentScrollY;
-    }, { passive: true });
-  }
 
 
   /* ═══════════════════════════════════════════
@@ -433,6 +433,84 @@ document.addEventListener('DOMContentLoaded', () => {
     if (e.key === 'Escape' && projectModal && projectModal.classList.contains('is-open')) {
       closeProjectModal();
     }
+  });
+
+
+  /* ═══════════════════════════════════════════
+     SERVICE DETAIL MODALS (POP-UPS) CONTROLLER
+     ═══════════════════════════════════════════ */
+
+  const svcModalMap = {
+    erp:    document.getElementById('svcModal-erp'),
+    mobile: document.getElementById('svcModal-mobile'),
+    ai:     document.getElementById('svcModal-ai')
+  };
+
+  function openSvcModal(key) {
+    const overlay = svcModalMap[key];
+    if (!overlay) return;
+    overlay.classList.add('is-open');
+    document.body.style.overflow = 'hidden';
+    const closeBtn = overlay.querySelector('.svc-modal-close');
+    if (closeBtn) setTimeout(() => closeBtn.focus(), 50);
+  }
+
+  function closeSvcModal(overlay) {
+    if (!overlay) return;
+    overlay.classList.remove('is-open');
+    document.body.style.overflow = '';
+  }
+
+  // Attach click & keyboard listeners to service cards
+  document.querySelectorAll('.service-card[data-service]').forEach(card => {
+    const key = card.dataset.service;
+    card.addEventListener('click', () => openSvcModal(key));
+    card.addEventListener('keydown', (e) => {
+      if (e.key === 'Enter' || e.key === ' ') {
+        e.preventDefault();
+        openSvcModal(key);
+      }
+    });
+  });
+
+  // Close triggers on service detail modals
+  Object.values(svcModalMap).forEach(overlay => {
+    if (!overlay) return;
+    const closeBtn = overlay.querySelector('.svc-modal-close');
+    if (closeBtn) {
+      closeBtn.addEventListener('click', (e) => {
+        e.stopPropagation();
+        closeSvcModal(overlay);
+      });
+    }
+    overlay.addEventListener('click', (e) => {
+      if (e.target === overlay) closeSvcModal(overlay);
+    });
+  });
+
+  // ESC key for service detail modals
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape') {
+      Object.values(svcModalMap).forEach(overlay => {
+        if (overlay && overlay.classList.contains('is-open')) {
+          closeSvcModal(overlay);
+        }
+      });
+    }
+  });
+
+  // Wire CTAs inside service modals to open the main Project Modal
+  ['svcErpCta', 'svcMobileCta', 'svcAiCta'].forEach(id => {
+    const btn = document.getElementById(id);
+    if (!btn) return;
+    btn.addEventListener('click', (e) => {
+      e.preventDefault();
+      Object.values(svcModalMap).forEach(overlay => {
+        if (overlay) overlay.classList.remove('is-open');
+      });
+      document.body.style.overflow = '';
+      openProjectModal();
+    });
   });
 
   // Step 1: Name

@@ -26,6 +26,7 @@ body {
   overflow-x: hidden;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  padding-top: 88px;
 
   /* Paper dot-grid texture */
   background-image: radial-gradient(#d6cdc0 1.1px, transparent 1.1px);
