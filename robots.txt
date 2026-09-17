@@ -2,4 +2,4 @@ User-agent: *
 Allow: /
 
 Sitemap: https://neuromindsolutions.in/sitemap.xml
-Host: https://neuromindsolutions.in
+Sitemap: https://www.neuromindsolutions.in/sitemap.xml
