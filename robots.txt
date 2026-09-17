@@ -1,0 +1,5 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://neuromindsolutions.in/sitemap.xml
+Host: https://neuromindsolutions.in
